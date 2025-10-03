@@ -92,10 +92,33 @@ class AppArray {
     {"title": "6+", "desc": Fonts.highLevelAthlete},
   ];
 
+  static List pushUpOption = [
+    {"title": Fonts.beginner, "desc": Fonts().optionPushUp("3-5")},
+    {"title": Fonts.intermediate, "desc":  Fonts().optionPushUp("5-10")},
+    {"title": Fonts.advanced, "desc":  Fonts.atLeastPusUp},
+  ];
+
   static List mainGoal = [
     {"title": Fonts.loseWeight, "icon": AppSvg.lw},
     {"title": Fonts.buildMuscle, "icon": AppSvg.bm},
     {"title": Fonts.stayFit, "icon": AppSvg.sf},
+
+  ];
+
+
+  static List activityLevel = [
+    {"title": Fonts.sedentary, "icon": AppSvg.sedentary,"desc":Fonts.sedentaryDesc},
+    {"title": Fonts.lightlyActive, "icon": AppSvg.lightlyActive,"desc":Fonts.lightlyActiveDesc},
+    {"title": Fonts.moderatelyActive, "icon": AppSvg.moderatelyActive,"desc":Fonts.moderatelyActiveDesc},
+    {"title": Fonts.veryActive, "icon": AppSvg.veryActive,"desc":Fonts.veryActiveDesc},
+
+  ];
+  static List motivate = [
+    {"title": Fonts.feelConfident, "icon": AppSvg.feelConfident},
+    {"title": Fonts.beActive, "icon": AppSvg.beActive},
+    {"title": Fonts.boostImmunity, "icon": AppSvg.boostImmunity},
+    {"title": Fonts.improveSleep, "icon": AppSvg.improveSleep},
+    {"title": Fonts.boostEnergy, "icon": AppSvg.boostEnergy},
 
   ];
 }

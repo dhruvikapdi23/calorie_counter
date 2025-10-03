@@ -36,10 +36,31 @@ class Fonts {
   static String loseWeight = 'loseWeight';
   static String stayFit = 'stayFit';
   static String buildMuscle = 'buildMuscle';
+  static String feelConfident= "feelConfident";
+  static String beActive= "beActive";
+  static String boostImmunity= "boostImmunity";
+  static String improveSleep= "improveSleep";
+  static String feelHappier= "feelHappier";
+  static String boostEnergy= "boostEnergy";
+  static String beginner= "beginner";
+  static String intermediate= "intermediate";
+  static String advanced= "advanced";
+  static String pusUp= "pusUp";
   static String continueBtn = 'continueBtn';
   static String back = 'back';
   static String next = 'next';
   static String done = 'done';
+  static String atLeastPusUp = 'atLeastPusUp';
+  static String sedentary = 'sedentary';
+  static String sedentaryDesc = 'sedentaryDesc';
+  static String lightlyActive = 'lightlyActive';
+  static String lightlyActiveDesc = 'lightlyActiveDesc';
+  static String moderatelyActive = 'moderatelyActive';
+  static String moderatelyActiveDesc = 'moderatelyActiveDesc';
+  static String veryActive = 'veryActive';
+  static String veryActiveDesc = 'veryActiveDesc';
+  String optionPushUp(val) => "pusUp".trParams({'option': val});
+
 
 
   //languages

@@ -18,6 +18,15 @@ class AppSvg {
   static const String bm = "assets/svg/bm.svg";
   static const String sf = "assets/svg/sf.svg";
   static const String lw = "assets/svg/lw.svg";
+  static const String feelConfident = "assets/svg/feel_confident.svg";
+  static const String beActive = "assets/svg/be_active.svg";
+  static const String boostImmunity = "assets/svg/boost_immunity.svg";
+  static const String improveSleep = "assets/svg/improve_sleep.svg";
+  static const String boostEnergy = "assets/svg/boost_energy.svg";
+  static const String sedentary = "assets/svg/sedentary.svg";
+  static const String lightlyActive = "assets/svg/lightly_active.svg";
+  static const String moderatelyActive = "assets/svg/moderately_active.svg";
+  static const String veryActive = "assets/svg/very_active.svg";
   static const String check = "assets/svg/check.svg";
 
 }
