@@ -13,14 +13,14 @@ class LanguageList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: AppArray()
+        children: AppArray
             .languageList
             .asMap()
             .entries
             .map((e) => Container(
                   padding: EdgeInsets.only(left: AppDimens.dimenW37),
                   height: AppDimens.dimen60,
-                  margin: EdgeInsets.only(bottom:  e.key != AppArray()
+                  margin: EdgeInsets.only(bottom:  e.key != AppArray
                       .languageList.length? AppDimens.dimen20:0),
                   decoration: BoxDecoration(
                       color: color, borderRadius: BorderRadius.circular(10)),

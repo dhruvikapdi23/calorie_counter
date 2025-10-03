@@ -8,5 +8,16 @@ class AppImages {
 
 class AppSvg {
   static const String arrowLeft = "assets/svg/arrow_left.svg";
+  static const String en = "assets/svg/en.svg";
+  static const String hi = "assets/svg/in.svg";
+  static const String de = "assets/svg/de.svg";
+  static const String es = "assets/svg/es.svg";
+  static const String fr = "assets/svg/fr.svg";
+  static const String pt = "assets/svg/pt.svg";
+  static const String ar = "assets/svg/ar.svg";
+  static const String bm = "assets/svg/bm.svg";
+  static const String sf = "assets/svg/sf.svg";
+  static const String lw = "assets/svg/lw.svg";
+  static const String check = "assets/svg/check.svg";
 
 }

@@ -16,6 +16,10 @@ class UserInfoScreen extends StatelessWidget {
       init: UserInfoController(),
       builder: (ctrl) {
         return Scaffold(
+          bottomNavigationBar: appButton(
+            Fonts.next.tr,
+            onTap: () => ctrl.nextTo(),
+          ).padding(horizontal: 16,vertical: 40),
           appBar: AppBar(
             automaticallyImplyLeading: false,
 
@@ -73,58 +77,27 @@ class UserInfoScreen extends StatelessWidget {
                   ),
                   VSpace(9),
                   Text(
-                    Fonts.whatsYourGender.tr,
+                    AppArray.userInfoTitleSection[ctrl.currentStep]['title'].toString().tr,
                     style: AppCss.soraSemiBold22,
                   ).alignment(Alignment.center),
                   VSpace(6),
                   Text(
-                    Fonts.selectYourGender.tr,
+                    AppArray.userInfoTitleSection[ctrl.currentStep]['desc'].toString().tr,
                     style: AppCss.soraRegular14,
                     textAlign: TextAlign.center,
                   ).alignment(Alignment.center),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 19,
-                children: [
-                  ...[{"title":"Male","image":AppImages.boy},{"title":"Female","image":AppImages.girl}]
-                      .asMap()
-                      .entries.map((e) =>    Column(
-                    spacing: 10,
-                        children: [
-                          Container(
-                                              height: 142,
-                                              width: 142,
-                                              decoration: BoxDecoration(
-                          color: AppColors.white,
-                          shape: BoxShape.circle,
-                                                border:  Border.all(color:ctrl.gender ==e.value['title']? AppColors.primaryColor:AppColors.white)
-
-                                              ),
-                                              padding: EdgeInsets.all(8),
-                                              child: Container(
-                          height: 126,
-                          width: 126,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(e.value['image'].toString()),
-                              fit: BoxFit.cover,
-                            ),
-                            shape: BoxShape.circle,
-                          ),
-                                              ),
-                                            ),
-                          Text(e.value['title'].toString(),style: AppCss.soraMedium20,)
-                        ],
-                      ).inkWell(onTap: ()=> ctrl.genderSelect(e.value['title'])),)
-
-                ],
-              ),
-              appButton(Fonts.next.tr),
-
+              // PageView for carousel effect
+              Expanded(
+                child: PageView(
+                    controller: ctrl.pageController,
+                    allowImplicitScrolling: false,
+                    children: ctrl.pages
+                ),
+              )
             ],
-          ).padding(horizontal: 16,bottom: 40),
+          ).padding(horizontal: 16),
         );
       },
     );

@@ -15,7 +15,7 @@ class AppFunctions {
 
   static String getLanguageName() {
     String langCode = StorageHelper().storage.read(Session.languageCode);
-    String title = AppArray()
+    String title = AppArray
         .languageList
         .where((element) => element['code'] == langCode)
         .first['title'];
@@ -31,7 +31,7 @@ class AppFunctions {
   getSelectedLanguage() {
     String langCode = StorageHelper().storage.read(Session.languageCode);
 
-    dynamic lang = AppArray()
+    dynamic lang = AppArray
         .languageList
         .where((element) => element['code'] == langCode)
         .first;

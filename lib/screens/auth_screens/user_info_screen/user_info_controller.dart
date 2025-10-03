@@ -1,31 +1,71 @@
-
 import 'dart:developer';
 
+import 'package:calorie_counter/screens/auth_screens/user_info_screen/layouts/gender_selection.dart';
 import 'package:calorie_counter/utils/app_session_key.dart';
 
 import '../../../app_config.dart';
+import 'layouts/language_selection.dart';
+import 'layouts/main_goal_selection.dart';
+import 'layouts/weekly_workout_selection.dart';
 
 class UserInfoController extends GetxController {
   int currentStep = 0; // example: currently at step 4 of 14
   String? gender; // example: currently at step 4 of 14
+  String? weeklyWorkOut; // example: currently at step 4 of 14
+  String? mainGoal; // example: currently at step 4 of 14
+  final PageController pageController = PageController();
+  dynamic selectedLanguage;
 
-  @override
-  void onInit() {
-    checkData();
-    super.onInit();
+  // List of pages/screens
+  List<Widget> get pages => [
+    GenderSelection(gender: gender, onTap: (p0) => genderSelect(p0)),
+    LanguageSelection(onTap: (p0) =>onLanguageSelectTap(p0), language:selectedLanguage!= null? selectedLanguage["code"]:null),
+    WeeklyWorkOutSelection(onTap: (p0) =>weeklyWorkOutSelect(p0), option:weeklyWorkOut),
+    MainGoalSelection(onTap: (p0) =>mainGoalSelect(p0), option:mainGoal)
+    /*LanguageSelectionPage(),
+    WeeklyWorkoutPage(),
+    MainGoalsPage(),
+    MotivationPage(),*/
+  ];
+
+  //on language select
+  onLanguageSelectTap(lan) async {
+    selectedLanguage = lan;
+    final storage = GetStorage();
+    log("selectedLanguage :$selectedLanguage");
+    Locale? locale = selectedLanguage['locale'];
+
+    String lanCode = selectedLanguage["code"];
+    log("Lan :$locale");
+    storage.write(Session.languageCode, lanCode);
+    storage.write(Session.language, selectedLanguage["title"]);
+    update();
+
+    log("locale:$lanCode");
+    Get.updateLocale(locale!);
+    Get.forceAppUpdate();
   }
 
-  void checkData() {
-    Future.delayed(
-      const Duration(seconds: 3),
-      () async {
-
-      },
-    );
-  }
-
-  genderSelect(val){
+  genderSelect(val) {
     gender = val;
+    update();
+  }
+
+  weeklyWorkOutSelect(val) {
+    weeklyWorkOut = val['title'];
+    update();
+  }
+
+  mainGoalSelect(val) {
+    mainGoal = val['title'];
+    update();
+  }
+
+  nextTo() {
+    if (currentStep < 15) {
+      currentStep++;
+      pageController.nextPage(duration: Duration(milliseconds: 200), curve:Curves.bounceIn);
+    }
     update();
   }
 }
