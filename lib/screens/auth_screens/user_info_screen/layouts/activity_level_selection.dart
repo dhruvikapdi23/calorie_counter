@@ -31,29 +31,33 @@ class ActivityLevelSelection extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      if (option == e.value['title'])
-                        SvgPicture.asset(AppSvg.check).paddingOnly(right: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            e.value['title'].toString().tr,
-                            style: AppCss.soraMedium16.copyWith(
-                              color: option == e.value['title']
-                                  ? AppColors.primaryColor
-                                  : AppColors.black,
-                            ),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        if (option == e.value['title'])
+                          SvgPicture.asset(AppSvg.check).paddingOnly(right: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                e.value['title'].toString().tr,
+                                style: AppCss.soraMedium16.copyWith(
+                                  color: option == e.value['title']
+                                      ? AppColors.primaryColor
+                                      : AppColors.black,
+                                ),
+                              ),
+                              VSpace(4),
+                              Text(
+                                e.value['desc'].toString().tr,
+                                style: AppCss.soraRegular12,
+                              ),
+                            ],
                           ),
-                          VSpace(4),
-                          Text(
-                            e.value['desc'].toString().tr,
-                            style: AppCss.soraRegular12,
-                          ),
-                        ],
-                      ),
-                    ],
+                        ),
+                      ],
+                    ),
                   ),
                   SvgPicture.asset(e.value['icon']),
                 ],

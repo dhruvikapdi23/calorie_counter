@@ -76,6 +76,7 @@ class AppCss {
 
 
   //Text Style sora medium
+  static TextStyle soraMedium40 = sora(fontWeight: medium,fontsize:FontSizes.f40);
   static TextStyle soraMedium34 = sora(fontWeight: medium,fontsize:FontSizes.f34);
   static TextStyle soraMedium28 = sora(fontWeight: medium,fontsize:FontSizes.f28);
   static TextStyle soraMedium24 = sora(fontWeight: medium,fontsize:FontSizes.f24);

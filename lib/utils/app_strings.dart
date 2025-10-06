@@ -59,6 +59,8 @@ class Fonts {
   static String moderatelyActiveDesc = 'moderatelyActiveDesc';
   static String veryActive = 'veryActive';
   static String veryActiveDesc = 'veryActiveDesc';
+  static String yourCurrentWeight = 'yourCurrentWeight';
+  static String lookingStringAndConfident = 'lookingStringAndConfident';
   String optionPushUp(val) => "pusUp".trParams({'option': val});
 
 
@@ -74,29 +76,7 @@ class Fonts {
 
   //setting
   static String language = 'language';
-  static String bibleVersion = 'bibleVersion';
-  static String editProfile = 'editProfile';
-  static String faq = 'faq';
-  static String aboutUs = 'aboutUs';
-  static String privacyPolicies = 'privacyPolicies';
-  static String bibleCopyrightInfo = 'bibleCopyrightInfo';
-  static String logout = 'logout';
-  static String deleteAccount = 'deleteAccount';
-  static String deleteConfirmation = 'deleteConfirmation';
-  static String viewOfflineChapter = 'viewOfflineChapter';
 
-  //bible version
-  static String kingsJamesVersion = "kingsJamesVersion";
-  static String americanStandardVersion = "americanStandardVersion";
-  static String newInternationalVersion = "newInternationalVersion";
-
-  //intro
-  static String introTitle1 = "introTitle1";
-  static String introTitle2 = "introTitle2";
-  static String introTitle3 = "introTitle3";
-  static String introDescription1 = "introDescription1";
-  static String introDescription2 = "introDescription2";
-  static String introDescription3 = "introDescription3";
 
 
 

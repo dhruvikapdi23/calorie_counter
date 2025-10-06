@@ -6,10 +6,12 @@ import 'package:calorie_counter/utils/app_session_key.dart';
 
 import '../../../app_config.dart';
 import 'layouts/activity_level_selection.dart';
+import 'layouts/height_selection.dart';
 import 'layouts/language_selection.dart';
 import 'layouts/main_goal_selection.dart';
 import 'layouts/push_up_selection.dart';
 import 'layouts/weekly_workout_selection.dart';
+import 'layouts/weight_selection.dart';
 
 class UserInfoController extends GetxController {
   int currentStep = 0; // example: currently at step 4 of 14
@@ -30,7 +32,9 @@ class UserInfoController extends GetxController {
     MainGoalSelection(onTap: (p0) =>mainGoalSelect(p0), option:mainGoal),
     MotivateSelection(onTap: (p0) =>motivateSelect(p0), option:motivate),
     PushUpSelection(onTap: (p0) =>pushUpSelect(p0), option:pushUp),
-    ActivityLevelSelection(onTap: (p0) =>activityLevelSelect(p0), option:activityLevel)
+    ActivityLevelSelection(onTap: (p0) =>activityLevelSelect(p0), option:activityLevel),
+    WeightSelection(),
+    HeightSelection(),
 
   ];
 
@@ -86,6 +90,19 @@ class UserInfoController extends GetxController {
     if (currentStep < 15) {
       currentStep++;
       pageController.nextPage(duration: Duration(milliseconds: 200), curve:Curves.bounceIn);
+    }
+    update();
+  }
+
+  onBack() {
+    if(currentStep==0){
+      currentStep =0;
+    }else {
+      if (currentStep >= 0) {
+        currentStep--;
+        pageController.previousPage(
+            duration: Duration(milliseconds: 200), curve: Curves.bounceIn);
+      }
     }
     update();
   }

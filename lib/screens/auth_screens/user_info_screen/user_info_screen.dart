@@ -59,7 +59,7 @@ class UserInfoScreen extends StatelessWidget {
                                 blurRadius: 20,
                               ),
                             ],
-                          ),
+                          ).inkWell(onTap: ()=> ctrl.onBack()),
                       Expanded(
                         child: LinearPercentIndicator(
                           animation: true,
@@ -93,6 +93,8 @@ class UserInfoScreen extends StatelessWidget {
                 child: PageView(
                     controller: ctrl.pageController,
                     allowImplicitScrolling: false,
+                    physics: NeverScrollableScrollPhysics(),
+
                     children: ctrl.pages
                 ),
               )

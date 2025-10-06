@@ -56,6 +56,8 @@ final dynamic en = {
   "moderatelyActiveDesc": "Walking often, exercise 3-5 times a week, active job.",
   "veryActive": "Very Active",
   "veryActiveDesc": "Working out daily, physical job, sports training.",
+  "yourCurrentWeight": "Your current weight",
+  "lookingStringAndConfident": "Looking string and confident! Keep it up!",
   "back": "Back",
   "next": "Next",
   "done": "Done",
