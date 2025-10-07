@@ -172,8 +172,8 @@ class FeetRulerScale extends StatefulWidget {
   /// Constructor for the FeetRulerScale widget.
   const FeetRulerScale({
     super.key,
-    this.minValue = 2.0,
-    this.maxValue = 10.0,
+    this.minValue = 0.0,
+    this.maxValue = 100.0,
     this.majorTickInterval = 5,
     this.direction = Axis.horizontal,
     this.majorTickColor = Colors.black,
@@ -190,8 +190,8 @@ class FeetRulerScale extends StatefulWidget {
     this.onValueChanged,
     this.onScrollStart,
     this.onScrollEnd,
-    this.initialValue = 2.0,
-    this.unitSpacing = 10.0,
+    this.initialValue = 0.0,
+    this.unitSpacing = 50.0,
     this.step = 1, // Default to integer steps
     this.controller,
     // indicatorPointerLength, indicatorPointerWidth, indicatorPointerColor removed
@@ -217,7 +217,7 @@ class FeetRulerScale extends StatefulWidget {
     this.showDefaultIndicator = false,
   }) : assert(minValue < maxValue),
         assert(majorTickInterval > 0),
-        assert(5.5 >= 2.0 && 5.5 <= 10.0),
+        assert(initialValue >= minValue && initialValue <= maxValue),
         assert(unitSpacing > 0),
         assert(step > 0),
         assert(activeRangeOpacity >= 0.0 && activeRangeOpacity <= 1.0),
@@ -366,14 +366,13 @@ class _FeetRulerScaleState extends State<FeetRulerScale> {
     final double centerPixelInContent =
         notification.metrics.pixels + (_viewportDimension / 2);
     double calculatedValue =
+        widget.minValue +
+            ((centerPixelInContent - (_viewportDimension / 2)) /
+                widget.unitSpacing);
 
-        widget.minValue + (centerPixelInContent / widget.unitSpacing);
+    calculatedValue = (calculatedValue / widget.step).round() * widget.step;
+    calculatedValue = calculatedValue.clamp(widget.minValue, widget.maxValue);
 
-    //calculatedValue = (calculatedValue / widget.step).round() * widget.step;
-    //calculatedValue = calculatedValue.clamp(widget.minValue, widget.maxValue);
-calculatedValue = double.parse(
-  calculatedValue.toStringAsFixed(1),
-);
     if (calculatedValue != _currentValue) {
       setState(() {
         _currentValue = calculatedValue;
@@ -447,6 +446,8 @@ calculatedValue = double.parse(
                   _isInitialScrollPerformed = true;
                 }
               });
+              final totalUnits = (widget.maxValue - widget.minValue) * 5; // or 12 if inches
+              final totalWidth = totalUnits * 50 + MediaQuery.of(context).size.width; // + padding both sides
 
               return widget.direction == Axis.horizontal
                   ? SizedBox(
@@ -461,7 +462,7 @@ calculatedValue = double.parse(
                         : (widget.scrollPhysics ??
                         const AlwaysScrollableScrollPhysics()),
                     child: CustomPaint(
-                      size: Size(totalContentLength, widget.rulerExtent),
+                      size: Size(totalWidth, 0),
                       painter: _RulerPainter(
                         minValue: widget.minValue,
                         maxValue: widget.maxValue,
@@ -630,12 +631,11 @@ class _RulerPainter extends CustomPainter {
       ..strokeWidth = minorTickWidth
       ..strokeCap = tickStrokeCap;
 
-
     final double totalRange = maxValue - minValue;
     if (totalRange <= 0 || unitSpacing == 0 || viewportDimension == 0) return;
-    log("minorTickPaint :$totalRange");
 
     final double leadingPadding = viewportDimension / 2;
+    final int totalInches = ((maxValue - minValue) * 12).round();
 
     String formatLabel(double value) {
       if (labelFormatter != null) {
@@ -645,22 +645,19 @@ class _RulerPainter extends CustomPainter {
         _getDecimalPlacesForLabels(majorTickInterval),
       );
     }
-    final int totalSteps = ((maxValue - minValue) / step).round();
 
-    log("step :$totalSteps");
-    for (int i = 0; i <= totalSteps; i++) {
-      final double value = minValue + i * step;
+    for (int i = 0; i <= totalInches; i++) {
 
-      final double pixelPosition = (value - minValue) * unitSpacing + leadingPadding;
-log("pixelPosition :$pixelPosition");
+      final double value = minValue + i / 12.0; // 12 inches per foot
+      final double pixelPosition =
+          (value - minValue) * 50 + leadingPadding;
+
       const double epsilon = 1e-9;
       bool isMajorTick =
-          (value % majorTickInterval).abs() < 1e-9 ||
-              (majorTickInterval - (value % majorTickInterval)).abs() < 1e-9;
+          (value % majorTickInterval).abs() < epsilon ||
+              (majorTickInterval - (value % majorTickInterval)).abs() < epsilon;
 
-
-      bool isSelectedTick = double.parse(value.toStringAsFixed(2)) ==
-          double.parse(currentValue.toStringAsFixed(2));
+      bool isSelectedTick = (value - currentValue).abs() < (step / 2);
 
       final Paint currentTickPaint;
       final double currentTickLength;
@@ -669,14 +666,21 @@ log("pixelPosition :$pixelPosition");
       if (isSelectedTick && selectedTickColor != null) {
         currentTickPaint = Paint()
           ..color = selectedTickColor!
-          ..strokeWidth = selectedTickWidth ?? majorTickWidth
+          ..strokeWidth =
+              selectedTickWidth ??
+                  (isMajorTick ? majorTickWidth : minorTickWidth)
           ..strokeCap = tickStrokeCap;
-        currentTickLength = selectedTickLength ?? majorTickLength;
+        currentTickLength =
+            selectedTickLength ??
+                (isMajorTick ? majorTickLength : minorTickLength);
+        // currentTickWidth =
+        //     selectedTickWidth ??
+        //     (isMajorTick ? majorTickWidth : minorTickWidth);
       } else {
         currentTickPaint = isMajorTick ? majorTickPaint : minorTickPaint;
         currentTickLength = isMajorTick ? majorTickLength : minorTickLength;
+        // currentTickWidth = isMajorTick ? majorTickWidth : minorTickWidth;
       }
-
 
       if (direction == Axis.horizontal) {
         canvas.drawLine(
@@ -685,16 +689,23 @@ log("pixelPosition :$pixelPosition");
           currentTickPaint,
         );
 
-        if (isMajorTick) {
+        if (isMajorTick || (value == minValue || value == maxValue)) {
+          int feet = value.floor();
+          int inches = ((value - feet) * 12).round();
+          log("FFF :E$inches");
+
+          final String label = "$feet’${inches == 0 ? '' : '$inches\"'}";
           final TextPainter textPainter = TextPainter(
-            text: TextSpan(text: formatLabel(value), style: labelStyle),
+            text: TextSpan(text: label, style: labelStyle),
             textDirection: TextDirection.ltr,
           )..layout();
 
           textPainter.paint(
             canvas,
-            Offset(pixelPosition - textPainter.width / 2,
-                currentTickLength + labelOffset),
+            Offset(
+              pixelPosition - textPainter.width / 2,
+              currentTickLength + (currentValue != value ? labelOffset : 27),
+            ),
           );
         }
       } else {

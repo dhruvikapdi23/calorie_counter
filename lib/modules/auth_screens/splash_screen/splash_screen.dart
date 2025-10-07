@@ -1,4 +1,4 @@
-import 'package:calorie_counter/screens/auth_screens/splash_screen/splash_controller.dart';
+import 'package:calorie_counter/modules/auth_screens/splash_screen/splash_controller.dart';
 
 import '../../../app_config.dart';
 

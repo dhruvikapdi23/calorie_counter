@@ -1,10 +1,10 @@
 import 'dart:developer';
 
-import 'package:calorie_counter/screens/auth_screens/user_info_screen/user_info_controller.dart';
-import 'package:calorie_counter/screens/auth_screens/user_info_screen/user_info_controller.dart';
+
 import 'package:calorie_counter/utils/app_session_key.dart';
 
 import '../../../app_config.dart';
+import '../user_info_screen/user_info_controller.dart';
 
 class SplashController extends GetxController {
   final storage = GetStorage();

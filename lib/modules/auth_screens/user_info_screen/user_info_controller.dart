@@ -1,14 +1,14 @@
 import 'dart:developer';
 
-import 'package:calorie_counter/screens/auth_screens/user_info_screen/layouts/gender_selection.dart';
-import 'package:calorie_counter/screens/auth_screens/user_info_screen/layouts/motivate_selection.dart';
 import 'package:calorie_counter/utils/app_session_key.dart';
 
 import '../../../app_config.dart';
 import 'layouts/activity_level_selection.dart';
+import 'layouts/gender_selection.dart';
 import 'layouts/height_selection.dart';
 import 'layouts/language_selection.dart';
 import 'layouts/main_goal_selection.dart';
+import 'layouts/motivate_selection.dart';
 import 'layouts/push_up_selection.dart';
 import 'layouts/weekly_workout_selection.dart';
 import 'layouts/weight_selection.dart';

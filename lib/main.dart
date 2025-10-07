@@ -4,7 +4,7 @@ import 'dart:io';
 import 'app_config.dart';
 import 'languages/language_translate.dart';
 import 'routes/route_method.dart';
-import 'screens/auth_screens/splash_screen/splash_screen.dart';
+import 'modules/auth_modules/splash_screen/splash_screen.dart';
 
 
 

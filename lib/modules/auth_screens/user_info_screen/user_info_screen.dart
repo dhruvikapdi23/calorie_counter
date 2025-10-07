@@ -1,8 +1,7 @@
 import 'dart:developer';
 
 import 'package:calorie_counter/extension/widget_extension.dart';
-import 'package:calorie_counter/screens/auth_screens/splash_screen/splash_controller.dart';
-import 'package:calorie_counter/screens/auth_screens/user_info_screen/user_info_controller.dart';
+import 'package:calorie_counter/modules/auth_screens/user_info_screen/user_info_controller.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import '../../../app_config.dart';
