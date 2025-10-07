@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'app_config.dart';
 import 'languages/language_translate.dart';
+import 'modules/auth_screens/splash_screen/splash_screen.dart';
 import 'routes/route_method.dart';
-import 'modules/auth_modules/splash_screen/splash_screen.dart';
 
 
 

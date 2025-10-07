@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 import 'dart:math' as math;
 
@@ -416,8 +415,8 @@ class _FeetRulerScaleState extends State<FeetRulerScale> {
           if (widget.activeRangeColor != null)
             CustomPaint(
               painter: _ActiveRangePainter(
-                color: widget.activeRangeColor!.withValues(
-                  alpha: widget.activeRangeOpacity,
+                color: widget.activeRangeColor!.withOpacity(
+                  widget.activeRangeOpacity,
                 ),
                 direction: widget.direction,
                 highlightThickness: widget.indicatorWidth,
@@ -446,8 +445,8 @@ class _FeetRulerScaleState extends State<FeetRulerScale> {
                   _isInitialScrollPerformed = true;
                 }
               });
-              final totalUnits = (widget.maxValue - widget.minValue) * 5; // or 12 if inches
-              final totalWidth = totalUnits * 50 + MediaQuery.of(context).size.width; // + padding both sides
+              final totalUnits = (widget.maxValue - widget.minValue) * 12; // 12 inches per foot
+              final totalWidth = totalUnits * widget.unitSpacing + MediaQuery.of(context).size.width; // + padding both sides
 
               return widget.direction == Axis.horizontal
                   ? SizedBox(
@@ -570,6 +569,7 @@ class _FeetRulerScaleState extends State<FeetRulerScale> {
 }
 
 /// Custom painter for drawing the ruler ticks and labels.
+/// Custom painter for drawing the ruler ticks and labels.
 class _RulerPainter extends CustomPainter {
   final double minValue;
   final double maxValue;
@@ -635,33 +635,43 @@ class _RulerPainter extends CustomPainter {
     if (totalRange <= 0 || unitSpacing == 0 || viewportDimension == 0) return;
 
     final double leadingPadding = viewportDimension / 2;
-    final int totalInches = ((maxValue - minValue) * 12).round();
 
-    String formatLabel(double value) {
+    // Calculate total number of inches in the range
+    final double totalInchesRange = totalRange * 5;
+    final int totalTicks = totalInchesRange.round();
+
+    String formatFeetInchesLabel(double feetValue,isSelectedTick) {
       if (labelFormatter != null) {
-        return labelFormatter!(value);
+        return labelFormatter!(feetValue);
       }
-      return value.toStringAsFixed(
-        _getDecimalPlacesForLabels(majorTickInterval),
-      );
+
+      // Convert decimal feet to feet and inches
+      int feet = feetValue.floor();
+      double decimalInches = (feetValue - feet) * 5;
+      int inches = decimalInches.round();
+
+      // Handle edge case where inches might round to 5
+      if (inches >= 5) {
+        feet += 1;
+        inches = 0;
+      }
+
+      // Format the label - show both feet and inches for all values
+      return "$feet'$inches\"";
     }
 
-    for (int i = 0; i <= totalInches; i++) {
+    for (int i = 0; i <= totalTicks; i++) {
+      final double valueInInches = i.toDouble();
+      final double valueInFeet = minValue + (valueInInches / 5.0);
+      final double pixelPosition = (valueInFeet - minValue) * 100 + leadingPadding;
 
-      final double value = minValue + i / 12.0; // 12 inches per foot
-      final double pixelPosition =
-          (value - minValue) * 50 + leadingPadding;
+      // Check if this is a major tick (every foot) or minor tick (every inch)
+      bool isMajorTick = (valueInInches % 5 == 0); // Every foot
 
-      const double epsilon = 1e-9;
-      bool isMajorTick =
-          (value % majorTickInterval).abs() < epsilon ||
-              (majorTickInterval - (value % majorTickInterval)).abs() < epsilon;
-
-      bool isSelectedTick = (value - currentValue).abs() < (step / 2);
+      bool isSelectedTick = (valueInFeet - currentValue).abs() < (step / 2);
 
       final Paint currentTickPaint;
       final double currentTickLength;
-      // final double currentTickWidth;
 
       if (isSelectedTick && selectedTickColor != null) {
         currentTickPaint = Paint()
@@ -673,28 +683,26 @@ class _RulerPainter extends CustomPainter {
         currentTickLength =
             selectedTickLength ??
                 (isMajorTick ? majorTickLength : minorTickLength);
-        // currentTickWidth =
-        //     selectedTickWidth ??
-        //     (isMajorTick ? majorTickWidth : minorTickWidth);
       } else {
         currentTickPaint = isMajorTick ? majorTickPaint : minorTickPaint;
         currentTickLength = isMajorTick ? majorTickLength : minorTickLength;
-        // currentTickWidth = isMajorTick ? majorTickWidth : minorTickWidth;
       }
 
       if (direction == Axis.horizontal) {
+        // Draw the tick mark
+        // Draw the tick mark
         canvas.drawLine(
           Offset(pixelPosition, 0),
           Offset(pixelPosition, currentTickLength),
           currentTickPaint,
         );
 
-        if (isMajorTick || (value == minValue || value == maxValue)) {
-          int feet = value.floor();
-          int inches = ((value - feet) * 12).round();
-          log("FFF :E$inches");
+        // Show labels at intervals of 2 inches (e.g., 2'0", 2'2", 2'4") or if this tick is selected
+        bool shouldShowLabel = (valueInInches % 6 == 0) || isSelectedTick;
 
-          final String label = "$feet’${inches == 0 ? '' : '$inches\"'}";
+        if (shouldShowLabel) {
+          log("currentValue :$currentValue");
+          final String label = formatFeetInchesLabel(valueInFeet, isSelectedTick);
           final TextPainter textPainter = TextPainter(
             text: TextSpan(text: label, style: labelStyle),
             textDirection: TextDirection.ltr,
@@ -704,42 +712,36 @@ class _RulerPainter extends CustomPainter {
             canvas,
             Offset(
               pixelPosition - textPainter.width / 2,
-              currentTickLength + (currentValue != value ? labelOffset : 27),
+              currentTickLength + (valueInFeet == 2.0 || valueInFeet == 8.0 || valueInFeet == 10.0 ? 45: currentValue != valueInFeet ? labelOffset : 20),
             ),
           );
         }
+
       } else {
+        // Vertical direction
         canvas.drawLine(
           Offset(0, pixelPosition),
           Offset(currentTickLength, pixelPosition),
           currentTickPaint,
         );
 
-        if (isMajorTick ||
-            (showBoundaryLabels && (value == minValue || value == maxValue))) {
-          final TextPainter textPainter = TextPainter(
-            text: TextSpan(text: formatLabel(value), style: labelStyle),
-            textDirection: TextDirection.ltr,
-          )..layout();
+        // Show labels for ALL ticks (every inch) in vertical mode too
+        final String label = formatFeetInchesLabel(valueInFeet,isSelectedTick);
+        final TextPainter textPainter = TextPainter(
+          text: TextSpan(text: label, style: labelStyle),
+          textDirection: TextDirection.ltr,
+        )..layout();
 
-          textPainter.paint(
-            canvas,
-            Offset(
-              currentTickLength + labelOffset,
-              pixelPosition - textPainter.height / 2,
-            ),
-          );
-        }
+        textPainter.paint(
+          canvas,
+          Offset(
+            currentTickLength + labelOffset,
+            pixelPosition - textPainter.height / 2,
+          ),
+        );
       }
     }
   }
-
-  // bool _isCloseToMajorTick(double value) {
-  //   const double epsilon = 1e-9;
-  //   final double remainder = value % majorTickInterval;
-  //   return remainder.abs() < epsilon ||
-  //       (majorTickInterval - remainder).abs() < epsilon;
-  // }
 
   @override
   bool shouldRepaint(_RulerPainter oldDelegate) {
@@ -765,18 +767,6 @@ class _RulerPainter extends CustomPainter {
         oldDelegate.selectedTickWidth != selectedTickWidth ||
         oldDelegate.selectedTickLength != selectedTickLength ||
         oldDelegate.step != step;
-  }
-
-  int _getDecimalPlacesForLabels(double value) {
-    if (value == value.toInt().toDouble()) {
-      return 0;
-    }
-    final String valueString = value.toString();
-    final int decimalPointIndex = valueString.indexOf('.');
-    if (decimalPointIndex == -1) {
-      return 0;
-    }
-    return math.min(valueString.length - decimalPointIndex - 1, 2);
   }
 }
 

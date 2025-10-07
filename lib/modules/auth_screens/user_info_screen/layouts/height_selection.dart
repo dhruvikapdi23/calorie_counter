@@ -114,17 +114,16 @@ class _HeightSelectionState extends State<HeightSelection> {
               direction: Axis.horizontal,
               minValue: 2.0,
               maxValue: 10.0,
-              majorTickInterval: 1.0, // Show major ticks every 1 unit
+              majorTickInterval: 0.5, // Show major ticks every 1 unit
               //minorTickInterval: 0.1, // Show minor ticks every 0.1 unit (for decimals)
               selectedTickLength: 65,
               majorTickLength: 37,
               minorTickLength: 27,
-              unitSpacing: 20.0,
+              unitSpacing: 40.0,
               initialValue: _currentWeight, // Your initial value, e.g., 5.5
               minorTickColor: AppColors.gary,
               majorTickColor: AppColors.gary,
               selectedTickColor: AppColors.black,
-              labelFormatter: (value) => value.toStringAsFixed(1),
               step: 0.1, // This allows increments of 0.1 (5.2, 5.3, 5.4, etc.)
               rulerExtent: 150.0,
               labelStyle: AppCss.soraMedium18.copyWith(color: AppColors.black),

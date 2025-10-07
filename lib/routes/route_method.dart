@@ -1,10 +1,10 @@
 
 
-import 'package:calorie_counter/modules/auth_modules/user_info_screen/user_info_screen.dart';
 
 import '../app_config.dart';
 import '../app_config.dart';
-import '../modules/auth_modules/intro_screen/intro_screen.dart';
+import '../modules/auth_screens/intro_screen/intro_screen.dart';
+import '../modules/auth_screens/user_info_screen/user_info_screen.dart';
 
 
 class AppRoute {
