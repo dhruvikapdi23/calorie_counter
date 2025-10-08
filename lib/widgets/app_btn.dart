@@ -17,6 +17,7 @@ Widget appButton(String title,
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
             padding: EdgeInsets.zero,
+            shadowColor: Colors.transparent,
             shape: RoundedRectangleBorder(
               side: BorderSide(color: bColor?? Colors.transparent),
               borderRadius: borderRadius ??

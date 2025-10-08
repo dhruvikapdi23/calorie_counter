@@ -2,6 +2,7 @@ class RouteName {
   static String splash = "/splash";
   static String introScreen = "/introScreen";
   static String userInfo = "/userInfo";
+  static String plan = "/plan";
   static String dashboard = "/dashboard";
   static String testamentChapter = "/testamentChapter";
   static String highlight = "/highlight";

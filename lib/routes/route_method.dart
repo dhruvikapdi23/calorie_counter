@@ -1,6 +1,8 @@
 
 
 
+import 'package:calorie_counter/modules/auth_screens/plan/plan.dart';
+
 import '../app_config.dart';
 import '../app_config.dart';
 import '../modules/auth_screens/intro_screen/intro_screen.dart';
@@ -12,6 +14,8 @@ class AppRoute {
     GetPage(name: RouteName.introScreen, page: () => const IntroScreen(),
       transition: Transition.noTransition, // disables animations
     ),GetPage(name: RouteName.userInfo, page: () => const UserInfoScreen(),
+      transition: Transition.noTransition, // disables animations
+    ),GetPage(name: RouteName.plan, page: () => const Plan(),
       transition: Transition.noTransition, // disables animations
     ),
     /*  GetPage(name: _routeName.bibleVersion, page: () => const BibleVersionScreen()),

@@ -28,5 +28,13 @@ class AppSvg {
   static const String moderatelyActive = "assets/svg/moderately_active.svg";
   static const String veryActive = "assets/svg/very_active.svg";
   static const String check = "assets/svg/check.svg";
+  static const String vegetarian = "assets/svg/vegetarian.svg";
+  static const String nonVegetarian = "assets/svg/non_vegetarian.svg";
+  static const String pescatarian = "assets/svg/pescatarian.svg";
+  static const String eggetarian = "assets/svg/eggetarian.svg";
+  static const String vegan = "assets/svg/vegan.svg";
+  static const String addCircle = "assets/svg/add_circle.svg";
+  static const String edit = "assets/svg/edit.svg";
+  static const String tick = "assets/svg/tick.svg";
 
 }

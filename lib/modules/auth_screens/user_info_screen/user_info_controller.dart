@@ -4,14 +4,18 @@ import 'package:calorie_counter/utils/app_session_key.dart';
 
 import '../../../app_config.dart';
 import 'layouts/activity_level_selection.dart';
+import 'layouts/diet_type_selection.dart';
+import 'layouts/eat_time_selection.dart';
 import 'layouts/gender_selection.dart';
 import 'layouts/height_selection.dart';
 import 'layouts/language_selection.dart';
 import 'layouts/main_goal_selection.dart';
 import 'layouts/motivate_selection.dart';
 import 'layouts/push_up_selection.dart';
+import 'layouts/thank_you.dart';
 import 'layouts/weekly_workout_selection.dart';
 import 'layouts/weight_selection.dart';
+import 'layouts/workout_chart.dart';
 
 class UserInfoController extends GetxController {
   int currentStep = 0; // example: currently at step 4 of 14
@@ -21,6 +25,7 @@ class UserInfoController extends GetxController {
   String? motivate; // example: currently at step 4 of 14
   String? pushUp; // example: currently at step 4 of 14
   String? activityLevel; // example: currently at step 4 of 14
+  String? dietType; // example: currently at step 4 of 14
   final PageController pageController = PageController();
   dynamic selectedLanguage;
 
@@ -35,6 +40,11 @@ class UserInfoController extends GetxController {
     ActivityLevelSelection(onTap: (p0) =>activityLevelSelect(p0), option:activityLevel),
     WeightSelection(),
     HeightSelection(),
+    WorkOutChart(),
+    DietTypeSelection(onTap: (p0) =>dietTypeSelect(p0), option:dietType),
+
+    EatTimeSelection(onTap: (p0) =>dietTypeSelect(p0), option:dietType),
+    ThankYou()
 
   ];
 
@@ -86,10 +96,21 @@ class UserInfoController extends GetxController {
     update();
   }
 
+  dietTypeSelect(val) {
+    dietType = val['title'];
+    update();
+  }
+
   nextTo() {
-    if (currentStep < 15) {
-      currentStep++;
-      pageController.nextPage(duration: Duration(milliseconds: 200), curve:Curves.bounceIn);
+    log("currentStep :$currentStep");
+    if(currentStep == 12){
+      Get.toNamed(RouteName.plan);
+    }else {
+      if (currentStep < 13) {
+        currentStep++;
+        pageController.nextPage(
+            duration: Duration(milliseconds: 200), curve: Curves.bounceIn);
+      }
     }
     update();
   }

@@ -73,7 +73,6 @@ class AppArray {
     },
     {"title": Fonts.whatsYourWeight, "desc": Fonts.whatsYourWeightDesc},
     {"title": Fonts.whatsYourHeight, "desc": Fonts.whatsYourHeightDesc},
-    {"title": Fonts.whatsYourWeight, "desc": Fonts.whatsYourWeightDesc},
     {"title": Fonts.letUsKnow, "desc": ""},
     {"title": Fonts.whatsYourDietType, "desc": Fonts.whatsYourDietTypeDesc},
     {
@@ -113,6 +112,27 @@ class AppArray {
     {"title": Fonts.veryActive, "icon": AppSvg.veryActive,"desc":Fonts.veryActiveDesc},
 
   ];
+
+
+  static List dietType = [
+    {"title": Fonts.vegetarian, "icon": AppSvg.vegetarian,"desc":Fonts.vegetarianDesc},
+    {"title": Fonts.nonVegetarian, "icon": AppSvg.nonVegetarian,"desc":Fonts.nonVegetarianDesc},
+    {"title": Fonts.pescatarian, "icon": AppSvg.pescatarian,"desc":Fonts.pescatarianDesc},
+    {"title": Fonts.eggetarian, "icon": AppSvg.eggetarian,"desc":Fonts.eggetarianDesc},
+    {"title": Fonts.vegan, "icon": AppSvg.vegan,"desc":Fonts.veganDesc},
+
+  ];
+
+
+
+  static List eatTime = [
+    {"title": Fonts.breakfast, "time": "","desc":Fonts.breakfastDesc},
+    {"title": Fonts.lunch, "time": "","desc":Fonts.lunchDesc},
+    {"title": Fonts.snack, "time": "","desc":Fonts.snackDesc},
+    {"title": Fonts.dinner, "time": "","desc":Fonts.dinnerDesc},
+
+  ];
+
   static List motivate = [
     {"title": Fonts.feelConfident, "icon": AppSvg.feelConfident},
     {"title": Fonts.beActive, "icon": AppSvg.beActive},

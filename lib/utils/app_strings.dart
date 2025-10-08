@@ -47,6 +47,7 @@ class Fonts {
   static String advanced= "advanced";
   static String pusUp= "pusUp";
   static String continueBtn = 'continueBtn';
+  static String allDone = 'allDone';
   static String back = 'back';
   static String next = 'next';
   static String done = 'done';
@@ -61,6 +62,29 @@ class Fonts {
   static String veryActiveDesc = 'veryActiveDesc';
   static String yourCurrentWeight = 'yourCurrentWeight';
   static String lookingStringAndConfident = 'lookingStringAndConfident';
+  static String healthy = 'healthy';
+  static String healthy1 = 'healthy1';
+  static String vegetarian = 'vegetarian';
+  static String vegetarianDesc = 'vegetarianDesc';
+  static String nonVegetarian = 'nonVegetarian';
+  static String nonVegetarianDesc = 'nonVegetarianDesc';
+  static String pescatarian = 'pescatarian';
+  static String pescatarianDesc = 'pescatarianDesc';
+  static String eggetarian = 'eggetarian';
+  static String vegan = 'vegan';
+  static String veganDesc = 'veganDesc';
+  static String eggetarianDesc = 'eggetarianDesc';
+  static String breakfast = 'breakfast';
+  static String breakfastDesc = 'breakfastDesc';
+  static String lunch = 'lunch';
+  static String lunchDesc = 'lunchDesc';
+  static String snack = 'snack';
+  static String snackDesc = 'snackDesc';
+  static String dinner = 'dinner';
+  static String dinnerDesc = 'dinnerDesc';
+  static String setTime = 'setTime';
+  static String apply = 'apply';
+  static String createMyPlan = 'createMyPlan';
   String optionPushUp(val) => "pusUp".trParams({'option': val});
 
 

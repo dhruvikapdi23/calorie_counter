@@ -16,7 +16,7 @@ class UserInfoScreen extends StatelessWidget {
       builder: (ctrl) {
         return Scaffold(
           bottomNavigationBar: appButton(
-            Fonts.next.tr,
+       ctrl.currentStep ==12?Fonts.createMyPlan.tr:     Fonts.next.tr,
             onTap: () => ctrl.nextTo(),
           ).padding(horizontal: 16,vertical: 40),
           appBar: AppBar(
@@ -66,7 +66,7 @@ class UserInfoScreen extends StatelessWidget {
                           lineHeight: Sizes.s8,
 
                           barRadius: const Radius.circular(AppRadius.r8),
-                          percent: (ctrl.currentStep + 1) / 15,
+                          percent: (ctrl.currentStep + 1) / 13,
                           // 0 → 1 range
                           backgroundColor: AppColors.white,
                           progressColor: AppColors.primaryColor,
@@ -75,16 +75,28 @@ class UserInfoScreen extends StatelessWidget {
                     ],
                   ),
                   VSpace(9),
-                  Text(
+                  ctrl.currentStep == 12?Container(): ctrl.currentStep == 9? Text(
                     AppArray.userInfoTitleSection[ctrl.currentStep]['title'].toString().tr,
-                    style: AppCss.soraSemiBold22,
-                  ).alignment(Alignment.center),
-                  VSpace(6),
-                  Text(
-                    AppArray.userInfoTitleSection[ctrl.currentStep]['desc'].toString().tr,
-                    style: AppCss.soraRegular14,
-                    textAlign: TextAlign.center,
-                  ).alignment(Alignment.center),
+
+                    style: AppCss.soraMedium16,
+                    textAlign: TextAlign.start,
+                  ):Column(
+
+                    children: [
+                      Text(
+                        AppArray.userInfoTitleSection[ctrl.currentStep]['title'].toString().tr,
+                        style: AppCss.soraSemiBold22,
+                        textAlign: TextAlign.center,
+                      ).alignment(Alignment.center),
+                      VSpace(6),
+                      Text(
+                        AppArray.userInfoTitleSection[ctrl.currentStep]['desc'].toString().tr,
+                        style: AppCss.soraRegular14,
+                        textAlign: TextAlign.center,
+                      ).alignment(Alignment.center),
+                    ],
+                  )
+
                 ],
               ),
               // PageView for carousel effect
