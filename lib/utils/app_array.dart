@@ -141,4 +141,13 @@ class AppArray {
     {"title": Fonts.boostEnergy, "icon": AppSvg.boostEnergy},
 
   ];
+  static List dashboardList = [
+    {"title": Fonts.home, "icon": AppSvg.home, "selectedIcon": AppSvg.homeBold},
+    {"title": Fonts.meals, "icon": AppSvg.meals, "selectedIcon": AppSvg.mealsBold},
+    {"title": Fonts.discovery, "icon": AppSvg.discover, "selectedIcon": AppSvg.discoverBold},
+    {"title": Fonts.report, "icon": AppSvg.report, "selectedIcon": AppSvg.reportBold},
+    {"title": Fonts.settings, "icon": AppSvg.setting, "selectedIcon": AppSvg.settingBold},
+
+  ];
+
 }

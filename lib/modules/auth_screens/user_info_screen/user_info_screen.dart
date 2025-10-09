@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:calorie_counter/modules/auth_screens/user_info_screen/user_info_controller.dart';
+import 'package:calorie_counter/widgets/common_back_circle.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import '../../../app_config.dart';
@@ -46,19 +47,9 @@ class UserInfoScreen extends StatelessWidget {
                   Row(
                     spacing: 16,
                     children: [
-                      SvgPicture.asset(AppSvg.arrowLeft)
-                          .paddingAll(12)
-                          .decorated(
-                            color: AppColors.white,
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppColors.black.withValues(alpha: .05),
-                                offset: Offset(0, 10),
-                                blurRadius: 20,
-                              ),
-                            ],
-                          ).inkWell(onTap: ()=> ctrl.onBack()),
+                      CommonBackCircle(
+                          onTap: ()=> ctrl.onBack()
+                      ),
                       Expanded(
                         child: LinearPercentIndicator(
                           animation: true,

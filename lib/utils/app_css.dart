@@ -62,6 +62,7 @@ class AppCss {
   static TextStyle soraBold12 = sora(fontWeight: bold,fontsize:FontSizes.f12);
   static TextStyle soraBold10 = sora(fontWeight: bold,fontsize:FontSizes.f10);
 
+  static TextStyle soraSemiBold26= sora(fontWeight: semiBold,fontsize:FontSizes.f26);
   static TextStyle soraSemiBold24= sora(fontWeight: semiBold,fontsize:FontSizes.f24);
   static TextStyle soraSemiBold22= sora(fontWeight: semiBold,fontsize:FontSizes.f22);
   static TextStyle soraSemiBold20= sora(fontWeight: semiBold,fontsize:FontSizes.f20);

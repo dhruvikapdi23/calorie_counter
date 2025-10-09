@@ -26,26 +26,29 @@ class Fonts {
   static String letUsKnow = 'letUsKnow';
   static String whatsYourDietType = 'whatsYourDietType';
   static String whatsYourDietTypeDesc = 'whatsYourDietTypeDesc';
-  static String doYouTendToEatAroundTheSameTimeEveryDay = 'doYouTendToEatAroundTheSameTimeEveryDay';
-  static String doYouTendToEatAroundTheSameTimeEveryDayDesc = 'doYouTendToEatAroundTheSameTimeEveryDayDesc';
+  static String doYouTendToEatAroundTheSameTimeEveryDay =
+      'doYouTendToEatAroundTheSameTimeEveryDay';
+  static String doYouTendToEatAroundTheSameTimeEveryDayDesc =
+      'doYouTendToEatAroundTheSameTimeEveryDayDesc';
   static String thankYouForYourConfidenceInUs = 'thankYouForYourConfidenceInUs';
-  static String thankYouForYourConfidenceInUsDesc = 'thankYouForYourConfidenceInUsDesc';
+  static String thankYouForYourConfidenceInUsDesc =
+      'thankYouForYourConfidenceInUsDesc';
   static String workoutNowAndThen = 'workoutNowAndThen';
   static String someWorkoutsEachWeek = 'someWorkoutsEachWeek';
   static String highLevelAthlete = 'highLevelAthlete';
   static String loseWeight = 'loseWeight';
   static String stayFit = 'stayFit';
   static String buildMuscle = 'buildMuscle';
-  static String feelConfident= "feelConfident";
-  static String beActive= "beActive";
-  static String boostImmunity= "boostImmunity";
-  static String improveSleep= "improveSleep";
-  static String feelHappier= "feelHappier";
-  static String boostEnergy= "boostEnergy";
-  static String beginner= "beginner";
-  static String intermediate= "intermediate";
-  static String advanced= "advanced";
-  static String pusUp= "pusUp";
+  static String feelConfident = "feelConfident";
+  static String beActive = "beActive";
+  static String boostImmunity = "boostImmunity";
+  static String improveSleep = "improveSleep";
+  static String feelHappier = "feelHappier";
+  static String boostEnergy = "boostEnergy";
+  static String beginner = "beginner";
+  static String intermediate = "intermediate";
+  static String advanced = "advanced";
+  static String pusUp = "pusUp";
   static String continueBtn = 'continueBtn';
   static String allDone = 'allDone';
   static String back = 'back';
@@ -85,9 +88,22 @@ class Fonts {
   static String setTime = 'setTime';
   static String apply = 'apply';
   static String createMyPlan = 'createMyPlan';
+  static String subscriptionPlans = 'subscriptionPlans';
+  static String skip = 'skip';
+  static String getStartedNow = 'getStartedNow';
+  static String enjoy = 'enjoy';
+  static String youWantBeCharge = 'youWantBeCharge';
+  static String unlockPremium = 'unlockPremium';
+  static String priceFree = 'priceFree';
+  static String home = "home";
+  static String meals = "meals";
+  static String discovery = "discovery";
+  static String report = "report";
+  static String settings = "settings";
+
   String optionPushUp(val) => "pusUp".trParams({'option': val});
 
-
+  String dayFree(val) => "dayFree".trParams({'day': val});
 
   //languages
   static String english = 'english';
@@ -101,9 +117,6 @@ class Fonts {
   //setting
   static String language = 'language';
 
-
-
-
   // titles
   static String name = 'name';
   static String no = 'no';
@@ -113,7 +126,6 @@ class Fonts {
   static String sendInvite = 'sendInvite';
   static String areYouSure = 'areYouSure';
   static String areYouSureUnBookmark = 'areYouSureUnBookmark';
-
 
   // msg
   static String exitMsg = 'exitMsg';
@@ -127,5 +139,7 @@ class Fonts {
   static String passNotMatch = 'passNotMatch';
   static String areYourSure = 'areYourSure';
   static String areYourSureLeaveThisGroup = 'areYourSureLeaveThisGroup';
-  String areYourSureYouWantToRemove(val) => "areYourSureYouWantToRemove".trParams({'name': val});
+
+  String areYourSureYouWantToRemove(val) =>
+      "areYourSureYouWantToRemove".trParams({'name': val});
 }

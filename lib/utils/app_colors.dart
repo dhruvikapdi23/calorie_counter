@@ -9,6 +9,7 @@ class AppColors {
   static const Color gary = Color(0XFF787878);
   static const Color shadow = Color(0XFFD9D9D9);
   static const Color grey = Color(0XFFF6F6F6);
+  static const Color dashboardLightText = Color(0XFF474747);
   static const Color green = Colors.green;
   static const Color red = Colors.red;
 

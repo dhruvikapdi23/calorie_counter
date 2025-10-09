@@ -36,5 +36,21 @@ class AppSvg {
   static const String addCircle = "assets/svg/add_circle.svg";
   static const String edit = "assets/svg/edit.svg";
   static const String tick = "assets/svg/tick.svg";
+  static const String tick1= "assets/svg/tick1.svg";
+
+  //dashboard bottom
+  static const String home= "assets/svg/home.svg";
+  static const String homeBold= "assets/svg/home_bold.svg";
+  static const String meals= "assets/svg/meals.svg";
+  static const String mealsBold= "assets/svg/meals_bold.svg";
+  static const String discover= "assets/svg/discover.svg";
+  static const String discoverBold= "assets/svg/discover_bold.svg";
+  static const String report= "assets/svg/report.svg";
+  static const String reportBold= "assets/svg/report_bold.svg";
+  static const String setting= "assets/svg/setting.svg";
+  static const String settingBold = "assets/svg/setting_bold.svg";
+  static const String frame = "assets/svg/frame.svg";
+  static const String bell = "assets/svg/bell.svg";
+  static const String bgCircle = "assets/svg/bg_circle.svg";
 
 }

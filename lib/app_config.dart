@@ -26,6 +26,7 @@ export 'package:calorie_counter/widgets/common_app_bar.dart';
 export 'package:calorie_counter/widgets/common_app_layout.dart';
 export 'utils/app_strings.dart';
 export 'package:calorie_counter/utils/app_css.dart';
+export '../../../widgets/common_back_circle.dart';
 
 export '../../../../widgets/language_list.dart';
 export 'package:calorie_counter/utils/app_validation.dart';
