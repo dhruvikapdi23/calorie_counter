@@ -64,6 +64,7 @@ class Fonts {
   static String veryActive = 'veryActive';
   static String veryActiveDesc = 'veryActiveDesc';
   static String yourCurrentWeight = 'yourCurrentWeight';
+  static String yourCurrentHeight = 'yourCurrentHeight';
   static String lookingStringAndConfident = 'lookingStringAndConfident';
   static String healthy = 'healthy';
   static String healthy1 = 'healthy1';

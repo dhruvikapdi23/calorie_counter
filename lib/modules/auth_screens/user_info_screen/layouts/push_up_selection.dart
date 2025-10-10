@@ -1,10 +1,11 @@
 import 'package:calorie_counter/extension/widget_extension.dart';
+import 'package:calorie_counter/models/user_info_title_model.dart';
 
 import '../../../../app_config.dart';
 
 class PushUpSelection extends StatelessWidget {
   final String? option;
-  final Function(dynamic) onTap;
+  final Function(UserInfoTitleModel) onTap;
 
   const PushUpSelection({
     super.key,
@@ -14,37 +15,39 @@ class PushUpSelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 19,
-        children: [
-          ...AppArray.pushUpOption.asMap().entries.map(
-            (e) => Container(
-              padding: EdgeInsets.all(16),
-              margin: EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: option == e.value['title'] ? AppColors.primaryColor:AppColors.white),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 19,
+      children: [
+      ListView.builder(
+        itemCount: AppArray.pushUpModels.length,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          UserInfoTitleModel data = AppArray.pushUpModels[index];
+        return Container(
+          padding: EdgeInsets.all(16),
+          margin: EdgeInsets.only(bottom: 10),
+          decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: option == data.title ? AppColors.primaryColor:AppColors.white),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
                 children: [
-                  Row(
-                    children: [
-                      if (option == e.value['title'])
-                        SvgPicture.asset(AppSvg.check).paddingOnly(right: 10),
-                      Text(e.value['title'].toString().tr,style:AppCss.soraMedium16.copyWith(color: option == e.value['title']? AppColors.primaryColor:AppColors.black) )
-                    ],
-                  ),
-                  Text(e.value['desc'].toString().tr,style:AppCss.soraRegular12)
+                  if (option == data.title)
+                    SvgPicture.asset(AppSvg.check).paddingOnly(right: 10),
+                  Text(data.title.toString().tr,style:AppCss.soraMedium16.copyWith(color: option == data.title? AppColors.primaryColor:AppColors.black) )
                 ],
               ),
-            ).inkWell(onTap: () => onTap(e.value)),
+              Text(data.desc.toString().tr,style:AppCss.soraRegular12)
+            ],
           ),
-        ],
-      ).paddingOnly(top: 32),
-    );
+        ).inkWell(onTap: () => onTap(data));
+      },)
+      ],
+    ).paddingOnly(top: 32);
   }
 }

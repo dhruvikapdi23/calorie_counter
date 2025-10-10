@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../../../app_config.dart';
+import '../../../../widgets/common_tab.dart';
 import '../../../../widgets/number_carosuel.dart';
 import '../../../../widgets/ruler_scaler.dart';
 
@@ -53,36 +54,7 @@ class _WeightSelectionState extends State<WeightSelection> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(50)),
-              child: Container(
-                height: 51,
-                margin: const EdgeInsets.symmetric(horizontal: 72),
-                padding: EdgeInsets.all(4),
-                decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.lightGrey),
-        
-                  borderRadius: const BorderRadius.all(Radius.circular(50)),
-                  color: AppColors.white,
-                ),
-                child: TabBar(
-                  indicatorSize: TabBarIndicatorSize.tab,
-                  dividerColor: Colors.transparent,
-                  indicator: BoxDecoration(
-                    color: AppColors.primaryColor,
-                    borderRadius: BorderRadius.all(Radius.circular(50)),
-                  ),
-                  labelColor: AppColors.white,
-                  labelStyle: AppCss.soraSemiBold18,
-                  unselectedLabelStyle: AppCss.soraSemiBold18,
-                  unselectedLabelColor: AppColors.lightGrey,
-                  tabs: [
-                    TabItem(title: 'Kg'),
-                    TabItem(title: 'Lb'),
-                  ],
-                ),
-              ),
-            ),
+            CommonUserTab(tabOption: AppArray.weightOption,),
             VSpace(40),
             NumberCarousel(
               currentVal: _currentWeight,
@@ -143,31 +115,8 @@ class _WeightSelectionState extends State<WeightSelection> {
               labelOffset: 55.0, // Adjust label offset if needed
             ),
             VSpace(29),
-            Container(
-              width: MediaQuery.sizeOf(context).width,
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.white.withValues(alpha: .05),
-                    offset: Offset(0, 10),
-                    blurRadius: 20
-                  )
-                ]
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(Fonts.yourCurrentWeight.tr,style: AppCss.soraSemiBold18),
-                  VSpace(6),
-                  Text(_currentWeight.toStringAsFixed(2),style: AppCss.soraBold28.copyWith(color: AppColors.primaryColor)),
-                  VSpace(10),
-                  Text(Fonts.lookingStringAndConfident.tr,style: AppCss.soraRegular14),
-                ],
-              ),
-            )
+            CommonClass.commonWeightHeightTextLayout(context, Fonts.yourCurrentWeight.tr, _currentWeight.toStringAsFixed(1))
+
           ],
         ).paddingOnly(top: 34),
       ),

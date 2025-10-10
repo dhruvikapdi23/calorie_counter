@@ -41,7 +41,7 @@ class IntroScreen extends StatelessWidget {
                 "Your Daily Guide\nto Smarter\nEating",
                 style: AppCss.soraMedium34,
               ),
-              appButton(Fonts.getStarted.tr,onTap: ()=>Get.toNamed(RouteName.userInfo))
+              appButton(Fonts.getStarted.tr,onTap:getStartedTap)
             ],
           ).paddingOnly(top: 120,left: 16,right: 16,bottom: 32),
 
@@ -49,4 +49,8 @@ class IntroScreen extends StatelessWidget {
       ),
     );
   }
+
+ void getStartedTap(){
+   Get.toNamed(RouteName.userInfo);
+ }
 }

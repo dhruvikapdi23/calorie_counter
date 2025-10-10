@@ -17,8 +17,8 @@ class AppFunctions {
     String langCode = StorageHelper().storage.read(Session.languageCode);
     String title = AppArray
         .languageList
-        .where((element) => element['code'] == langCode)
-        .first['title'];
+        .where((element) => element.code == langCode)
+        .first.title!;
     return title;
   }
 
@@ -33,7 +33,7 @@ class AppFunctions {
 
     dynamic lang = AppArray
         .languageList
-        .where((element) => element['code'] == langCode)
+        .where((element) => element.code == langCode)
         .first;
     log("lang:$lang");
 

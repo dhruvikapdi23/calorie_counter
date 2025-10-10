@@ -1,7 +1,17 @@
 import 'package:calorie_counter/app_config.dart';
 
+import '../models/acitivity_level_model.dart';
+import '../models/dashboard_bottom_model.dart';
+import '../models/eat_time_model.dart';
+import '../models/gender_model.dart';
+import '../models/language_model.dart';
+import '../models/step_data.dart';
+import '../models/title_icon_model.dart';
+import '../models/user_info_title_model.dart';
+import '../modules/auth_screens/plan/plan.dart';
+
 class AppArray {
-  static List languageList = [
+  /*static List languageList = [
     {
       "icon": AppSvg.en,
       "title": Fonts.english,
@@ -44,13 +54,116 @@ class AppArray {
       'locale': const Locale('ar', 'AR'),
       "code": "ar",
     },
+  ];*/
+
+  static List<LanguageModel> languageList = [
+    LanguageModel(
+      icon: AppSvg.en,
+      title: Fonts.english,
+      locale: Locale('en', 'US'),
+      code: 'en',
+    ),
+    LanguageModel(
+      icon: AppSvg.hi,
+      title: Fonts.hindi,
+      locale: Locale('hi', 'IN'),
+      code: 'hi',
+    ),
+    LanguageModel(
+      icon: AppSvg.de,
+      title: Fonts.deutsch,
+      locale: Locale('de', 'DE'),
+      code: 'de',
+    ),
+    LanguageModel(
+      icon: AppSvg.es,
+      title: Fonts.espanol,
+      locale: Locale('es', 'ES'),
+      code: 'es',
+    ),
+    LanguageModel(
+      icon: AppSvg.fr,
+      title: Fonts.francais,
+      locale: Locale('fr', 'FR'),
+      code: 'fr',
+    ),
+    LanguageModel(
+      icon: AppSvg.pt,
+      title: Fonts.portugues,
+      locale: Locale('pt', 'PT'),
+      code: 'pt',
+    ),
+    LanguageModel(
+      icon: AppSvg.ar,
+      title: Fonts.arabic,
+      locale: Locale('ar', 'AR'),
+      code: 'ar',
+    ),
   ];
 
-  static List genderList = [
+  /*static List genderList = [
     {"title": "Male", "image": AppImages.boy},
     {"title": "Female", "image": AppImages.girl},
+  ];*/
+
+  static List<GenderModel> genderList = [
+    GenderModel(title: "Male", image: AppImages.boy),
+    GenderModel(title: "Female", image: AppImages.girl),
   ];
 
+  static List<UserInfoTitleModel> userInfoTitleSection = [
+    UserInfoTitleModel(
+      title: Fonts.whatsYourGender,
+      desc: Fonts.selectYourGender,
+    ),
+    UserInfoTitleModel(
+      title: Fonts.selectYourLanguage,
+      desc: Fonts.selectYourLanguageDesc,
+    ),
+    UserInfoTitleModel(
+      title: Fonts.weeklyWorkoutCount,
+      desc: Fonts.weeklyWorkoutCountDesc,
+    ),
+    UserInfoTitleModel(
+      title: Fonts.whatAreYourMainGoals,
+      desc: Fonts.whatAreYourMainGoalsDesc,
+    ),
+    UserInfoTitleModel(
+      title: Fonts.whatMotivatesYouTheMost,
+      desc: Fonts.whatMotivatesYouTheMostDesc,
+    ),
+    UserInfoTitleModel(
+      title: Fonts.howManyPushUpCanYouDo,
+      desc: Fonts.howManyPushUpCanYouDoDesc,
+    ),
+    UserInfoTitleModel(
+      title: Fonts.whatsYourActivityLevel,
+      desc: Fonts.whatsYourActivityLevelDesc,
+    ),
+    UserInfoTitleModel(
+      title: Fonts.whatsYourWeight,
+      desc: Fonts.whatsYourWeightDesc,
+    ),
+    UserInfoTitleModel(
+      title: Fonts.whatsYourHeight,
+      desc: Fonts.whatsYourHeightDesc,
+    ),
+    UserInfoTitleModel(title: Fonts.letUsKnow, desc: ""),
+    UserInfoTitleModel(
+      title: Fonts.whatsYourDietType,
+      desc: Fonts.whatsYourDietTypeDesc,
+    ),
+    UserInfoTitleModel(
+      title: Fonts.doYouTendToEatAroundTheSameTimeEveryDay,
+      desc: Fonts.doYouTendToEatAroundTheSameTimeEveryDayDesc,
+    ),
+    UserInfoTitleModel(
+      title: Fonts.thankYouForYourConfidenceInUs,
+      desc: Fonts.thankYouForYourConfidenceInUsDesc,
+    ),
+  ];
+
+  /*
   static List userInfoTitleSection = [
     {"title": Fonts.whatsYourGender, "desc": Fonts.selectYourGender},
     {"title": Fonts.selectYourLanguage, "desc": Fonts.selectYourLanguageDesc},
@@ -84,70 +197,250 @@ class AppArray {
       "desc": Fonts.thankYouForYourConfidenceInUsDesc,
     },
   ];
+*/
 
-  static List weeklyWorkOutOption = [
+  /*static List weeklyWorkOutOption = [
     {"title": "0-2", "desc": Fonts.workoutNowAndThen},
     {"title": "3-5", "desc": Fonts.someWorkoutsEachWeek},
     {"title": "6+", "desc": Fonts.highLevelAthlete},
   ];
+*/
 
-  static List pushUpOption = [
-    {"title": Fonts.beginner, "desc": Fonts().optionPushUp("3-5")},
-    {"title": Fonts.intermediate, "desc":  Fonts().optionPushUp("5-10")},
-    {"title": Fonts.advanced, "desc":  Fonts.atLeastPusUp},
+  static List<UserInfoTitleModel> weeklyWorkOutOption = [
+    UserInfoTitleModel(title: "0-2", desc: Fonts.workoutNowAndThen),
+    UserInfoTitleModel(title: "3-5", desc: Fonts.someWorkoutsEachWeek),
+    UserInfoTitleModel(title: "6+", desc: Fonts.highLevelAthlete),
   ];
 
-  static List mainGoal = [
+  /*static List pushUpOption = [
+    {"title": Fonts.beginner, "desc": Fonts().optionPushUp("3-5")},
+    {"title": Fonts.intermediate, "desc": Fonts().optionPushUp("5-10")},
+    {"title": Fonts.advanced, "desc": Fonts.atLeastPusUp},
+  ];*/
+
+  static List<UserInfoTitleModel> pushUpModels = [
+    UserInfoTitleModel(
+      title: Fonts.beginner,
+      desc: Fonts().optionPushUp("3-5"),
+    ),
+    UserInfoTitleModel(
+      title: Fonts.intermediate,
+      desc: Fonts().optionPushUp("5-10"),
+    ),
+    UserInfoTitleModel(title: Fonts.advanced, desc: Fonts.atLeastPusUp),
+  ];
+
+  /* static List mainGoal = [
     {"title": Fonts.loseWeight, "icon": AppSvg.lw},
     {"title": Fonts.buildMuscle, "icon": AppSvg.bm},
     {"title": Fonts.stayFit, "icon": AppSvg.sf},
+  ];*/
 
+  static List<TitleIconModel> mainGoal = [
+    TitleIconModel(title: Fonts.loseWeight, icon: AppSvg.lw),
+    TitleIconModel(title: Fonts.buildMuscle, icon: AppSvg.bm),
+    TitleIconModel(title: Fonts.stayFit, icon: AppSvg.sf),
   ];
 
+  /*static List activityLevel = [
+    {
+      "title": Fonts.sedentary,
+      "icon": AppSvg.sedentary,
+      "desc": Fonts.sedentaryDesc,
+    },
+    {
+      "title": Fonts.lightlyActive,
+      "icon": AppSvg.lightlyActive,
+      "desc": Fonts.lightlyActiveDesc,
+    },
+    {
+      "title": Fonts.moderatelyActive,
+      "icon": AppSvg.moderatelyActive,
+      "desc": Fonts.moderatelyActiveDesc,
+    },
+    {
+      "title": Fonts.veryActive,
+      "icon": AppSvg.veryActive,
+      "desc": Fonts.veryActiveDesc,
+    },
+  ];*/
 
-  static List activityLevel = [
-    {"title": Fonts.sedentary, "icon": AppSvg.sedentary,"desc":Fonts.sedentaryDesc},
-    {"title": Fonts.lightlyActive, "icon": AppSvg.lightlyActive,"desc":Fonts.lightlyActiveDesc},
-    {"title": Fonts.moderatelyActive, "icon": AppSvg.moderatelyActive,"desc":Fonts.moderatelyActiveDesc},
-    {"title": Fonts.veryActive, "icon": AppSvg.veryActive,"desc":Fonts.veryActiveDesc},
-
+  static List<ActivityLevelModel> activityLevel = [
+    ActivityLevelModel(
+      title: Fonts.sedentary,
+      icon: AppSvg.sedentary,
+      desc: Fonts.sedentaryDesc,
+    ),
+    ActivityLevelModel(
+      title: Fonts.lightlyActive,
+      icon: AppSvg.lightlyActive,
+      desc: Fonts.lightlyActiveDesc,
+    ),
+    ActivityLevelModel(
+      title: Fonts.moderatelyActive,
+      icon: AppSvg.moderatelyActive,
+      desc: Fonts.moderatelyActiveDesc,
+    ),
+    ActivityLevelModel(
+      title: Fonts.veryActive,
+      icon: AppSvg.veryActive,
+      desc: Fonts.veryActiveDesc,
+    ),
   ];
 
+  static List<String> weightOption = ['Kg', 'Lb'];
+  static List<String> heightOption = ['Ft', 'Cm'];
 
-  static List dietType = [
-    {"title": Fonts.vegetarian, "icon": AppSvg.vegetarian,"desc":Fonts.vegetarianDesc},
-    {"title": Fonts.nonVegetarian, "icon": AppSvg.nonVegetarian,"desc":Fonts.nonVegetarianDesc},
-    {"title": Fonts.pescatarian, "icon": AppSvg.pescatarian,"desc":Fonts.pescatarianDesc},
-    {"title": Fonts.eggetarian, "icon": AppSvg.eggetarian,"desc":Fonts.eggetarianDesc},
-    {"title": Fonts.vegan, "icon": AppSvg.vegan,"desc":Fonts.veganDesc},
+  /*static List dietType = [
+    {
+      "title": Fonts.vegetarian,
+      "icon": AppSvg.vegetarian,
+      "desc": Fonts.vegetarianDesc,
+    },
+    {
+      "title": Fonts.nonVegetarian,
+      "icon": AppSvg.nonVegetarian,
+      "desc": Fonts.nonVegetarianDesc,
+    },
+    {
+      "title": Fonts.pescatarian,
+      "icon": AppSvg.pescatarian,
+      "desc": Fonts.pescatarianDesc,
+    },
+    {
+      "title": Fonts.eggetarian,
+      "icon": AppSvg.eggetarian,
+      "desc": Fonts.eggetarianDesc,
+    },
+    {"title": Fonts.vegan, "icon": AppSvg.vegan, "desc": Fonts.veganDesc},
+  ];*/
 
+  static List<ActivityLevelModel> dietType = [
+    ActivityLevelModel(
+      title: Fonts.vegetarian,
+      icon: AppSvg.vegetarian,
+      desc: Fonts.vegetarianDesc,
+    ),
+    ActivityLevelModel(
+      title: Fonts.nonVegetarian,
+      icon: AppSvg.nonVegetarian,
+      desc: Fonts.nonVegetarianDesc,
+    ),
+    ActivityLevelModel(
+      title: Fonts.pescatarian,
+      icon: AppSvg.pescatarian,
+      desc: Fonts.pescatarianDesc,
+    ),
+    ActivityLevelModel(
+      title: Fonts.eggetarian,
+      icon: AppSvg.eggetarian,
+      desc: Fonts.eggetarianDesc,
+    ),
+    ActivityLevelModel(
+      title: Fonts.vegan,
+      icon: AppSvg.vegan,
+      desc: Fonts.veganDesc,
+    ),
   ];
 
-
-
-  static List eatTime = [
-    {"title": Fonts.breakfast, "time": "","desc":Fonts.breakfastDesc},
-    {"title": Fonts.lunch, "time": "","desc":Fonts.lunchDesc},
-    {"title": Fonts.snack, "time": "","desc":Fonts.snackDesc},
-    {"title": Fonts.dinner, "time": "","desc":Fonts.dinnerDesc},
-
+  /*static List eatTime = [
+    {"title": Fonts.breakfast, "time": "", "desc": Fonts.breakfastDesc},
+    {"title": Fonts.lunch, "time": "", "desc": Fonts.lunchDesc},
+    {"title": Fonts.snack, "time": "", "desc": Fonts.snackDesc},
+    {"title": Fonts.dinner, "time": "", "desc": Fonts.dinnerDesc},
+  ];*/
+  static List<EatTimeModel> eatTime = [
+    EatTimeModel(title: Fonts.breakfast, time: "", desc: Fonts.breakfastDesc),
+    EatTimeModel(title: Fonts.lunch, time: "", desc: Fonts.lunchDesc),
+    EatTimeModel(title: Fonts.snack, time: "", desc: Fonts.snackDesc),
+    EatTimeModel(title: Fonts.dinner, time: "", desc: Fonts.dinnerDesc),
   ];
 
-  static List motivate = [
+  /*  static List motivate = [
     {"title": Fonts.feelConfident, "icon": AppSvg.feelConfident},
     {"title": Fonts.beActive, "icon": AppSvg.beActive},
     {"title": Fonts.boostImmunity, "icon": AppSvg.boostImmunity},
     {"title": Fonts.improveSleep, "icon": AppSvg.improveSleep},
     {"title": Fonts.boostEnergy, "icon": AppSvg.boostEnergy},
+  ];*/
 
+  static List<TitleIconModel> motivate = [
+    TitleIconModel(title: Fonts.feelConfident, icon: AppSvg.feelConfident),
+    TitleIconModel(title: Fonts.beActive, icon: AppSvg.beActive),
+    TitleIconModel(title: Fonts.boostImmunity, icon: AppSvg.boostImmunity),
+    TitleIconModel(title: Fonts.improveSleep, icon: AppSvg.improveSleep),
+    TitleIconModel(title: Fonts.boostEnergy, icon: AppSvg.boostEnergy),
   ];
-  static List dashboardList = [
+
+  /*static List dashboardList = [
     {"title": Fonts.home, "icon": AppSvg.home, "selectedIcon": AppSvg.homeBold},
-    {"title": Fonts.meals, "icon": AppSvg.meals, "selectedIcon": AppSvg.mealsBold},
-    {"title": Fonts.discovery, "icon": AppSvg.discover, "selectedIcon": AppSvg.discoverBold},
-    {"title": Fonts.report, "icon": AppSvg.report, "selectedIcon": AppSvg.reportBold},
-    {"title": Fonts.settings, "icon": AppSvg.setting, "selectedIcon": AppSvg.settingBold},
+    {
+      "title": Fonts.meals,
+      "icon": AppSvg.meals,
+      "selectedIcon": AppSvg.mealsBold,
+    },
+    {
+      "title": Fonts.discovery,
+      "icon": AppSvg.discover,
+      "selectedIcon": AppSvg.discoverBold,
+    },
+    {
+      "title": Fonts.report,
+      "icon": AppSvg.report,
+      "selectedIcon": AppSvg.reportBold,
+    },
+    {
+      "title": Fonts.settings,
+      "icon": AppSvg.setting,
+      "selectedIcon": AppSvg.settingBold,
+    },
+  ];*/
 
+  static List<DashboardBottomModel> dashboardList = [
+    DashboardBottomModel(
+      title: Fonts.home,
+      icon: AppSvg.home,
+      selectedIcon: AppSvg.homeBold,
+    ),
+    DashboardBottomModel(
+      title: Fonts.meals,
+      icon: AppSvg.meals,
+      selectedIcon: AppSvg.mealsBold,
+    ),
+    DashboardBottomModel(
+      title: Fonts.discovery,
+      icon: AppSvg.discover,
+      selectedIcon: AppSvg.discoverBold,
+    ),
+    DashboardBottomModel(
+      title: Fonts.report,
+      icon: AppSvg.report,
+      selectedIcon: AppSvg.reportBold,
+    ),
+    DashboardBottomModel(
+      title: Fonts.settings,
+      icon: AppSvg.setting,
+      selectedIcon: AppSvg.settingBold,
+    ),
   ];
 
+  static List<StepData> steps = [
+    StepData(
+      title: "Unlock Everything",
+      highlightText: "Today",
+      subtitle: "Easily Track Meals, Scan Calories & Stay on Target!",
+    ),
+    StepData(
+      title: "Your Trial Ends in",
+      highlightText: "2 Days",
+      subtitle:
+      "Don’t worry — we’ll send you a quick reminder so you can decide what’s next!",
+    ),
+    StepData(
+      title: "Enjoy",
+      highlightText: "3 Days Free!",
+      subtitle:
+      "Billing begins on June 22, 2025 unless you cancel before then.",
+    ),
+  ];
 }

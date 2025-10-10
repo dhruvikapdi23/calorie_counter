@@ -25,7 +25,7 @@ class SplashController extends GetxController {
           Get.isRegistered<UserInfoController>()?Get.find<UserInfoController>(): Get.put(UserInfoController());
           languageController.selectedLanguage = AppArray
               .languageList
-              .where((element) => element['title'] == lang)
+              .where((element) => element.title == lang)
               .first;
           languageController.onLanguageSelectTap(languageController.selectedLanguage);
 

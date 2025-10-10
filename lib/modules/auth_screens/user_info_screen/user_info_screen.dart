@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:calorie_counter/modules/auth_screens/user_info_screen/user_info_controller.dart';
-import 'package:calorie_counter/widgets/common_back_circle.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import '../../../app_config.dart';
@@ -17,9 +14,9 @@ class UserInfoScreen extends StatelessWidget {
       builder: (ctrl) {
         return Scaffold(
           bottomNavigationBar: appButton(
-       ctrl.currentStep ==12?Fonts.createMyPlan.tr:     Fonts.next.tr,
-            onTap: () => ctrl.nextTo(),
-          ).padding(horizontal: 16,vertical: 40),
+            ctrl.currentStep == 12 ? Fonts.createMyPlan.tr : Fonts.next.tr,
+            onTap: () => onTap(ctrl),
+          ).padding(horizontal: 16, vertical: 40),
           appBar: AppBar(
             automaticallyImplyLeading: false,
 
@@ -28,7 +25,6 @@ class UserInfoScreen extends StatelessWidget {
               spacing: 10,
               children: [
                 Text(Fonts.calorie.tr, style: AppCss.soraMedium18),
-
                 Image(
                   image: const AssetImage(AppImages.logo),
                   height: 40,
@@ -47,9 +43,7 @@ class UserInfoScreen extends StatelessWidget {
                   Row(
                     spacing: 16,
                     children: [
-                      CommonBackCircle(
-                          onTap: ()=> ctrl.onBack()
-                      ),
+                      CommonBackCircle(onTap: () => onBack(ctrl)),
                       Expanded(
                         child: LinearPercentIndicator(
                           animation: true,
@@ -66,44 +60,64 @@ class UserInfoScreen extends StatelessWidget {
                     ],
                   ),
                   VSpace(9),
-                  ctrl.currentStep == 12?Container(): ctrl.currentStep == 9? Text(
-                    AppArray.userInfoTitleSection[ctrl.currentStep]['title'].toString().tr,
+                  ctrl.currentStep == 12
+                      ? Container()
+                      : ctrl.currentStep == 9
+                      ? Text(
+                          AppArray.userInfoTitleSection[ctrl.currentStep].title
+                              .toString()
+                              .tr,
 
-                    style: AppCss.soraMedium16,
-                    textAlign: TextAlign.start,
-                  ):Column(
-
-                    children: [
-                      Text(
-                        AppArray.userInfoTitleSection[ctrl.currentStep]['title'].toString().tr,
-                        style: AppCss.soraSemiBold22,
-                        textAlign: TextAlign.center,
-                      ).alignment(Alignment.center),
-                      VSpace(6),
-                      Text(
-                        AppArray.userInfoTitleSection[ctrl.currentStep]['desc'].toString().tr,
-                        style: AppCss.soraRegular14,
-                        textAlign: TextAlign.center,
-                      ).alignment(Alignment.center),
-                    ],
-                  )
-
+                          style: AppCss.soraMedium16,
+                          textAlign: TextAlign.start,
+                        )
+                      : Column(
+                          children: [
+                            Text(
+                              AppArray
+                                  .userInfoTitleSection[ctrl.currentStep]
+                                  .title
+                                  .toString()
+                                  .tr,
+                              style: AppCss.soraSemiBold22,
+                              textAlign: TextAlign.center,
+                            ).alignment(Alignment.center),
+                            VSpace(6),
+                            Text(
+                              AppArray
+                                  .userInfoTitleSection[ctrl.currentStep]
+                                  .desc
+                                  .toString()
+                                  .tr,
+                              style: AppCss.soraRegular14,
+                              textAlign: TextAlign.center,
+                            ).alignment(Alignment.center),
+                          ],
+                        ),
                 ],
               ),
               // PageView for carousel effect
               Expanded(
                 child: PageView(
-                    controller: ctrl.pageController,
-                    allowImplicitScrolling: false,
-                    physics: NeverScrollableScrollPhysics(),
+                  controller: ctrl.pageController,
+                  allowImplicitScrolling: false,
+                  physics: NeverScrollableScrollPhysics(),
 
-                    children: ctrl.pages
+                  children: ctrl.pages,
                 ),
-              )
+              ),
             ],
           ).padding(horizontal: 16),
         );
       },
     );
+  }
+
+  void onTap(UserInfoController ctrl) {
+    ctrl.nextTo();
+  }
+
+  void onBack(UserInfoController ctrl) {
+    ctrl.onBack();
   }
 }
