@@ -6,11 +6,12 @@ import '../../../../app_config.dart';
 class LanguageSelection extends StatelessWidget {
   final String? language;
   final Function(LanguageModel) onTap;
-
+final bool isLanguageScreen;
   const LanguageSelection({
     super.key,
      this.language,
     required this.onTap,
+    this.isLanguageScreen = false
   });
 
   @override
@@ -48,6 +49,6 @@ class LanguageSelection extends StatelessWidget {
           ).inkWell(onTap: () => onTap(data));
         },)
       ],
-    ).paddingOnly(top: 32);
+    ).paddingOnly(top: isLanguageScreen? 16: 32);
   }
 }

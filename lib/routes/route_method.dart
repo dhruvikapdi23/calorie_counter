@@ -1,10 +1,14 @@
+import 'package:calorie_counter/languages/language_translate.dart';
 import 'package:calorie_counter/modules/auth_screens/plan/plan.dart';
 import 'package:calorie_counter/modules/main_screens/dashboard/dashboard.dart';
+import 'package:calorie_counter/modules/module_screens/general_infomation/general_information.dart';
+import 'package:calorie_counter/modules/module_screens/language_screen/langugae_screen.dart';
 
 import '../app_config.dart';
 import '../app_config.dart';
 import '../modules/auth_screens/intro_screen/intro_screen.dart';
 import '../modules/auth_screens/user_info_screen/user_info_screen.dart';
+import '../modules/module_screens/profile_information/profile_information.dart';
 
 class AppRoute {
   final List<GetPage> getPages = [
@@ -25,6 +29,18 @@ class AppRoute {
     ), GetPage(
       name: RouteName.dashboard,
       page: () => const Dashboard(),
+      transition: Transition.noTransition, // disables animations
+    ),GetPage(
+      name: RouteName.profileInformation,
+      page: () => const ProfileInformation(),
+      transition: Transition.noTransition, // disables animations
+    ),GetPage(
+      name: RouteName.generalInformation,
+      page: () => const GeneralInformation(),
+      transition: Transition.noTransition, // disables animations
+    ),GetPage(
+      name: RouteName.language,
+      page: () => const LanguageScreen(),
       transition: Transition.noTransition, // disables animations
     ),
 

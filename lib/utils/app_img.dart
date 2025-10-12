@@ -3,6 +3,8 @@ class AppImages {
   static const String introBg = "assets/images/intro_bg.png";
   static const String boy = "assets/images/boy.jpg";
   static const String girl = "assets/images/girl.jpg";
+  static const String logout = "assets/images/logout.png";
+  static const String delete = "assets/images/delete.png";
 
 }
 
@@ -50,7 +52,22 @@ class AppSvg {
   static const String setting= "assets/svg/setting.svg";
   static const String settingBold = "assets/svg/setting_bold.svg";
   static const String frame = "assets/svg/frame.svg";
-  static const String bell = "assets/svg/bell.svg";
   static const String bgCircle = "assets/svg/bg_circle.svg";
+  static const String bell = "assets/svg/bell.svg";
+  static const String feedback = "assets/svg/feedback.svg";
+  static const String profile = "assets/svg/profile.svg";
+  static const String share = "assets/svg/share.svg";
+  static const String language = "assets/svg/language.svg";
+  static const String subscription = "assets/svg/subscription.svg";
+  static const String star = "assets/svg/star.svg";
+  static const String privacy = "assets/svg/privacy.svg";
+  static const String arrowRight = "assets/svg/arrow-right.svg";
+  static const String logout = "assets/svg/logout.svg";
+  static const String calendar = "assets/svg/calendar.svg";
+  static const String male = "assets/svg/male.svg";
+  static const String woman = "assets/svg/woman.svg";
+  static const String minus = "assets/svg/minus.svg";
+  static const String plus = "assets/svg/plus.svg";
+  static const String closeCircle = "assets/svg/close-circle.svg";
 
 }

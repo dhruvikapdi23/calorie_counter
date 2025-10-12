@@ -1,10 +1,12 @@
 import 'package:calorie_counter/app_config.dart';
 
+import '../models/account_setting_model.dart';
 import '../models/acitivity_level_model.dart';
 import '../models/dashboard_bottom_model.dart';
 import '../models/eat_time_model.dart';
 import '../models/gender_model.dart';
 import '../models/language_model.dart';
+import '../models/setting_model.dart';
 import '../models/step_data.dart';
 import '../models/title_icon_model.dart';
 import '../models/user_info_title_model.dart';
@@ -148,7 +150,7 @@ class AppArray {
       title: Fonts.whatsYourHeight,
       desc: Fonts.whatsYourHeightDesc,
     ),
-    UserInfoTitleModel(title: Fonts.letUsKnow, desc: ""),
+    UserInfoTitleModel(title: Fonts.letUsKnowYouBetter, desc: ""),
     UserInfoTitleModel(
       title: Fonts.whatsYourDietType,
       desc: Fonts.whatsYourDietTypeDesc,
@@ -434,13 +436,114 @@ class AppArray {
       title: "Your Trial Ends in",
       highlightText: "2 Days",
       subtitle:
-      "Don’t worry — we’ll send you a quick reminder so you can decide what’s next!",
+          "Don’t worry — we’ll send you a quick reminder so you can decide what’s next!",
     ),
     StepData(
       title: "Enjoy",
       highlightText: "3 Days Free!",
       subtitle:
-      "Billing begins on June 22, 2025 unless you cancel before then.",
+          "Billing begins on June 22, 2025 unless you cancel before then.",
+    ),
+  ];
+
+  /*static List settingList =[
+    {
+      "title":Fonts.general,
+      "subMenuList":[
+        {
+          "title":Fonts.leaveFeedback,
+          "desc":Fonts.letUsKnow,
+          "icon":AppSvg.feedback
+        }
+      ]
+    },
+    {
+      "title":Fonts.accountSettings,
+      "subMenuList":[
+        {
+          "title":Fonts.profileInformation,
+          "icon":AppSvg.profile
+        }, {
+          "title":Fonts.generalSettings,
+          "icon":AppSvg.profile
+        }, {
+          "title":Fonts.language,
+          "icon":AppSvg.language
+        }, {
+          "title":Fonts.subscription,
+          "icon":AppSvg.subscription
+        }, {
+          "title":Fonts.dialoguesAndNotifications,
+          "icon":AppSvg.bell
+        }
+      ]
+    },
+    {
+      "title":Fonts.general,
+      "subMenuList":[
+        {
+          "title":Fonts.shareWithFriends,
+          "icon":AppSvg.share
+        }, {
+          "title":Fonts.rateUs,
+          "icon":AppSvg.star
+        }, {
+          "title":Fonts.privacyPolicy,
+          "icon":AppSvg.privacy
+        }
+      ]
+    }
+  ];*/
+
+  static List<SettingModel> settingList = [
+    SettingModel(
+      title: Fonts.general,
+      subMenuList: [
+        SubMenuList(
+          title: Fonts.leaveFeedback,
+          desc: Fonts.letUsKnow,
+          icon: AppSvg.feedback,
+        ),
+      ],
+    ),
+    SettingModel(
+      title: Fonts.accountSettings,
+      subMenuList: [
+        SubMenuList(title: Fonts.profileInformation, icon: AppSvg.profile),
+        SubMenuList(title: Fonts.generalSettings, icon: AppSvg.profile),
+        SubMenuList(title: Fonts.language, icon: AppSvg.language),
+        SubMenuList(title: Fonts.subscription, icon: AppSvg.subscription),
+        SubMenuList(title: Fonts.dialoguesAndNotifications, icon: AppSvg.bell),
+      ],
+    ),
+    SettingModel(
+      title: Fonts.general,
+      subMenuList: [
+        SubMenuList(title: Fonts.shareWithFriends, icon: AppSvg.share),
+        SubMenuList(title: Fonts.rateUs, icon: AppSvg.star),
+        SubMenuList(title: Fonts.privacyPolicy, icon: AppSvg.privacy),
+      ],
+    ),
+  ];
+
+ static List<AccountSettingModel> accountSettingList = [
+    AccountSettingModel(
+      title: Fonts.weightUnit,
+      subMenuList: [
+        AccountSubMenuList(title: "Kg", isActive: false),
+        AccountSubMenuList(title: "Lbs", isActive: false),
+      ],
+    ),
+    AccountSettingModel(
+      title: Fonts.heightUnit,
+      subMenuList: [
+        AccountSubMenuList(title: Fonts.feetUnit, isActive: false),
+        AccountSubMenuList(title: Fonts.centimetre, isActive: false),
+      ],
+    ),
+    AccountSettingModel(
+      title: Fonts.weeklyCalorieTarget,
+      value:3,
     ),
   ];
 }

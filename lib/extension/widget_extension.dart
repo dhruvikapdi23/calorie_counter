@@ -721,6 +721,7 @@ extension StyledWidget on Widget {
     onLongPress: onLongPress,
     highlightColor: Colors.transparent,
     splashFactory: NoSplash.splashFactory,
+    splashColor: Colors.transparent,
     onTap: onTap,child: this,);
 
   Widget onLongPressTap({GestureLongPressCallback? onLongPress}) => InkWell(onLongPress: onLongPress,child: this,);

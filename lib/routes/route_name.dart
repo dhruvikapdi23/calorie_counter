@@ -4,7 +4,9 @@ class RouteName {
   static String userInfo = "/userInfo";
   static String plan = "/plan";
   static String dashboard = "/dashboard";
-  static String testamentChapter = "/testamentChapter";
+  static String profileInformation = "/profileInformation";
+  static String generalInformation = "/generalInformation";
+  static String language = "/language";
   static String highlight = "/highlight";
   static String chapter = "/chapter";
   static String webView = "/webView";
@@ -15,7 +17,7 @@ class RouteName {
   static String otp = "/otp";
   static String chat = "/chat";
   static String groupInfo = "/groupInfo";
-  static String editProfile = "/editProfile";
+
   static String offlineChapter = "/offlineChapter";
 
 }

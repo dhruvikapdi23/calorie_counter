@@ -23,7 +23,7 @@ class Fonts {
   static String whatsYourWeightDesc = 'whatsYourWeightDesc';
   static String whatsYourHeight = 'whatsYourHeight';
   static String whatsYourHeightDesc = 'whatsYourHeightDesc';
-  static String letUsKnow = 'letUsKnow';
+  static String letUsKnowYouBetter = 'letUsKnowYouBetter';
   static String whatsYourDietType = 'whatsYourDietType';
   static String whatsYourDietTypeDesc = 'whatsYourDietTypeDesc';
   static String doYouTendToEatAroundTheSameTimeEveryDay =
@@ -101,7 +101,6 @@ class Fonts {
   static String discovery = "discovery";
   static String report = "report";
   static String settings = "settings";
-
   String optionPushUp(val) => "pusUp".trParams({'option': val});
 
   String dayFree(val) => "dayFree".trParams({'day': val});
@@ -115,8 +114,6 @@ class Fonts {
   static String portugues = 'portugues';
   static String arabic = 'arabic';
 
-  //setting
-  static String language = 'language';
 
   // titles
   static String name = 'name';
@@ -140,6 +137,48 @@ class Fonts {
   static String passNotMatch = 'passNotMatch';
   static String areYourSure = 'areYourSure';
   static String areYourSureLeaveThisGroup = 'areYourSureLeaveThisGroup';
+
+  //setting
+  static String language = 'language';
+  static String general = "general";
+  static String letUsKnow = 'letUsKnow';
+  static String leaveFeedback = 'leaveFeedback';
+  static String accountSettings = 'accountSettings';
+  static String profileInformation = 'profileInformation';
+  static String generalSettings = 'generalSettings';
+  static String subscription = 'subscription';
+  static String dialoguesAndNotifications = 'dialoguesAndNotifications';
+  static String shareWithFriends = 'shareWithFriends';
+  static String rateUs = 'rateUs';
+  static String logout = 'logout';
+  static String privacyPolicy = 'privacyPolicy';
+  static String deleteAccount = 'deleteAccount';
+  static String emailAddress = 'emailAddress';
+  static String enterEmailAddress = 'enterEmailAddress';
+  static String firstName = 'firstName';
+  static String enterFirstName = 'enterFirstName';
+  static String save = 'save';
+  static String dateOfBirth = 'dateOfBirth';
+  static String enterDateOfBirth = 'enterDateOfBirth';
+  static String height = 'height';
+  static String weight = 'weight';
+  static String weightGoal = 'weightGoal';
+  static String enterYourWeightGoal = 'enterYourWeightGoal';
+  static String gender = 'gender';
+  static String male = 'male';
+  static String female = 'female';
+  static String weightUnit = 'weightUnit';
+  static String heightUnit = 'heightUnit';
+  static String feetUnit = 'feetUnit';
+  static String centimetre = 'centimetre';
+  static String weeklyCalorieTarget = 'weeklyCalorieTarget';
+  static String restartProgress = 'restartProgress';
+  static String logoutConfirmation = 'logoutConfirmation';
+  static String deleteConfirmation = 'deleteConfirmation';
+  static String confirm = 'confirm';
+  
+
+
 
   String areYourSureYouWantToRemove(val) =>
       "areYourSureYouWantToRemove".trParams({'name': val});

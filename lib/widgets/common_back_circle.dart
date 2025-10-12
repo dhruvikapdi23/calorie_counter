@@ -13,6 +13,7 @@ class CommonBackCircle extends StatelessWidget {
         .decorated(
       color: AppColors.white,
       shape: BoxShape.circle,
+
       boxShadow: [
         BoxShadow(
           color: AppColors.black.withValues(alpha: .05),

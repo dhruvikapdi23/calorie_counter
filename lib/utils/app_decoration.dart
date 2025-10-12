@@ -5,7 +5,7 @@ class AppDecoration {
   static BoxDecoration cardDecoration() {
     return BoxDecoration(
         color: Get.theme.cardColor,
-        borderRadius: BorderRadius.circular(AppDimens.dimen20));
+        borderRadius: BorderRadius.circular(AppDimens.dimen24));
   }
 
   static BoxDecoration textBoxDecoration({color, bColor, radius}) {

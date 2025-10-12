@@ -45,49 +45,53 @@ class AppDialogs {
   }
 
   static showCommonDialog(Widget child,
-      {bool isbottom = false, Function()? onTap}) {
+      {bool isDelete = false, Function()? onTap}) {
     showDialog(
       barrierDismissible: false,
       context: Get.context!,
+      barrierColor: AppColors.black.withValues(alpha: .80),
       builder: (BuildContext context) {
         return PopScope(
           canPop: false,
           child: Dialog(
-            backgroundColor: Colors.transparent,
+            insetPadding: EdgeInsets.symmetric(horizontal: 16),
+            backgroundColor: AppColors.red1.withValues(alpha: .80),
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0)), //this right here
+                borderRadius: BorderRadius.circular(24.0)), //this right here
             child: Container(
+
                 decoration: AppDecoration.cardDecoration(),
-                padding: EdgeInsets.all(AppDimens.dimen20),
+                padding: EdgeInsets.all(AppDimens.dimen16),
                 child: ListView(
+                  padding: EdgeInsets.zero,
                   shrinkWrap: true,
                   children: [
-                    if (!isbottom)
                       Align(
                         alignment: Alignment.topRight,
                         child: GestureDetector(
                             onTap: () => Get.back(),
-                            child: Icon(
-                              Icons.close,
-                              color: Get.theme.dividerColor,
-                            )),
+                            child: SvgPicture.asset(AppSvg.closeCircle)),
                       ),
+
+
                     child,
-                    if (isbottom)
                       Row(
                         children: [
                           Expanded(
                               child: appButton(
-                            Fonts.no.tr,
-                            height: AppDimens.dimen50,
-                            color: AppColors.lightGrey,
-                            textColor: AppColors.primaryColor,
+                                isDelete?Fonts.cancel.tr:   Fonts.no.tr,
+                            height: AppDimens.dimen52,
+                            color: AppColors.lightPrimaryColor,
+
+                            style: AppCss.soraMedium16.copyWith(color: AppColors.black),
                             onTap: () => Get.back(),
-                          ).paddingSymmetric(horizontal: AppDimens.dimenW40)),
+                          ).paddingSymmetric(horizontal: AppDimens.dimenW10)),
                           Expanded(
                               child: appButton(
-                            Fonts.yes.tr,
-                            height: AppDimens.dimen50,
+                                isDelete?Fonts.confirm.tr:    Fonts.yes.tr,
+                            height: AppDimens.dimen52,
+                            color: AppColors.primaryColor,
+                                style: AppCss.soraMedium16.copyWith(color: AppColors.white),
                             onTap: () {
                               Get.back();
                               onTap?.call();

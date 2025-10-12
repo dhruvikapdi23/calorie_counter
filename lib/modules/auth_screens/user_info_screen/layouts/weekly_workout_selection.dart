@@ -25,6 +25,7 @@ class WeeklyWorkOutSelection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 19,
       children: [
+
       ListView.builder(
         itemCount: AppArray.weeklyWorkOutOption.length,
         shrinkWrap:  true,

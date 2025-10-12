@@ -78,7 +78,7 @@ class AppTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(
           bRadius ?? 5.23,
         ),
-        borderSide: BorderSide(color: bColor ?? AppColors.white));
+        borderSide: BorderSide(color: bColor ?? AppColors.strokeColor));
 
     return GetBuilder<TextFieldController>(
       init: TextFieldController()..setData(obscureText),
@@ -89,14 +89,10 @@ class AppTextField extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               if (labelText != null)
-                Text(labelText!,
+                Text(labelText!.tr,
                     style: labelStyle ??
-                        Get.theme.textTheme.titleSmall!.copyWith(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: GoogleFonts.mulish().fontFamily,
-                            fontSize: 14.64,
-                            color: AppColors.black))
-                    .marginOnly(bottom: AppDimens.dimen9),
+                       AppCss.soraRegular14.copyWith(color: AppColors.black1))
+                    .marginOnly(bottom: AppDimens.dimen8),
               Theme(
                   data: ThemeData(canvasColor: AppColors.white),
                   child: TextFormField(
@@ -105,7 +101,7 @@ class AppTextField extends StatelessWidget {
                       controller: controller,
                       focusNode: focusNode,
                       textAlign: TextAlign.start,
-                      style: style ?? Get.theme.textTheme.titleMedium,
+                      style: style ?? AppCss.soraRegular14.copyWith(color: AppColors.primaryColor),
                       cursorColor: Get.theme.primaryColor,
                       obscuringCharacter: '*',
                       obscureText: obscureText,
@@ -129,18 +125,15 @@ class AppTextField extends StatelessWidget {
                           errorBorder: inputBorder,
                           focusedErrorBorder: inputBorder,
                           border: inputBorder,
-                          suffixIconConstraints: const BoxConstraints(
-                              minWidth: 24, maxHeight: 24),
+                         /* suffixIconConstraints: const BoxConstraints(
+                              minWidth: 30, maxHeight: 30),*/
                           contentPadding:contentPadding?? const EdgeInsets.symmetric(
-                              horizontal: 13, vertical: 9),
+                              horizontal: 12, vertical: 14),
                           suffixIcon: suffixIcon,
                           prefixIcon: prefixIcon,
-                          hintText: hintText,
+                          hintText: hintText?.tr,
                           hintStyle: hintStyle ??
-                              AppCommonLayout().mulishFW400Or500TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.gary),
+                             AppCss.soraRegular12.copyWith(color: AppColors.gary),
                           errorMaxLines: 2))),
 
             ]);

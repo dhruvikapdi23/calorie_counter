@@ -9,6 +9,7 @@ Widget appButton(String title,
     TextStyle? style,
     BorderRadiusGeometry? borderRadius,
       Widget? icon,
+      Widget? rightIcon,
     bool isShowBottom = true}) {
   return SizedBox(
     width: width ?? double.infinity,
@@ -30,13 +31,17 @@ Widget appButton(String title,
           children: [
             if(icon !=null)
             Row(
-              children: [icon,const HSpace(9)],
+              children: [icon,const HSpace(10)],
             ),
             Text(
               title,
               style: style ??
-                  AppCss.soraSemiBold16.copyWith(color: color??AppColors.white),
+                  AppCss.soraSemiBold16.copyWith(color: textColor??AppColors.white),
             ),
+            if(rightIcon !=null)
+              Row(
+                children: [const HSpace(10),rightIcon],
+              ),
           ],
         )),
   );

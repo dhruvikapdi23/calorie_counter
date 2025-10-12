@@ -67,25 +67,20 @@ class AppWidgets {
 
 static Widget getDialogView(String title, String msg) => Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 14,
         children: [
           Text(
             title,
-            style: Get.theme.textTheme.displayLarge
-                ?.copyWith(color: Get.theme.dividerColor),
+            style:AppCss.soraSemiBold24,
           ),
           Text(
             msg,
-            style: Get.theme.textTheme.titleSmall,
-          ).paddingSymmetric(vertical: AppDimens.dimen30),
+            textAlign: TextAlign.center,
+            style: AppCss.soraRegular14.copyWith(color: AppColors.gary),
+          ),
         ],
       );
 
-  static exitDialog() => AppDialogs.showCommonDialog(
-        AppWidgets.getDialogView(Fonts.exit.tr, Fonts.exitMsg.tr),
-        isbottom: true,
-        onTap: () => SystemNavigator.pop(),
-      );
 
   static Widget get devider => Container(
         color: Get.theme.dividerColor,
