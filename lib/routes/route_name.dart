@@ -7,8 +7,8 @@ class RouteName {
   static String profileInformation = "/profileInformation";
   static String generalInformation = "/generalInformation";
   static String language = "/language";
-  static String highlight = "/highlight";
-  static String chapter = "/chapter";
+  static String mealDetail = "/mealDetail";
+  static String search = "/search";
   static String webView = "/webView";
   static String signIn = "/signIn";
   static String signUp = "/signUp";

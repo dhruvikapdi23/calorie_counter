@@ -176,7 +176,25 @@ class Fonts {
   static String logoutConfirmation = 'logoutConfirmation';
   static String deleteConfirmation = 'deleteConfirmation';
   static String confirm = 'confirm';
-  
+  static String searchForAFoodItem = 'searchForAFoodItem';
+  static String browseMealsByCategories = 'browseMealsByCategories';
+  static String suggested = 'suggested';
+  static String keto = 'keto';
+  static String fruits = 'fruits';
+  static String protein = 'protein';
+  static String nonVeg = 'nonVeg';
+  static String viewAll = 'viewAll';
+  static String lunchSelection = 'lunchSelection';
+  static String dinnerSelection = 'dinnerSelection';
+  static String search ="search";
+  static String searchFood ="searchFood";
+  static String favourites ="favourites";
+  static String myFood ="myFood";
+  static String plates ="plates";
+  static String noResultsFound ="noResultsFound";
+  static String noResultsFoundDesc ="noResultsFoundDesc";
+  static String addFood ="addFood";
+
 
 
 

@@ -5,6 +5,37 @@ class AppImages {
   static const String girl = "assets/images/girl.jpg";
   static const String logout = "assets/images/logout.png";
   static const String delete = "assets/images/delete.png";
+  static const String noData = "assets/images/no_data.png";
+
+
+  //food
+  static const String bs1 = "assets/images/food/bs1.png";
+  static const String bs2 = "assets/images/food/bs2.png";
+  static const String bs3 = "assets/images/food/bs3.png";
+  static const String bs4 = "assets/images/food/bs4.png";
+  static const String bs5 = "assets/images/food/bs5.png";
+  static const String bs6 = "assets/images/food/bs6.png";
+  static const String bs7 = "assets/images/food/bs7.png";
+
+
+  static const String ls1 = "assets/images/food/ls1.png";
+  static const String ls2 = "assets/images/food/ls2.png";
+  static const String ls3 = "assets/images/food/ls3.png";
+  static const String ls4 = "assets/images/food/ls4.png";
+  static const String ls5 = "assets/images/food/ls5.png";
+  static const String ls6 = "assets/images/food/ls6.png";
+  static const String ls7 = "assets/images/food/ls7.png";
+  static const String ls8 = "assets/images/food/ls8.png";
+
+
+  static const String ds1 = "assets/images/food/ds1.png";
+  static const String ds2 = "assets/images/food/ds2.png";
+  static const String ds3 = "assets/images/food/ds3.png";
+  static const String ds4 = "assets/images/food/ds4.png";
+  static const String ds5 = "assets/images/food/ds5.png";
+  static const String ds6 = "assets/images/food/ds6.png";
+  static const String ds7 = "assets/images/food/ds7.png";
+  static const String ds8 = "assets/images/food/ds8.png";
 
 }
 
@@ -69,5 +100,17 @@ class AppSvg {
   static const String minus = "assets/svg/minus.svg";
   static const String plus = "assets/svg/plus.svg";
   static const String closeCircle = "assets/svg/close-circle.svg";
+  static const String suggested = "assets/svg/suggested.svg";
+  static const String keto = "assets/svg/keto.svg";
+  static const String vegetarian1 = "assets/svg/vegetarian1.svg";
+  static const String fruits = "assets/svg/fruits.svg";
+  static const String protein = "assets/svg/protein.svg";
+  static const String heart = "assets/svg/heart.svg";
+  static const String favHeart = "assets/svg/fav_heart.svg";
+  static const String filter = "assets/svg/filter.svg";
+  static const String scan = "assets/svg/scan.svg";
+  static const String search = "assets/svg/search.svg";
+  static const String search1 = "assets/svg/search1.svg";
+  static const String spoon = "assets/svg/spoon.svg";
 
 }

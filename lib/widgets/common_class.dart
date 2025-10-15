@@ -39,6 +39,24 @@ class CommonClass {
     children: [SvgPicture.asset(AppSvg.bgCircle), SvgPicture.asset(icon)],
   );
 
+  static Widget commonCircleIcon(icon) => Container(
+    alignment: Alignment.center,
+    height: 48,
+    width: 48,
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      color: AppColors.white,
+      boxShadow: [
+        BoxShadow(
+          color: AppColors.white.withValues(alpha: .05),
+          offset: Offset(0, 10),
+          blurRadius: 20,
+        ),
+      ],
+    ),
+    child: SvgPicture.asset(icon),
+  );
+
   static Widget commonKgCmSuffixIcon(text) => Container(
     margin: EdgeInsets.all(8),
     height: 30,
@@ -55,12 +73,11 @@ class CommonClass {
     ),
   );
 
-
-  static Widget commonMinusPlus(svg)=>  Container(
+  static Widget commonMinusPlus(svg) => Container(
     padding: EdgeInsets.all(10),
     decoration: BoxDecoration(
-        color: AppColors.primaryColor,
-        borderRadius: BorderRadius.circular(5)
+      color: AppColors.primaryColor,
+      borderRadius: BorderRadius.circular(5),
     ),
     child: SvgPicture.asset(svg),
   );

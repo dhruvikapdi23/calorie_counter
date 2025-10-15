@@ -1,4 +1,14 @@
 import 'package:calorie_counter/app_config.dart';
+import 'package:calorie_counter/models/meal_item_model.dart';
+import 'package:calorie_counter/models/meal_item_model.dart';
+import 'package:calorie_counter/models/meal_item_model.dart';
+import 'package:calorie_counter/models/meal_item_model.dart';
+import 'package:calorie_counter/models/meals_category_model.dart';
+import 'package:calorie_counter/models/meals_category_model.dart';
+import 'package:calorie_counter/models/meals_category_model.dart';
+import 'package:calorie_counter/models/meals_category_model.dart';
+import 'package:calorie_counter/models/meals_category_model.dart';
+import 'package:calorie_counter/models/meals_category_model.dart';
 
 import '../models/account_setting_model.dart';
 import '../models/acitivity_level_model.dart';
@@ -526,7 +536,7 @@ class AppArray {
     ),
   ];
 
- static List<AccountSettingModel> accountSettingList = [
+  static List<AccountSettingModel> accountSettingList = [
     AccountSettingModel(
       title: Fonts.weightUnit,
       subMenuList: [
@@ -541,9 +551,279 @@ class AppArray {
         AccountSubMenuList(title: Fonts.centimetre, isActive: false),
       ],
     ),
-    AccountSettingModel(
-      title: Fonts.weeklyCalorieTarget,
-      value:3,
+    AccountSettingModel(title: Fonts.weeklyCalorieTarget, value: 3),
+  ];
+
+  static List<MealCategoryModel> categories = [
+    MealCategoryModel(name: "Suggested", icon: AppSvg.suggested),
+    MealCategoryModel(name: "Keto", icon: AppSvg.keto),
+    MealCategoryModel(name: "Vegetarian", icon: AppSvg.vegetarian1),
+    MealCategoryModel(name: "Fruits", icon: AppSvg.fruits),
+    MealCategoryModel(name: "Protein", icon: AppSvg.protein),
+  ];
+
+  static List<MealItemModel> mealSections = [
+    MealItemModel(
+      title: "Breakfast Selection",
+      meals: [
+        MealsModel(
+          image: AppImages.bs1,
+          title: "Avocado Toast With Scrambled Eggs",
+          kcal: 190,
+          carbs: 160,
+          fat: 18,
+          protein: 25,
+          isFavourite: false,
+        ),
+        MealsModel(
+          image: AppImages.bs2,
+          title: "Smashed Avocado On Whole Grain Toast",
+          kcal: 200,
+          carbs: 170,
+          fat: 20,
+          protein: 30,
+          isFavourite: false,
+        ),
+ MealsModel(
+          image: AppImages.bs2,
+          title: "Smashed Avocado On Whole Grain Toast",
+          kcal: 200,
+          carbs: 170,
+          fat: 20,
+          protein: 30,
+          isFavourite: false,
+        ),
+
+        MealsModel(
+          title: "Quinoa Salad With Roasted Vegetables",
+          image: AppImages.bs3,
+          kcal: 350,
+          carbs: 45,
+          fat: 15,
+          protein: 12,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          title: "Chicken Wrap With Hummus And Greens",
+          image: AppImages.bs4,
+          kcal: 400,
+          carbs: 50,
+          fat: 18,
+          protein: 25,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          title: "Vegetable Stir-Fry With Tofu And Brown Rice",
+          image: AppImages.bs5,
+          kcal: 450,
+          carbs: 60,
+          fat: 12,
+          protein: 20,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          title: "Greek Yogurt Parfait With Berries And Granola",
+          image: AppImages.bs6,
+          kcal: 300,
+          carbs: 35,
+          fat: 10,
+          protein: 15,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          title: "Spicy Chickpea Curry With Coconut Rice",
+          image: AppImages.bs7,
+          kcal: 500,
+          carbs: 70,
+          fat: 22,
+          protein: 18,
+          isFavourite: false,
+
+        ),
+      ],
+    ),
+    MealItemModel(
+      title: "Lunch Selection",
+      meals: [
+        MealsModel(
+          image: AppImages.ls1,
+          title: "Quinoa Salad With Chickpeas",
+          kcal: 220,
+          carbs: 30,
+          fat: 8,
+
+          protein: 10,
+          isFavourite: false,
+        ),
+        MealsModel(
+          image: AppImages.ls2,
+          title: "Grilled Chicken Breast With Broccoli",
+          kcal: 250,
+          carbs: 15,
+          fat: 5,
+          protein: 50,
+          isFavourite: false,
+        ),
+
+        MealsModel(
+          image: AppImages.ls3,
+          title: "Grilled Chicken Salad With Quinoa",
+          kcal: 350,
+          carbs: 30,
+          fat: 15,
+          protein: 40,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          image:AppImages.ls4,
+          title: "Pasta Primavera With Olive Oil",
+          kcal: 450,
+          carbs: 60,
+          fat: 18,
+          protein: 12,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          image:AppImages.ls5,
+          title: "Chickpea And Spinach Curry",
+          kcal: 400,
+          carbs: 50,
+          fat: 10,
+          protein: 15,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          image:AppImages.ls6,
+          title: "Shrimp Tacos With Cabbage Slaw",
+          kcal: 320,
+          carbs: 40,
+          fat: 12,
+          protein: 25,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          image: AppImages.ls7,
+          title: "Vegetable Stir-Fry With Tofu",
+          kcal: 380,
+          carbs: 45,
+          fat: 14,
+          protein: 18,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          image: AppImages.ls8,
+          title: "Beef And Broccoli With Garlic",
+          kcal: 500,
+          carbs: 55,
+          fat: 20,
+          protein: 35,
+          isFavourite: false,
+
+        )
+      ],
+    ),
+    MealItemModel(
+      title: "Dinner Selection",
+      meals: [
+        MealsModel(
+          image: AppImages.ds1,
+          title: "Greek Yogurt With Honey And Berries",
+          kcal: 180,
+          carbs: 22,
+          fat: 3,
+          protein: 15,
+          isFavourite: false,
+        ),
+        MealsModel(
+          image: AppImages.ds2,
+          title: "Oatmeal With Almonds And Banana",
+          kcal: 300,
+          carbs: 45,
+          fat: 10,
+          protein: 8,
+          isFavourite: false,
+        ),
+        MealsModel(
+          image: AppImages.ds3,
+          title: "Baked Salmon With Spinach",
+          kcal: 420,
+          carbs: 40,
+          fat: 18,
+          protein: 35,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          image: AppImages.ds4,
+          title: "Turkey And Hummus Wrap",
+          kcal: 300,
+          carbs: 28,
+          fat: 12,
+          protein: 32,          isFavourite: false,
+
+
+        ),
+        MealsModel(
+          image: AppImages.ds5,
+          title: "Vegetable Stir-Fry With Tofu",
+          kcal: 380,
+          carbs: 50,
+          fat: 10,
+          protein: 25,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          image: AppImages.ds6,
+          title: "Lentil Soup With Whole Grain Bread",
+          kcal: 290,
+          carbs: 45,
+          fat: 8,
+          protein: 18,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          image: AppImages.ds7,
+          title: "Shrimp Tacos With Cabbage Slaw",
+          kcal: 450,
+          carbs: 35,
+          fat: 22,
+          protein: 30,
+          isFavourite: false,
+
+        ),
+        MealsModel(
+          image: AppImages.ds8,
+          title: "Chickpea Salad With Feta",
+          kcal: 320,
+          carbs: 40,
+          fat: 10,
+          protein: 20,
+          isFavourite: false,
+
+        ),
+      ],
     ),
   ];
+
+  static List searchOption =[{
+    "title":Fonts.favourites,
+    "icon":AppSvg.heart
+  },{
+    "title":Fonts.myFood,
+    "icon":AppSvg.spoon
+  },{
+    "title":Fonts.plates,
+    "icon":AppSvg.spoon
+  }];
 }
