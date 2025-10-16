@@ -9,11 +9,13 @@ import 'package:calorie_counter/models/meals_category_model.dart';
 import 'package:calorie_counter/models/meals_category_model.dart';
 import 'package:calorie_counter/models/meals_category_model.dart';
 import 'package:calorie_counter/models/meals_category_model.dart';
+import 'package:calorie_counter/modules/main_screens/meals/meals.dart';
 
 import '../models/account_setting_model.dart';
 import '../models/acitivity_level_model.dart';
 import '../models/dashboard_bottom_model.dart';
 import '../models/eat_time_model.dart';
+import '../models/food_item.dart';
 import '../models/gender_model.dart';
 import '../models/language_model.dart';
 import '../models/setting_model.dart';
@@ -584,7 +586,7 @@ class AppArray {
           protein: 30,
           isFavourite: false,
         ),
- MealsModel(
+        MealsModel(
           image: AppImages.bs2,
           title: "Smashed Avocado On Whole Grain Toast",
           kcal: 200,
@@ -602,7 +604,6 @@ class AppArray {
           fat: 15,
           protein: 12,
           isFavourite: false,
-
         ),
         MealsModel(
           title: "Chicken Wrap With Hummus And Greens",
@@ -612,7 +613,6 @@ class AppArray {
           fat: 18,
           protein: 25,
           isFavourite: false,
-
         ),
         MealsModel(
           title: "Vegetable Stir-Fry With Tofu And Brown Rice",
@@ -622,7 +622,6 @@ class AppArray {
           fat: 12,
           protein: 20,
           isFavourite: false,
-
         ),
         MealsModel(
           title: "Greek Yogurt Parfait With Berries And Granola",
@@ -632,7 +631,6 @@ class AppArray {
           fat: 10,
           protein: 15,
           isFavourite: false,
-
         ),
         MealsModel(
           title: "Spicy Chickpea Curry With Coconut Rice",
@@ -642,7 +640,6 @@ class AppArray {
           fat: 22,
           protein: 18,
           isFavourite: false,
-
         ),
       ],
     ),
@@ -677,37 +674,33 @@ class AppArray {
           fat: 15,
           protein: 40,
           isFavourite: false,
-
         ),
         MealsModel(
-          image:AppImages.ls4,
+          image: AppImages.ls4,
           title: "Pasta Primavera With Olive Oil",
           kcal: 450,
           carbs: 60,
           fat: 18,
           protein: 12,
           isFavourite: false,
-
         ),
         MealsModel(
-          image:AppImages.ls5,
+          image: AppImages.ls5,
           title: "Chickpea And Spinach Curry",
           kcal: 400,
           carbs: 50,
           fat: 10,
           protein: 15,
           isFavourite: false,
-
         ),
         MealsModel(
-          image:AppImages.ls6,
+          image: AppImages.ls6,
           title: "Shrimp Tacos With Cabbage Slaw",
           kcal: 320,
           carbs: 40,
           fat: 12,
           protein: 25,
           isFavourite: false,
-
         ),
         MealsModel(
           image: AppImages.ls7,
@@ -717,7 +710,6 @@ class AppArray {
           fat: 14,
           protein: 18,
           isFavourite: false,
-
         ),
         MealsModel(
           image: AppImages.ls8,
@@ -727,8 +719,7 @@ class AppArray {
           fat: 20,
           protein: 35,
           isFavourite: false,
-
-        )
+        ),
       ],
     ),
     MealItemModel(
@@ -760,7 +751,6 @@ class AppArray {
           fat: 18,
           protein: 35,
           isFavourite: false,
-
         ),
         MealsModel(
           image: AppImages.ds4,
@@ -768,9 +758,8 @@ class AppArray {
           kcal: 300,
           carbs: 28,
           fat: 12,
-          protein: 32,          isFavourite: false,
-
-
+          protein: 32,
+          isFavourite: false,
         ),
         MealsModel(
           image: AppImages.ds5,
@@ -780,7 +769,6 @@ class AppArray {
           fat: 10,
           protein: 25,
           isFavourite: false,
-
         ),
         MealsModel(
           image: AppImages.ds6,
@@ -790,7 +778,6 @@ class AppArray {
           fat: 8,
           protein: 18,
           isFavourite: false,
-
         ),
         MealsModel(
           image: AppImages.ds7,
@@ -800,7 +787,6 @@ class AppArray {
           fat: 22,
           protein: 30,
           isFavourite: false,
-
         ),
         MealsModel(
           image: AppImages.ds8,
@@ -810,20 +796,80 @@ class AppArray {
           fat: 10,
           protein: 20,
           isFavourite: false,
-
         ),
       ],
     ),
   ];
 
-  static List searchOption =[{
-    "title":Fonts.favourites,
-    "icon":AppSvg.heart
-  },{
-    "title":Fonts.myFood,
-    "icon":AppSvg.spoon
-  },{
-    "title":Fonts.plates,
-    "icon":AppSvg.spoon
-  }];
+  static List searchOption = [
+    {"title": Fonts.favourites, "icon": AppSvg.heart},
+    {"title": Fonts.myFood, "icon": AppSvg.spoon},
+    {"title": Fonts.plates, "icon": AppSvg.spoon},
+  ];
+
+  static List<FoodItem> foodItems = [
+    FoodItem(
+      name: 'Green Goodness Sandwich',
+      weight: '200 g',
+      calories: '350 kcal',
+      image: AppImages.bs1,
+    ), FoodItem(
+      name: 'Green Sandwich',
+      weight: '200 g',
+      calories: '350 kcal',
+      image: AppImages.bs1,
+    ),
+    FoodItem(
+      name: 'Avocado Delight Toastie',
+      weight: '100 g',
+      calories: '200 kcal',
+      image: AppImages.bs3,
+    ),
+    FoodItem(
+      name: 'Crispy Avo Crunch',
+      weight: '150 g',
+      calories: '300 kcal',
+      image: AppImages.bs2,
+    ),
+    FoodItem(
+      name: 'Creamy Avocado Bite',
+      weight: '100 g',
+      calories: '220 kcal',
+      image: AppImages.bs5,
+    ),
+  ];
+
+
+
+  static List<MealsModel> favList = [
+    MealsModel(
+      image: AppImages.ls1,
+      title: "Quinoa Salad With Chickpeas",
+      kcal: 220,
+      carbs: 30,
+      fat: 8,
+
+      protein: 10,
+      isFavourite: true,
+    ),
+    MealsModel(
+      image: AppImages.ls2,
+      title: "Grilled Chicken Breast With Broccoli",
+      kcal: 250,
+      carbs: 15,
+      fat: 5,
+      protein: 50,
+      isFavourite: true,
+    ),
+
+    MealsModel(
+      image: AppImages.ls3,
+      title: "Grilled Chicken Salad With Quinoa",
+      kcal: 350,
+      carbs: 30,
+      fat: 15,
+      protein: 40,
+      isFavourite: true,
+    ),
+  ];
 }

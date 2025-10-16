@@ -34,5 +34,6 @@ export '../../../../widgets/ruler_scaler.dart';
 export 'package:calorie_counter/widgets/common_class.dart';
 export '../../../widgets/app_text_field/app_text_field.dart';
 export 'package:calorie_counter/modules/main_screens/setting/layouts/logout_delete_account_layout.dart';
+export '../../../../widgets/common_image_layout.dart';
 
 export 'package:calorie_counter/utils/app_validation.dart';

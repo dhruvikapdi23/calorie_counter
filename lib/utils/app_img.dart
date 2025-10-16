@@ -68,6 +68,8 @@ class AppSvg {
   static const String vegan = "assets/svg/vegan.svg";
   static const String addCircle = "assets/svg/add_circle.svg";
   static const String edit = "assets/svg/edit.svg";
+  static const String copy = "assets/svg/copy.svg";
+  static const String trash = "assets/svg/trash.svg";
   static const String tick = "assets/svg/tick.svg";
   static const String tick1= "assets/svg/tick1.svg";
 
@@ -112,5 +114,6 @@ class AppSvg {
   static const String search = "assets/svg/search.svg";
   static const String search1 = "assets/svg/search1.svg";
   static const String spoon = "assets/svg/spoon.svg";
+  static const String more = "assets/svg/more.svg";
 
 }

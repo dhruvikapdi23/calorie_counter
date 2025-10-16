@@ -194,6 +194,10 @@ class Fonts {
   static String noResultsFound ="noResultsFound";
   static String noResultsFoundDesc ="noResultsFoundDesc";
   static String addFood ="addFood";
+  static String yourFavouritesListIsEmpty ="yourFavouritesListIsEmpty";
+  static String startBuildingYourCollectionNow ="startBuildingYourCollectionNow";
+  static String yourFoodListIsEmpty ="yourFoodListIsEmpty";
+  static String startAddingMealsToSeeThemHere ="startAddingMealsToSeeThemHere";
 
 
 

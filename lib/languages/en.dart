@@ -170,5 +170,9 @@ final dynamic en = {
   "noResultsFound": "No Results Found",
   "noResultsFoundDesc": "We couldn’t find anything matching your search.",
   "addFood": "Add Food",
+  "yourFavouritesListIsEmpty": "Your favourites list is empty",
+  "startBuildingYourCollectionNow": "Start building your collection now!",
+  "yourFoodListIsEmpty": "Your Food List is Empty",
+  "startAddingMealsToSeeThemHere": "Start adding meals to see them here!",
 
 };

@@ -1,6 +1,12 @@
 import 'package:calorie_counter/app_config.dart';
 import 'package:calorie_counter/extension/widget_extension.dart';
+import 'package:calorie_counter/modules/module_screens/search_screen/layouts/search_option.dart';
 import 'package:calorie_counter/modules/module_screens/search_screen/search_screen_controller.dart';
+import 'package:calorie_counter/widgets/common_empty_layout.dart';
+import 'package:calorie_counter/widgets/common_image_layout.dart';
+
+import '../../main_screens/meals/meals_widget_class.dart';
+import 'layouts/all_search_list.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -29,7 +35,9 @@ class SearchScreen extends StatelessWidget {
               HSpace(16),
             ],
           ),
-bottomNavigationBar: appButton(Fonts.addFood.tr).padding(horizontal: 16,bottom: 30),
+          bottomNavigationBar: appButton(
+            Fonts.addFood.tr,
+          ).padding(horizontal: 16, bottom: 30),
           body: Stack(
             children: [
               ListView(
@@ -37,67 +45,65 @@ bottomNavigationBar: appButton(Fonts.addFood.tr).padding(horizontal: 16,bottom: 
                 children: [
                   AppTextField(
                     color: AppColors.white,
-                    onTap: () => Get.toNamed(RouteName.search),
+                    onChanged: (v) => ctrl.searchFood(v),
                     bColor: Colors.transparent,
+                    controller: ctrl.search,
                     bRadius: 12,
                     hintText: Fonts.searchFood.tr,
-                    hintStyle: AppCss.soraRegular14.copyWith(color: AppColors.gary),
+                    hintStyle: AppCss.soraRegular14.copyWith(
+                      color: AppColors.gary,
+                    ),
                     prefixIcon: SvgPicture.asset(
                       AppSvg.search1,
                     ).paddingSymmetric(horizontal: 14),
                   ),
                   VSpace(12),
-                  Container(
-                    height: 50,
-                    padding: EdgeInsets.all(5),
-
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius: BorderRadius.circular(6)
-                    ),
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: AppArray.searchOption.length,
-                      scrollDirection: Axis.horizontal,
-                      separatorBuilder: (context, index) => SizedBox(width: 8),
-                      itemBuilder: (context, index) {
-                        dynamic data = AppArray.searchOption[index];
-                        return Container(
-                          padding: EdgeInsets.symmetric(horizontal: 18, vertical: 11),
-                          decoration: BoxDecoration(
-                              color: AppColors.lightGrey.withValues(alpha: .20),
-                              borderRadius: BorderRadius.circular(6)
-                          ),
-                          child: Row(
-                            children: [
-                              SvgPicture.asset(data['icon']),
-                              SizedBox(width: 5),
-                              Text(data['title'], style: AppCss.soraRegular14.copyWith(color: AppColors.gary))
-                            ],
-                          ),
-                        );
-                      },
-                    ),
+                  SearchOption(
+                    onTap: (val) => optionSelect(ctrl, val),
+                    selectedOption: ctrl.selectedOption,
                   ),
+                  VSpace(12),
+                  if (ctrl.search.text.isNotEmpty && ctrl.searchList.isNotEmpty && ctrl.selectedOption ==null)
+                    AllSearchList(list: ctrl.searchList,),
+                  if (ctrl.search.text.isNotEmpty && ctrl.searchList.isEmpty && ctrl.selectedOption != null)
+                    IndexedStack(
+                      index: ctrl.selectedOption == Fonts.favourites
+                          ? 0
+                          : ctrl.selectedOption == Fonts.myFood
+                          ? 1
+                          : 2,
+                      children: [
+                        ListView.builder(
+                          itemCount: ctrl.favSearch!.length,
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, i) {
+                            return MealsWidgetClass.buildMealCard(ctrl.favSearch![i],() {
+
+                            },);
+                          },
+                        ),
+
+                        AllSearchList(list: ctrl.myFood,isAction: true,),
+                        Container()
+                      ],
+                    )
 
                 ],
               ),
-              Center(
-                child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(AppImages.noData,height: 107,),
-                    VSpace(18),
-                    Text(Fonts.noResultsFound.tr,style: AppCss.soraMedium16,),
-                    VSpace(8),
-                    Text(Fonts.noResultsFoundDesc.tr,textAlign: TextAlign.center,style: AppCss.soraLight12.copyWith(color: AppColors.black.withValues(alpha: .80)),).paddingSymmetric(horizontal: 87)
-                  ],
-                ),
-              )
+              if (ctrl.search.text.isNotEmpty && ctrl.searchList.isEmpty && ctrl.selectedOption ==null)
+                CommonEmptyLayout(title: Fonts.noResultsFound, desc: Fonts.noResultsFoundDesc),
+
+              if (ctrl.search.text.isNotEmpty && ctrl.searchList.isEmpty && ctrl.selectedOption == Fonts.favourites)
+                CommonEmptyLayout(title: Fonts.yourFavouritesListIsEmpty, desc: Fonts.startBuildingYourCollectionNow),
             ],
           ),
         );
       },
     );
+  }
+
+  void optionSelect(SearchScreenController ctrl, val) {
+    ctrl.optionTap(val);
   }
 }
