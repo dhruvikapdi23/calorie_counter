@@ -9,10 +9,10 @@ class RouteName {
   static String language = "/language";
   static String mealDetail = "/mealDetail";
   static String search = "/search";
-  static String webView = "/webView";
-  static String signIn = "/signIn";
-  static String signUp = "/signUp";
-  static String forgotPassword = "/forgotPassword";
+  static String foodDetail = "/foodDetail";
+  static String filter = "/filter";
+  static String addFood = "/addFood";
+  static String scanImage = "/scanImage";
   static String changePassword = "/changePassword";
   static String otp = "/otp";
   static String chat = "/chat";

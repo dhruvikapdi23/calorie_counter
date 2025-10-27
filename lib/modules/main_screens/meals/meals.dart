@@ -1,4 +1,5 @@
 import 'package:calorie_counter/app_config.dart';
+import 'package:calorie_counter/extension/widget_extension.dart';
 import 'meals_controller.dart';
 import 'meals_widget_class.dart';
 
@@ -49,7 +50,7 @@ class _MealsState extends State<Meals> {
               ),
             ),
             actions: [
-              CommonClass.commonBgCircleIcon(AppSvg.frame),
+              CommonClass.commonBgCircleIcon(AppSvg.frame).inkWell(onTap: ()=> scanTap()),
 
               HSpace(4),
               CommonClass.commonBgCircleIcon(AppSvg.bell),
@@ -100,5 +101,9 @@ class _MealsState extends State<Meals> {
 
   void onTapFunction(MealsController ctrl, title) {
     ctrl.categorySelect(title);
+  }
+
+  void scanTap() {
+    Get.toNamed(RouteName.scanImage);
   }
 }

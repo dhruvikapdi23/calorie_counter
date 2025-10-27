@@ -8,7 +8,7 @@ class AppTextField extends StatelessWidget {
   final String? labelText;
   final String? hintText;
   final String? tag;
-  final double? height, bRadius;
+  final double? height, bRadius,bottomSpace;
   final bool isAuth, isEmpty;
   final String img;
   final TextEditingController? controller;
@@ -41,6 +41,7 @@ class AppTextField extends StatelessWidget {
         this.hintText,
         this.tag,
         this.height = 45,
+        this.bottomSpace,
         this.isAuth = false,
         this.isEmpty = false,
         this.autoValidate = true,
@@ -92,7 +93,7 @@ class AppTextField extends StatelessWidget {
                 Text(labelText!.tr,
                     style: labelStyle ??
                        AppCss.soraRegular14.copyWith(color: AppColors.black1))
-                    .marginOnly(bottom: AppDimens.dimen8),
+                    .marginOnly(bottom:bottomSpace?? AppDimens.dimen8),
               Theme(
                   data: ThemeData(canvasColor: AppColors.white),
                   child: TextFormField(

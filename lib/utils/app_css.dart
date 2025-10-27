@@ -99,6 +99,7 @@ class AppCss {
   static TextStyle soraRegular20 = sora(fontWeight: regular,fontsize:FontSizes.f20);
   static TextStyle soraRegular18 = sora(fontWeight: regular,fontsize:FontSizes.f18);
   static TextStyle soraRegular16 = sora(fontWeight: regular,fontsize:FontSizes.f16);
+  static TextStyle soraRegular15 = sora(fontWeight: regular,fontsize:FontSizes.f15);
   static TextStyle soraRegular14 = sora(fontWeight: regular,fontsize:FontSizes.f14);
   static TextStyle soraRegular13 = sora(fontWeight: regular,fontsize:FontSizes.f13);
   static TextStyle soraRegular12 = sora(fontWeight: regular,fontsize:FontSizes.f12);

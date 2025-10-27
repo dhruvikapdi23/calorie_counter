@@ -73,6 +73,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
+  camera:
+    dependency: "direct main"
+    description:
+      name: camera
+      sha256: "87a27e0553e3432119c1c2f6e4b9a1bbf7d2c660552b910bfa59185a9facd632"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.11.2+1"
+  camera_android_camerax:
+    dependency: transitive
+    description:
+      name: camera_android_camerax
+      sha256: b68b638e5e0ede21155e670493ac568981a8f56c5f636d720935a916a1c5a0ef
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.24"
+  camera_avfoundation:
+    dependency: transitive
+    description:
+      name: camera_avfoundation
+      sha256: "75bd22c0cf97d89a528d505e0f10bc8a0d08f0e218ca999812af1076c72d5907"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.22+3"
+  camera_platform_interface:
+    dependency: transitive
+    description:
+      name: camera_platform_interface
+      sha256: ea1ef6ba79cdbed93df2d3eeef11542a90dec24dbcd9cde574926b86d7a09a10
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.11.0"
+  camera_web:
+    dependency: transitive
+    description:
+      name: camera_web
+      sha256: "595f28c89d1fb62d77c73c633193755b781c6d2e0ebcd8dc25b763b514e6ba8f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.5"
   carousel_slider:
     dependency: "direct main"
     description:
@@ -153,6 +193,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  dotted_border:
+    dependency: "direct main"
+    description:
+      name: dotted_border
+      sha256: "99b091ec6891ba0c5331fdc2b502993c7c108f898995739a73c6845d71dad70c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
   equatable:
     dependency: transitive
     description:
@@ -246,6 +294,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.1"
+  flutter_inner_shadow:
+    dependency: "direct main"
+    description:
+      name: flutter_inner_shadow
+      sha256: b50693ec5214700340e20b920835af4504b788673da2217a794eea95309a4de0
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   flutter_launcher_icons:
     dependency: "direct main"
     description:
@@ -336,6 +392,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.3.2"
+  google_mlkit_commons:
+    dependency: transitive
+    description:
+      name: google_mlkit_commons
+      sha256: "8f40fbac10685cad4715d11e6a0d86837d9ad7168684dfcad29610282a88e67a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.11.0"
+  google_mlkit_image_labeling:
+    dependency: "direct main"
+    description:
+      name: google_mlkit_image_labeling
+      sha256: "2cac5f7a02dcc23cd3357f89bf1a79df793ae3afce5035a896de467ffa0192e8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.14.1"
   html:
     dependency: transitive
     description:
@@ -632,6 +704,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.28.0"
+  scanning_effect:
+    dependency: "direct main"
+    description:
+      name: scanning_effect
+      sha256: c6083d7e400e6cd0801171b95a0aefdbc62e5f3410dc189d5f9b65e7333660c8
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.11"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -709,6 +789,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  stream_transform:
+    dependency: transitive
+    description:
+      name: stream_transform
+      sha256: ad47125e588cfd37a9a7f86c7d6356dde8dfe89d071d293f80ca9e9273a33871
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1"
   string_scanner:
     dependency: transitive
     description:
@@ -717,6 +805,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.1"
+  syncfusion_flutter_charts:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_charts
+      sha256: "6b4911db95b7a4ecd7161d75df74a14b95831bfd6311f2cdd415dca4e180b084"
+      url: "https://pub.dev"
+    source: hosted
+    version: "31.2.3"
+  syncfusion_flutter_core:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_core
+      sha256: d03c43f577cdbe020d1632bece00cbf8bec4a7d0ab123923b69141b5fec35420
+      url: "https://pub.dev"
+    source: hosted
+    version: "31.2.3"
   synchronized:
     dependency: transitive
     description:
@@ -838,5 +942,5 @@ packages:
     source: hosted
     version: "3.1.3"
 sdks:
-  dart: ">=3.8.1 <4.0.0"
-  flutter: ">=3.29.0"
+  dart: ">=3.9.0 <4.0.0"
+  flutter: ">=3.35.1"

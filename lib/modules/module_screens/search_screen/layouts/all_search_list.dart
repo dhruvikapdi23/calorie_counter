@@ -1,3 +1,4 @@
+import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:calorie_counter/modules/module_screens/search_screen/search_screen_controller.dart';
 
 import '../../../../app_config.dart';
@@ -120,11 +121,17 @@ class _AllSearchListState extends State<AllSearchList> {
                     SvgPicture.asset(AppSvg.copy),
                     SvgPicture.asset(AppSvg.trash),
                   ],
-                )
+                ),
+
             ],
           ),
-        );
+        ).inkWell(onTap: ()=>onTap(foodItem));
       },
     );
+  }
+  
+  
+  onTap(val){
+    Get.toNamed(RouteName.foodDetail,arguments: val);
   }
 }

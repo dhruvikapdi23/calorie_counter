@@ -101,6 +101,7 @@ class Fonts {
   static String discovery = "discovery";
   static String report = "report";
   static String settings = "settings";
+
   String optionPushUp(val) => "pusUp".trParams({'option': val});
 
   String dayFree(val) => "dayFree".trParams({'day': val});
@@ -113,7 +114,6 @@ class Fonts {
   static String francais = 'francais';
   static String portugues = 'portugues';
   static String arabic = 'arabic';
-
 
   // titles
   static String name = 'name';
@@ -186,21 +186,67 @@ class Fonts {
   static String viewAll = 'viewAll';
   static String lunchSelection = 'lunchSelection';
   static String dinnerSelection = 'dinnerSelection';
-  static String search ="search";
-  static String searchFood ="searchFood";
-  static String favourites ="favourites";
-  static String myFood ="myFood";
-  static String plates ="plates";
-  static String noResultsFound ="noResultsFound";
-  static String noResultsFoundDesc ="noResultsFoundDesc";
-  static String addFood ="addFood";
-  static String yourFavouritesListIsEmpty ="yourFavouritesListIsEmpty";
-  static String startBuildingYourCollectionNow ="startBuildingYourCollectionNow";
-  static String yourFoodListIsEmpty ="yourFoodListIsEmpty";
-  static String startAddingMealsToSeeThemHere ="startAddingMealsToSeeThemHere";
+  static String search = "search";
+  static String searchFood = "searchFood";
+  static String favourites = "favourites";
+  static String myFood = "myFood";
+  static String plates = "plates";
+  static String noResultsFound = "noResultsFound";
+  static String noResultsFoundDesc = "noResultsFoundDesc";
+  static String addFood = "addFood";
+  static String yourFavouritesListIsEmpty = "yourFavouritesListIsEmpty";
+  static String startBuildingYourCollectionNow =
+      "startBuildingYourCollectionNow";
+  static String yourFoodListIsEmpty = "yourFoodListIsEmpty";
+  static String startAddingMealsToSeeThemHere = "startAddingMealsToSeeThemHere";
+  static String all = "All";
+  static String sweet = "Sweet";
+  static String savory = "savory";
+  static String meatFree = "meatFree";
+  static String parkFree = "parkFree";
+  static String fishFree = "fishFree";
+  static String highProteinFibreHealthyFats = "highProteinFibreHealthyFats";
+  static String dailyMealBreakdown = "dailyMealBreakdown";
+  static String addExtraMeal = "addExtraMeal";
+  static String dailyWeightLossPlan = "dailyWeightLossPlan";
+  static String filters = "filters";
+  static String selectCategory = "selectCategory";
+  static String displayOfResultByOrder = "displayOfResultByOrder";
+  static String alphabetical = "alphabetical";
+  static String caloriesPerGrams = "caloriesPerGrams";
+  static String min = "min";
+  static String max = "max";
+  static String kcal = "kcal";
+  static String reset = "reset";
+  static String createFood = "createFood";
+  static String addImage = "addImage";
+  static String addPicture = "addPicture";
+  static String foodName = "foodName";
+  static String enterFoodName = "enterFoodName";
+  static String doNotEnterQuantity = "doNotEnterQuantity";
+  static String foodOverview = "foodOverview";
+  static String scanMeals = "scanMeals";
+  static String calorieReport = "calorieReport";
+  static String dailyProgress = "dailyProgress";
+  static String exerciseAccording = "exerciseAccording";
+  static String eaten = "eaten";
+  static String burned = "burned";
+  static String kcalLeft = "kcalLeft";
+  static String carbs = "carbs";
+  static String fat = "fat";
+  static String currentWeight = "currentWeight";
+  static String modify = "modify";
+  static String month = "month";
+  static String year = "year";
 
 
-
+  static String clearProfessional ="clearProfessional";
+  static String healthyLifestyleThemes ="healthyLifestyleThemes";
+  static String motivational ="motivational";
+  static String foodFocusedCatchy ="foodFocusedCatchy";
+  static String aircraftSize ="aircraftSize";
+  static String whatToEat ="whatToEat";
+  static String discover ="discover";
 
   String areYourSureYouWantToRemove(val) =>
       "areYourSureYouWantToRemove".trParams({'name': val});

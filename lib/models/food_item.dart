@@ -4,11 +4,13 @@ class FoodItem {
   final String weight;
   final String calories;
   final String image;
+  final String userCount;
 
   FoodItem({
     required this.name,
     required this.weight,
     required this.calories,
     required this.image,
+    required this.userCount,
   });
 }

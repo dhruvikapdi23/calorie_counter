@@ -7,6 +7,7 @@ import 'package:calorie_counter/widgets/common_image_layout.dart';
 
 import '../../main_screens/meals/meals_widget_class.dart';
 import 'layouts/all_search_list.dart';
+import 'layouts/plate_search.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -28,16 +29,17 @@ class SearchScreen extends StatelessWidget {
             ),
 
             actions: [
-              CommonClass.commonCircleIcon(AppSvg.filter),
+              CommonClass.commonCircleIcon(AppSvg.filter).inkWell(onTap: ()=>filterTap()),
 
               HSpace(4),
-              CommonClass.commonCircleIcon(AppSvg.scan),
+              CommonClass.commonCircleIcon(AppSvg.scan).inkWell(onTap: ()=> scanTap()),
               HSpace(16),
             ],
           ),
-          bottomNavigationBar: appButton(
+          bottomNavigationBar: ctrl.selectedOption != Fonts.plates? appButton(
             Fonts.addFood.tr,
-          ).padding(horizontal: 16, bottom: 30),
+              onTap: ()=>Get.toNamed(RouteName.addFood)
+          ).padding(horizontal: 16, bottom: 30):null,
           body: Stack(
             children: [
               ListView(
@@ -63,9 +65,13 @@ class SearchScreen extends StatelessWidget {
                     selectedOption: ctrl.selectedOption,
                   ),
                   VSpace(12),
-                  if (ctrl.search.text.isNotEmpty && ctrl.searchList.isNotEmpty && ctrl.selectedOption ==null)
-                    AllSearchList(list: ctrl.searchList,),
-                  if (ctrl.search.text.isNotEmpty && ctrl.searchList.isEmpty && ctrl.selectedOption != null)
+                  if (ctrl.search.text.isNotEmpty &&
+                      ctrl.searchList.isNotEmpty &&
+                      ctrl.selectedOption == null)
+                    AllSearchList(list: ctrl.searchList),
+                  if (ctrl.search.text.isNotEmpty &&
+                      ctrl.searchList.isEmpty &&
+                      ctrl.selectedOption != null)
                     IndexedStack(
                       index: ctrl.selectedOption == Fonts.favourites
                           ? 0
@@ -78,24 +84,47 @@ class SearchScreen extends StatelessWidget {
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),
                           itemBuilder: (context, i) {
-                            return MealsWidgetClass.buildMealCard(ctrl.favSearch![i],() {
-
-                            },);
+                            return MealsWidgetClass.buildMealCard(
+                              ctrl.favSearch![i],
+                              () {},
+                            );
                           },
                         ),
 
-                        AllSearchList(list: ctrl.myFood,isAction: true,),
-                        Container()
+                        AllSearchList(list: ctrl.myFood, isAction: true),
+                        PlateSearchList(
+                          list: ctrl.platesSearch,
+                          isPlates: true,
+                          selectedPlate: ctrl.selectedPlate,
+                          onTap: (val) => ctrl.plateOptionSelect(val),
+                        ),
                       ],
-                    )
-
+                    ),
                 ],
               ),
-              if (ctrl.search.text.isNotEmpty && ctrl.searchList.isEmpty && ctrl.selectedOption ==null)
-                CommonEmptyLayout(title: Fonts.noResultsFound, desc: Fonts.noResultsFoundDesc),
+              if (ctrl.search.text.isNotEmpty &&
+                  ctrl.searchList.isEmpty &&
+                  ctrl.selectedOption == null)
+                CommonEmptyLayout(
+                  title: Fonts.noResultsFound,
+                  desc: Fonts.noResultsFoundDesc,
+                ),
 
-              if (ctrl.search.text.isNotEmpty && ctrl.searchList.isEmpty && ctrl.selectedOption == Fonts.favourites)
-                CommonEmptyLayout(title: Fonts.yourFavouritesListIsEmpty, desc: Fonts.startBuildingYourCollectionNow),
+              if (ctrl.search.text.isNotEmpty &&
+                  ctrl.myFood.isEmpty &&
+                  ctrl.selectedOption == Fonts.favourites)
+                CommonEmptyLayout(
+                  title: Fonts.yourFavouritesListIsEmpty,
+                  desc: Fonts.startBuildingYourCollectionNow,
+                ),
+
+              if (ctrl.search.text.isNotEmpty &&
+                  ctrl.platesSearch.isEmpty &&
+                  ctrl.selectedOption == Fonts.plates)
+                CommonEmptyLayout(
+                  title: Fonts.yourFavouritesListIsEmpty,
+                  desc: Fonts.startBuildingYourCollectionNow,
+                ),
             ],
           ),
         );
@@ -105,5 +134,12 @@ class SearchScreen extends StatelessWidget {
 
   void optionSelect(SearchScreenController ctrl, val) {
     ctrl.optionTap(val);
+  }
+  void filterTap() {
+    Get.toNamed(RouteName.filter);
+  }
+
+  void scanTap() {
+    Get.toNamed(RouteName.scanImage);
   }
 }

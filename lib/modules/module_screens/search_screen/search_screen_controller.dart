@@ -11,11 +11,19 @@ class SearchScreenController extends GetxController {
   List<FoodItem> searchList = [];
   List<FoodItem> myFood = [];
   List<MealsModel> favSearch = [];
+  List<FoodItem> platesSearch = [];
   String? selectedOption;
+  String selectedPlate = "all";
 
   optionTap(val) {
     selectedOption = val;
     searchFood(search.text);
+    update();
+  }
+
+  plateOptionSelect(val) {
+    selectedPlate = val;
+
     update();
   }
 
@@ -35,6 +43,11 @@ class SearchScreenController extends GetxController {
         }).toList();
       } else if (selectedOption == Fonts.myFood) {
         myFood = AppArray.foodItems.where((element) {
+          if (name == null || name.isEmpty) return true;
+          return element.name.toLowerCase().contains(name.toLowerCase());
+        }).toList();
+      } else if (selectedOption == Fonts.plates) {
+        platesSearch = AppArray.foodItems.where((element) {
           if (name == null || name.isEmpty) return true;
           return element.name.toLowerCase().contains(name.toLowerCase());
         }).toList();

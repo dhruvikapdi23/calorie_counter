@@ -6,6 +6,9 @@ class AppImages {
   static const String logout = "assets/images/logout.png";
   static const String delete = "assets/images/delete.png";
   static const String noData = "assets/images/no_data.png";
+  static const String alcohol = "assets/images/alcohol.png";
+  static const String overview = "assets/images/overview.png";
+  static const String scanImage = "assets/images/scan_image.png";
 
 
   //food
@@ -36,6 +39,17 @@ class AppImages {
   static const String ds6 = "assets/images/food/ds6.png";
   static const String ds7 = "assets/images/food/ds7.png";
   static const String ds8 = "assets/images/food/ds8.png";
+
+  static const String discover1 = "assets/images/discover/discover1.png";
+  static const String discover2 = "assets/images/discover/discover2.png";
+  static const String discover3 = "assets/images/discover/discover3.png";
+  static const String discover4 = "assets/images/discover/discover4.png";
+  static const String discover5 = "assets/images/discover/discover5.png";
+  static const String discover6 = "assets/images/discover/discover6.png";
+  static const String discover7 = "assets/images/discover/discover7.png";
+
+  static const String user = "assets/images/user.png";
+
 
 }
 
@@ -115,5 +129,11 @@ class AppSvg {
   static const String search1 = "assets/svg/search1.svg";
   static const String spoon = "assets/svg/spoon.svg";
   static const String more = "assets/svg/more.svg";
+  static const String pickImage = "assets/svg/pick_image.svg";
+  static const String flash = "assets/svg/flash.svg";
+  static const String flashOn = "assets/svg/flash_on.svg";
+  static const String eaten = "assets/svg/eaten.svg";
+  static const String fire = "assets/svg/fire.svg";
+  static const String camera = "assets/svg/camera.svg";
 
 }

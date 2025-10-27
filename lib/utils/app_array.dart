@@ -813,33 +813,37 @@ class AppArray {
       weight: '200 g',
       calories: '350 kcal',
       image: AppImages.bs1,
-    ), FoodItem(
+      userCount: "1",
+    ),
+    FoodItem(
       name: 'Green Sandwich',
       weight: '200 g',
       calories: '350 kcal',
       image: AppImages.bs1,
+      userCount: "20",
     ),
     FoodItem(
       name: 'Avocado Delight Toastie',
       weight: '100 g',
       calories: '200 kcal',
       image: AppImages.bs3,
+      userCount: "10",
     ),
     FoodItem(
       name: 'Crispy Avo Crunch',
       weight: '150 g',
       calories: '300 kcal',
       image: AppImages.bs2,
+      userCount: "8",
     ),
     FoodItem(
       name: 'Creamy Avocado Bite',
       weight: '100 g',
       calories: '220 kcal',
       image: AppImages.bs5,
+      userCount: "1",
     ),
   ];
-
-
 
   static List<MealsModel> favList = [
     MealsModel(
@@ -871,5 +875,20 @@ class AppArray {
       protein: 40,
       isFavourite: true,
     ),
+  ];
+
+  static List<String> platesOption = [
+    Fonts.all,
+    Fonts.sweet,
+    Fonts.savory,
+    Fonts.meatFree,
+    Fonts.parkFree,
+    Fonts.fishFree,
+  ];
+
+  static List filterCategory = [
+    {"title": "Alcohol", "image": AppImages.alcohol},
+    {"title": "Food", "image": AppImages.bs3},
+    {"title": "Alcohol", "image": AppImages.alcohol},
   ];
 }

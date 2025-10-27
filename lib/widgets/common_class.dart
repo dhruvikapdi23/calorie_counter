@@ -57,10 +57,10 @@ class CommonClass {
     child: SvgPicture.asset(icon),
   );
 
-  static Widget commonKgCmSuffixIcon(text) => Container(
+  static Widget commonKgCmSuffixIcon(text,{double? width}) => Container(
     margin: EdgeInsets.all(8),
     height: 30,
-    width: 30,
+    width:width?? 30,
     alignment: Alignment.center,
     decoration: BoxDecoration(
       color: AppColors.lightPrimaryColor,
@@ -69,6 +69,7 @@ class CommonClass {
     ),
     child: Text(
       text,
+      textAlign: TextAlign.center,
       style: AppCss.soraRegular14.copyWith(color: AppColors.primaryColor),
     ),
   );
@@ -80,5 +81,39 @@ class CommonClass {
       borderRadius: BorderRadius.circular(5),
     ),
     child: SvgPicture.asset(svg),
+  );
+
+  static Widget displayOfResultByOrder(title, selected) => Container(
+    padding: EdgeInsets.all(13),
+    alignment: Alignment.center,
+    decoration: BoxDecoration(
+      color: selected == title
+          ? AppColors.primaryColor
+          : AppColors.lightGrey.withValues(alpha: .20),
+      borderRadius: BorderRadius.circular(selected == title ? 12 : 6),
+    ),
+    child: Text(
+      title.toString().tr,
+      style: selected == title
+          ? AppCss.soraMedium14.copyWith(color: AppColors.white)
+          : AppCss.soraRegular14.copyWith(color: AppColors.gary),
+    ),
+  );
+
+  static Widget caloriesGram(title,value) => Column(
+    spacing: 3,
+    crossAxisAlignment: title == Fonts.max?CrossAxisAlignment.end: CrossAxisAlignment.start,
+    children: [
+      Text(
+        title.toString().tr,
+        style: AppCss.soraMedium12.copyWith(
+          color: AppColors.gary,
+        ),
+      ),
+      Text(
+        "$value ${Fonts.kcal.tr}",
+        style: AppCss.soraRegular16,
+      ),
+    ],
   );
 }
