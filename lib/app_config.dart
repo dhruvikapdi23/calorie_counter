@@ -37,5 +37,6 @@ export 'package:calorie_counter/modules/main_screens/setting/layouts/logout_dele
 export '../../../../widgets/common_image_layout.dart';
 export '../../../widgets/common_food_list_layout.dart';
 export 'package:calorie_counter/widgets/food_overview.dart';
+export 'package:calorie_counter/utils/constants.dart';
 
 export 'package:calorie_counter/utils/app_validation.dart';

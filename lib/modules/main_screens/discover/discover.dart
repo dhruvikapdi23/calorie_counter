@@ -1,5 +1,4 @@
 import 'package:calorie_counter/app_config.dart';
-import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:calorie_counter/modules/main_screens/discover/layouts/clear_professional.dart';
 import '../../../widgets/common_dot_list.dart';
 import 'discover_controller.dart';

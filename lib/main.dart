@@ -1,10 +1,15 @@
+import 'dart:async';
 import 'dart:io';
 
+
+import 'package:calorie_counter/utils/utils.dart';
+import 'package:sizer/sizer.dart';
 
 import 'app_config.dart';
 import 'languages/language_translate.dart';
 import 'modules/auth_screens/splash_screen/splash_screen.dart';
 import 'routes/route_method.dart';
+import 'utils/app_preferences.dart';
 
 
 
@@ -18,40 +23,68 @@ class MyHttpOverrides extends HttpOverrides {
   }
 }
 
-
 Future<void> main() async {
   await AppHelper.init();
   HttpOverrides.global = MyHttpOverrides();
 
 
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
+  // await FireBaseNotification().setUpLocalNotification();
+  // FirebaseAnalyticsUtils().init();
+  // FirebaseCrashlytics crashlytics = FirebaseCrashlytics.instance;
+  runZonedGuarded<Future<void>>(() async {
+    // await crashlytics.setCrashlyticsCollectionEnabled(true);
+    // FlutterError.onError = crashlytics.recordFlutterError;
+    await AppPreference.initMySharedPreferences();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    runApp(const MyApp());
+  }, (error, stack) => print(error));
+  // crashlytics.recordError(error, stack));
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: Fonts.appName,
-        theme: AppTheme.light,
-        getPages: AppRoute().getPages,
-        translations: Language(),
-        locale: const Locale('en', 'US'),
-        fallbackLocale: const Locale('en', 'US'),
-        themeMode: ThemeMode.light,
-        builder: (context, child) {
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(
-                textScaler: TextScaler.linear(FontDimen.textScaleFactor)),
-            child: SafeArea(
-              top: false,
-              bottom: Platform.isIOS ? false : true,
-              child: child!,
-            ),
-          );
-        },
-        home: const SplashScreen());
+    return Sizer(
+        builder: (context, orientation, deviceType) {
+        return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: Fonts.appName.tr,
+            theme: AppTheme.light,
+            getPages: AppRoute().getPages,
+            translations: Language(),
+            locale: const Locale('en', 'US'),
+            initialBinding: AppBidding(),
+
+            fallbackLocale: const Locale('en', 'US'),
+            themeMode: ThemeMode.light,
+            builder: (context, child) {
+              return Scaffold(
+                body: GestureDetector(
+                  onTap: () {
+                    Utils.hideKeyboardInApp(context);
+                  },
+                  child: child,
+                ),
+              );
+            },
+            home: const SplashScreen());
+      }
+    );
   }
+}
+
+
+
+class AppBidding extends Bindings {
+  @override
+  void dependencies() {}
 }
