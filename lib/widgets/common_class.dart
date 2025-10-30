@@ -1,4 +1,5 @@
 import 'package:calorie_counter/app_config.dart';
+import 'package:calorie_counter/extension/widget_extension.dart';
 
 class CommonClass {
   static Widget commonWeightHeightTextLayout(context, title, value) =>
@@ -57,10 +58,10 @@ class CommonClass {
     child: SvgPicture.asset(icon),
   );
 
-  static Widget commonKgCmSuffixIcon(text,{double? width}) => Container(
+  static Widget commonKgCmSuffixIcon(text, {double? width}) => Container(
     margin: EdgeInsets.all(8),
     height: 30,
-    width:width?? 30,
+    width: width ?? 30,
     alignment: Alignment.center,
     decoration: BoxDecoration(
       color: AppColors.lightPrimaryColor,
@@ -100,20 +101,58 @@ class CommonClass {
     ),
   );
 
-  static Widget caloriesGram(title,value) => Column(
+  static Widget caloriesGram(title, value) => Column(
     spacing: 3,
-    crossAxisAlignment: title == Fonts.max?CrossAxisAlignment.end: CrossAxisAlignment.start,
+    crossAxisAlignment: title == Fonts.max
+        ? CrossAxisAlignment.end
+        : CrossAxisAlignment.start,
     children: [
       Text(
         title.toString().tr,
-        style: AppCss.soraMedium12.copyWith(
-          color: AppColors.gary,
+        style: AppCss.soraMedium12.copyWith(color: AppColors.gary),
+      ),
+      Text("$value ${Fonts.kcal.tr}", style: AppCss.soraRegular16),
+    ],
+  );
+
+  static Widget buildFilterChip(
+    String label, {
+    bool isSelected = false,
+    GestureTapCallback? onTap,
+  }) {
+    return Container(
+      child: Text(
+        label,
+        style: AppCss.soraRegular12.copyWith(
+          color: isSelected ? Colors.white : AppColors.gary,
         ),
       ),
-      Text(
-        "$value ${Fonts.kcal.tr}",
-        style: AppCss.soraRegular16,
+      decoration: BoxDecoration(
+        color: isSelected ? AppColors.primaryColor : AppColors.white,
+        borderRadius: BorderRadius.circular(6),
+        border: Border.all(
+          color: isSelected ? AppColors.primaryColor : AppColors.strokeColor,
+        ),
       ),
-    ],
+
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 7),
+    ).inkWell(onTap: onTap);
+  }
+
+  static commonContainerClass(Widget child, {EdgeInsets? padding,EdgeInsets? margin}) => Container(
+    margin: margin,
+    padding: padding,
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(12),
+      boxShadow: [
+        BoxShadow(
+          color: AppColors.black.withValues(alpha: .05),
+          offset: Offset(0, 10),
+          blurRadius: 20,
+        ),
+      ],
+    ),
+    child: child,
   );
 }

@@ -12,21 +12,8 @@ class Setting extends StatelessWidget {
       init: SettingController(),
       builder: (ctrl) {
         return Scaffold(
-          appBar: AppBar(
-            backgroundColor: AppColors.primaryColor,
-            toolbarHeight: 72,
-            title: Text(
-              Fonts.settings.tr,
-              style: AppCss.soraSemiBold24.copyWith(color: AppColors.white),
-            ),
-            actions: [
-              CommonClass.commonBgCircleIcon(AppSvg.frame),
+          appBar: CommonAppBar(title: Fonts.settings.tr),
 
-              HSpace(4),
-              CommonClass.commonBgCircleIcon(AppSvg.bell),
-              HSpace(16),
-            ],
-          ),
           bottomNavigationBar: appButton(
             Fonts.logout.tr,
             onTap: ()=>onLogout(ctrl),

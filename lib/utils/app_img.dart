@@ -135,5 +135,6 @@ class AppSvg {
   static const String eaten = "assets/svg/eaten.svg";
   static const String fire = "assets/svg/fire.svg";
   static const String camera = "assets/svg/camera.svg";
+  static const String export = "assets/svg/export.svg";
 
 }

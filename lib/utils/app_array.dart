@@ -891,4 +891,33 @@ class AppArray {
     {"title": "Food", "image": AppImages.bs3},
     {"title": "Alcohol", "image": AppImages.alcohol},
   ];
+
+  static List clearProfessional = [
+    {"title": "Slim Fuel Plan", "image": AppImages.discover1},
+    {"title": "NutriLean Program", "image": AppImages.discover2},
+    {"title": "NutriLean Program", "image": AppImages.discover1},
+    {"title": "Slim Fuel Plan", "image": AppImages.discover1},
+  ];
+
+  static List foodFocused = [
+    {"title": "Fork to Fit", "image": AppImages.discover6},
+    {"title": "Portion Power Plan", "image": AppImages.discover7},
+    {"title": "Portion Power Plan", "image": AppImages.discover7},
+    {"title": "Fork to Fit", "image": AppImages.discover6},
+  ];
+
+  static List healthyLifeStyle = [
+    {
+      "title": "Wholesome Weigh",
+      "image": AppImages.discover3,
+      "description": "Balanced macros (protein, healthy fats, complex carbs)",
+      "subTitle": "Whole, minimally processed foods",
+    },
+    {
+      "title": "Green Plate Plan",
+      "image": AppImages.discover4,
+      "description": "Mostly plant-based, with optional dairy or lean protein",
+      "subTitle": "At least 50% of every plate is vegetables",
+    },
+  ];
 }

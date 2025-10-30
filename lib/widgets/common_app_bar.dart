@@ -8,6 +8,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final TextStyle? textStyle;
   final GestureTapCallback? onTap;
+  final bool bottomWidget;
 
   const CommonAppBar(
       {super.key,
@@ -15,42 +16,55 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
       this.isBack = false,
       this.actions,
       this.versionCode,
-      this.onTap, this.textStyle});
+      this.onTap, this.textStyle,this.bottomWidget =false});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      toolbarHeight: 90,
-      centerTitle: true,
-      surfaceTintColor: Colors.transparent,
-      leadingWidth: AppDimens.dimen60,
-      automaticallyImplyLeading: false,
-      backgroundColor: Get.theme.scaffoldBackgroundColor,
-      leading: isBack
-          ? SvgPicture.asset(AppSvg.arrowLeft,
-                  fit: BoxFit.scaleDown,
-                  colorFilter: ColorFilter.mode(
-                      Get.theme.iconTheme.color!, BlendMode.srcIn))
-              .inkWell(onTap: onTap ?? () => Get.back())
-          : null,
-      actions: actions,
-      title: Column(
-        children: [
-          Text(title!.tr,
-              style: textStyle?? Get.theme.textTheme.displaySmall!.copyWith(
-                fontFamily: GoogleFonts.mulish().fontFamily,
-                  fontSize: FontDimen.dimen24, fontWeight: FontWeight.w700)),
-          if (versionCode != null)
-            Text(versionCode!,
-                    style: Get.theme.textTheme.displayMedium!
-                        .copyWith(fontSize: 14, color: Get.theme.primaryColor))
-                .paddingOnly(top: AppDimens.dimen5),
-        ],
+      backgroundColor: AppColors.primaryColor,
+      toolbarHeight: 72,
+      title: Text(
+        title!,
+        style: AppCss.soraSemiBold24.copyWith(color: AppColors.white),
       ),
+      bottom: bottomWidget? PreferredSize(
+        preferredSize: Size.fromHeight(50),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 18,
+          ),
+          child: AppTextField(
+            color: AppColors.white,
+            onTap: ()=> Get.toNamed(RouteName.search),
+
+            bRadius: 12,
+            hintText: Fonts.searchForAFoodItem.tr,
+            hintStyle: AppCss.soraRegular14.copyWith(
+              color: AppColors.gary,
+            ),
+            prefixIcon: SvgPicture.asset(
+              AppSvg.search1,
+            ).paddingSymmetric(horizontal: 14),
+            suffixIcon: SvgPicture.asset(
+              AppSvg.filter,
+            ).paddingSymmetric(horizontal: 14),
+          ),
+        ),
+      ):null,
+      actions: [
+        CommonClass.commonBgCircleIcon(
+          AppSvg.frame,
+        ).inkWell(onTap: () => onTap!()),
+
+        HSpace(4),
+        CommonClass.commonBgCircleIcon(AppSvg.bell),
+        HSpace(16),
+      ],
     );
   }
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(90);
+  Size get preferredSize =>  Size.fromHeight(bottomWidget?72:80);
 }
