@@ -1,3 +1,4 @@
+import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:calorie_counter/widgets/common_dot_list.dart';
 
 import '../../../../app_config.dart';
@@ -6,11 +7,18 @@ class RowDiscoverOption extends StatelessWidget {
   final String title;
   final int currentStep;
   final List array;
-  const RowDiscoverOption({super.key, required this.title, required this.currentStep, required this.array});
+
+  const RowDiscoverOption({
+    super.key,
+    required this.title,
+    required this.currentStep,
+    required this.array,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title, style: AppCss.soraSemiBold16),
         VSpace(16),
@@ -19,17 +27,14 @@ class RowDiscoverOption extends StatelessWidget {
           child: ListView.separated(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: array.length,  separatorBuilder: (context, index) => const SizedBox(width: 12),
+            itemCount: array.length,
+            separatorBuilder: (context, index) => const SizedBox(width: 12),
 
             itemBuilder: (context, index) {
               dynamic data = array[index];
               return Container(
                 width: 179,
-                padding: EdgeInsets.only(
-                  top: 10,
-                  left: 10,
-                  right: 10,
-                ),
+                padding: EdgeInsets.only(top: 10, left: 10, right: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   color: AppColors.white,
@@ -43,9 +48,8 @@ class RowDiscoverOption extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
 
                         image: DecorationImage(
-                            image: AssetImage(data['image']),
-                            fit: BoxFit.cover
-
+                          image: AssetImage(data['image']),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -53,19 +57,24 @@ class RowDiscoverOption extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(data['title'],style: AppCss.soraMedium12),
-                        SvgPicture.asset(AppSvg.export)
+                        Text(data['title'], style: AppCss.soraMedium12),
+                        SvgPicture.asset(AppSvg.export),
                       ],
-                    )
+                    ),
                   ],
                 ),
-              );
+              ).inkWell(onTap: ()=>onFoodTap(data));
             },
           ),
         ),
         VSpace(16),
-        CommonDotList(array: array, currentStep: currentStep)
+        CommonDotList(array: array, currentStep: currentStep),
       ],
     );
   }
+
+  onFoodTap(data){
+    Get.toNamed(RouteName.discoverDetail,arguments: data);
+  }
+
 }

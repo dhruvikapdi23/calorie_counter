@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:calorie_counter/modules/main_screens/discover/discover.dart';
+import 'package:calorie_counter/modules/main_screens/home/home.dart';
 import 'package:calorie_counter/modules/main_screens/meals/meals.dart';
 import 'package:calorie_counter/modules/main_screens/report/report.dart';
 import 'package:calorie_counter/modules/main_screens/setting/setting.dart';
@@ -13,7 +14,7 @@ class DashboardController extends GetxController {
 
 
   List<Widget> get pages => [
-    Container(),
+    Home(),
     Meals(),
     Discover(),
     Report(),

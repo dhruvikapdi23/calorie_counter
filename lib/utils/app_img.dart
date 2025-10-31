@@ -136,5 +136,10 @@ class AppSvg {
   static const String fire = "assets/svg/fire.svg";
   static const String camera = "assets/svg/camera.svg";
   static const String export = "assets/svg/export.svg";
+  static const String add = "assets/svg/add.svg";
+  static const String walkingStep = "assets/svg/walking_step.svg";
+  static const String sleepingTime = "assets/svg/sleeping_time.svg";
+  static const String workouts = "assets/svg/workouts.svg";
+  static const String meditation = "assets/svg/meditation.svg";
 
 }

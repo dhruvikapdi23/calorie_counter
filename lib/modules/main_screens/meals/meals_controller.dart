@@ -9,23 +9,10 @@ import '../../../app_config.dart';
 
 class MealsController extends GetxController {
   int currentStep = 0; // example: currently at step 4 of 14
-MealCategoryModel? selectedCategory;
+  MealCategoryModel? selectedCategory;
 
-  List<Widget> get pages => [
-    Container(),
-    Meals(),
-    Container(),
-    Container(),
-    Setting()
-  ];
-
-  nextTo(val) {
-    currentStep = val;
+  categorySelect(val) {
+    selectedCategory = val;
     update();
   }
-
-categorySelect(val){
-    selectedCategory =val;
-    update();
-}
 }

@@ -7,8 +7,9 @@ import '../../../../models/food_item.dart';
 class AllSearchList extends StatefulWidget {
   final List<FoodItem> list;
   final bool isAction;
+  final bool isGram;
 
-  const AllSearchList({super.key, required this.list, this.isAction = false});
+  const AllSearchList({super.key, required this.list, this.isAction = false,  this.isGram=true});
 
   @override
   State<AllSearchList> createState() => _AllSearchListState();
@@ -26,8 +27,10 @@ class _AllSearchListState extends State<AllSearchList> {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
+
       physics: NeverScrollableScrollPhysics(),
       itemCount: widget.list.length,
+      padding: EdgeInsets.zero,
       itemBuilder: (context, index) {
         final foodItem = widget.list[index];
         final isExpanded = expandedIndex == index;
@@ -65,6 +68,7 @@ class _AllSearchListState extends State<AllSearchList> {
                       Row(
                         spacing: 14,
                         children: [
+                          if(widget.isGram)
                           Row(
                             spacing: 4,
                             children: [
@@ -87,6 +91,7 @@ class _AllSearchListState extends State<AllSearchList> {
                           Row(
                             spacing: 4,
                             children: [
+                              if(widget.isGram)
                               Container(
                                 height: 4,
                                 width: 4,
@@ -112,7 +117,7 @@ class _AllSearchListState extends State<AllSearchList> {
               if (widget.isAction && !isExpanded)
                 GestureDetector(
                   onTap: () => _toggleMenu(index),
-                  child: SvgPicture.asset(AppSvg.more),
+                  child: SvgPicture.asset(AppSvg.more,colorFilter:!widget.isGram? ColorFilter.mode(AppColors.black, BlendMode.srcIn):null),
                 ),
               if(isExpanded)
                 Row(spacing: 16,

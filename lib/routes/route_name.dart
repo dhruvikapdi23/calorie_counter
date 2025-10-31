@@ -13,7 +13,7 @@ class RouteName {
   static String filter = "/filter";
   static String addFood = "/addFood";
   static String scanImage = "/scanImage";
-  static String changePassword = "/changePassword";
+  static String discoverDetail = "/discoverDetail";
   static String otp = "/otp";
   static String chat = "/chat";
   static String groupInfo = "/groupInfo";

@@ -155,4 +155,17 @@ class CommonClass {
     ),
     child: child,
   );
+
+
+  static Widget discoverDetailFeature(title)=> Row(
+    children: [
+      Container(
+        height: 4,
+        width: 4,
+        color: AppColors.white,
+      ),
+      HSpace(12),
+      Text(title,style: AppCss.soraMedium16.copyWith(color: AppColors.white),),
+    ],
+  );
 }

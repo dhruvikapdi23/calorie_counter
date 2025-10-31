@@ -7,9 +7,7 @@ import 'package:calorie_counter/utils/app_session_key.dart';
 
 import '../../../app_config.dart';
 
-class DiscoverController extends GetxController {
+class HomeController extends GetxController {
   int currentStep = 0; // example: currently at step 4 of 14
-MealCategoryModel? selectedCategory;
-
-
+  MealCategoryModel? selectedCategory;
 }

@@ -247,6 +247,13 @@ class Fonts {
   static String aircraftSize ="aircraftSize";
   static String whatToEat ="whatToEat";
   static String discover ="discover";
+  static String addMeal ="addMeal";
+  static String add ="add";
+  static String walkingStep ="walkingStep";
+  static String sleepingTime ="sleepingTime";
+  static String workouts ="workouts";
+  static String meditation ="meditation";
+  static String waterLevel ="waterLevel";
 
   String areYourSureYouWantToRemove(val) =>
       "areYourSureYouWantToRemove".trParams({'name': val});

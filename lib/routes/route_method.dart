@@ -3,6 +3,7 @@ import 'package:calorie_counter/modules/auth_screens/plan/plan.dart';
 import 'package:calorie_counter/modules/main_screens/dashboard/dashboard.dart';
 import 'package:calorie_counter/modules/main_screens/meals/meals_detail.dart';
 import 'package:calorie_counter/modules/module_screens/add_food/add_food.dart';
+import 'package:calorie_counter/modules/module_screens/discover_detail/discover_detail.dart';
 import 'package:calorie_counter/modules/module_screens/filter/filter.dart';
 import 'package:calorie_counter/modules/module_screens/food_detail/food_detail.dart';
 import 'package:calorie_counter/modules/module_screens/general_infomation/general_information.dart';
@@ -52,46 +53,41 @@ class AppRoute {
       name: RouteName.language,
       page: () => const LanguageScreen(),
       transition: Transition.noTransition, // disables animations
-    ),  GetPage(
+    ),
+    GetPage(
       name: RouteName.mealDetail,
       page: () => const MealDetail(),
       transition: Transition.noTransition, // disables animations
-    ), GetPage(
+    ),
+    GetPage(
       name: RouteName.search,
       page: () => const SearchScreen(),
       transition: Transition.noTransition, // disables animations
-    ),GetPage(
+    ),
+    GetPage(
       name: RouteName.foodDetail,
       page: () => const FoodDetail(),
       transition: Transition.noTransition, // disables animations
-    ),GetPage(
+    ),
+    GetPage(
       name: RouteName.filter,
       page: () => const Filter(),
       transition: Transition.noTransition, // disables animations
-    ),GetPage(
+    ),
+    GetPage(
       name: RouteName.addFood,
       page: () => const AddFood(),
       transition: Transition.noTransition, // disables animations
-    ),GetPage(
+    ),
+    GetPage(
       name: RouteName.scanImage,
       page: () => const ScanImage(),
       transition: Transition.noTransition, // disables animations
     ),
-
-    /*  GetPage(name: _routeName.bibleVersion, page: () => const BibleVersionScreen()),
-    GetPage(name: _routeName.dashboard, page: () => const DashboardScreen()),
-    GetPage(name: _routeName.testamentChapter, page: () => const ChapterList()),
-    GetPage(name: _routeName.highlight, page: () => const HighLightListScreen()),
-    GetPage(name: _routeName.chapter, page: () => const ChapterDescriptionScreen()),
-    GetPage(name: _routeName.webView, page: () => const WebView()),
-    GetPage(name: _routeName.signIn, page: () => const SignInScreen()),
-    GetPage(name: _routeName.forgotPassword, page: () => const ForgotPasswordScreen()),
-    GetPage(name: _routeName.signUp, page: () => const SignUpScreen()),
-    GetPage(name: _routeName.changePassword, page: () => const ChangePasswordScreen()),
-    GetPage(name: _routeName.otp, page: () => const OtpScreen()),
-    GetPage(name: _routeName.chat, page: () =>  ChatScreen()),
-    GetPage(name: _routeName.groupInfo, page: () => const GroupInfoScreen()),
-    GetPage(name: _routeName.editProfile, page: () => const EditProfileScreen()),
-    GetPage(name: _routeName.offlineChapter, page: () => const OfflineChapterScreen()),*/
+    GetPage(
+      name: RouteName.discoverDetail,
+      page: () => const DiscoverDetail(),
+      transition: Transition.noTransition, // disables animations
+    ),
   ];
 }

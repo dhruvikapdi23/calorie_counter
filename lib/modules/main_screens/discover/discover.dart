@@ -129,10 +129,6 @@ class _DiscoverState extends State<Discover> {
     );
   }
 
-  void onTapFunction(DiscoverController ctrl, title) {
-    ctrl.categorySelect(title);
-  }
-
   void scanTap() {
     Get.toNamed(RouteName.scanImage);
   }

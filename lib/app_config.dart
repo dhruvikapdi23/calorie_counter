@@ -38,5 +38,7 @@ export '../../../../widgets/common_image_layout.dart';
 export '../../../widgets/common_food_list_layout.dart';
 export 'package:calorie_counter/widgets/food_overview.dart';
 export 'package:calorie_counter/utils/constants.dart';
+export 'package:calorie_counter/widgets/common_eaten_chart.dart';
+
 
 export 'package:calorie_counter/utils/app_validation.dart';

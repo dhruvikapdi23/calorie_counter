@@ -221,6 +221,13 @@ final dynamic en = {
   "aircraftSize": "Aircraft size",
   "whatToEat": "What to Eat",
   "discover": "Discover",
+  "addMeal": "Add Meal",
+  "add": "Add",
+  "walkingStep": "Walking Step",
+  "sleepingTime": "Sleeping Time",
+  "workouts": "Workouts",
+  "meditation": "Meditation",
+  "waterLevel": "Water Level",
 
 
 };
