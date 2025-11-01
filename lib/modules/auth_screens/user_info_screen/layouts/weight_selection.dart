@@ -21,10 +21,9 @@ class _WeightSelectionState extends State<WeightSelection> {
   late CarouselSliderController _carouselController;
   late int currentIndex;
   late List<double> numbers;
-  final double min =20.0;
-  final double max =120.0;
+  final double min = 20.0;
+  final double max = 120.0;
   late int _totalItems;
-
 
   @override
   void initState() {
@@ -54,7 +53,7 @@ class _WeightSelectionState extends State<WeightSelection> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            CommonUserTab(tabOption: AppArray.weightOption,),
+            CommonUserTab(tabOption: AppArray.weightOption),
             VSpace(40),
             NumberCarousel(
               currentVal: _currentWeight,
@@ -69,15 +68,12 @@ class _WeightSelectionState extends State<WeightSelection> {
               },
               onPageChanged: (index, reason) {
                 _weightRulerController.jumpToValue(min + index * 1);
-        
+
                 log("_currentWeight :$_currentWeight");
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                });
+                WidgetsBinding.instance.addPostFrameCallback((_) {});
                 setState(() {
                   currentIndex = index;
                 });
-                
-        
               },
             ),
             VSpace(25),
@@ -87,7 +83,8 @@ class _WeightSelectionState extends State<WeightSelection> {
               maxValue: max,
               majorTickInterval: 5.0,
               selectedTickLength: 65,
-              majorTickLength: 37,controller: _weightRulerController,
+              majorTickLength: 37,
+              controller: _weightRulerController,
               minorTickLength: 27,
               unitSpacing: 20.0,
               initialValue: _currentWeight,
@@ -95,7 +92,7 @@ class _WeightSelectionState extends State<WeightSelection> {
               majorTickColor: AppColors.gary,
               selectedTickColor: AppColors.black,
               labelFormatter: (value) => value.toStringAsFixed(1),
-        
+
               rulerExtent: 150.0,
               labelStyle: AppCss.soraMedium18.copyWith(color: AppColors.black),
               onValueChanged: (value) {
@@ -111,12 +108,15 @@ class _WeightSelectionState extends State<WeightSelection> {
                   });
                 });
               },
-        
+
               labelOffset: 55.0, // Adjust label offset if needed
             ),
             VSpace(29),
-            CommonClass.commonWeightHeightTextLayout(context, Fonts.yourCurrentWeight.tr, _currentWeight.toStringAsFixed(1))
-
+            CommonClass.commonWeightHeightTextLayout(
+              context,
+              Fonts.yourCurrentWeight.tr,
+              _currentWeight.toStringAsFixed(1),
+            ),
           ],
         ).paddingOnly(top: 34),
       ),

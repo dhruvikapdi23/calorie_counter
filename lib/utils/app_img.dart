@@ -48,13 +48,24 @@ class AppImages {
   static const String discover6 = "assets/images/discover/discover6.png";
   static const String discover7 = "assets/images/discover/discover7.png";
 
+
+  static const String exercise1 = "assets/images/exercise/exercise1.png";
+  static const String exercise2 = "assets/images/exercise/exercise2.png";
+  static const String exercise3 = "assets/images/exercise/exercise3.png";
+  static const String exercise4 = "assets/images/exercise/exercise4.png";
+  static const String exercise5 = "assets/images/exercise/exercise5.png";
+  static const String exercise6 = "assets/images/exercise/exercise6.png";
+
   static const String user = "assets/images/user.png";
+  static const String waterLevel = "assets/images/water_level.png";
+  static const String cup = "assets/images/cup.png";
 
 
 }
 
 class AppSvg {
   static const String arrowLeft = "assets/svg/arrow_left.svg";
+  static const String arrowLeft1 = "assets/svg/arrow_left1.svg";
   static const String en = "assets/svg/en.svg";
   static const String hi = "assets/svg/in.svg";
   static const String de = "assets/svg/de.svg";
@@ -108,7 +119,8 @@ class AppSvg {
   static const String subscription = "assets/svg/subscription.svg";
   static const String star = "assets/svg/star.svg";
   static const String privacy = "assets/svg/privacy.svg";
-  static const String arrowRight = "assets/svg/arrow-right.svg";
+  static const String arrowRight = "assets/svg/arrow_right.svg";
+  static const String arrowRight1 = "assets/svg/arrow_right1.svg";
   static const String logout = "assets/svg/logout.svg";
   static const String calendar = "assets/svg/calendar.svg";
   static const String male = "assets/svg/male.svg";
@@ -141,5 +153,14 @@ class AppSvg {
   static const String sleepingTime = "assets/svg/sleeping_time.svg";
   static const String workouts = "assets/svg/workouts.svg";
   static const String meditation = "assets/svg/meditation.svg";
+  static const String line = "assets/svg/line.svg";
+  static const String goal = "assets/svg/goal.svg";
+  static const String glass = "assets/svg/glass.svg";
+  static const String selected = "assets/svg/selected.svg";
+  static const String volume = "assets/svg/volume-high.svg";
+  static const String clock = "assets/svg/clock.svg";
+  static const String play = "assets/svg/play.svg";
+  static const String totalTime = "assets/svg/total_time.svg";
+  static const String horizontalLine = "assets/svg/horizontal_line.svg";
 
 }

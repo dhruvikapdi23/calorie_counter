@@ -920,4 +920,65 @@ class AppArray {
       "subTitle": "At least 50% of every plate is vegetables",
     },
   ];
+
+  static List exerciseList = [
+    {
+      "image": AppImages.exercise1,
+      "name": "Jumping Jack",
+      "time": "10:00 min",
+      "kcal": "200",
+    },
+    {
+      "image": AppImages.exercise2,
+      "name": "Chaise",
+      "time": "10:00 min",
+      "kcal": "150",
+    },
+    {
+      "image": AppImages.exercise3,
+      "name": "Crossed Elbows and Knees",
+      "time": "15:00 min",
+      "kcal": "150",
+    },
+    {
+      "image": AppImages.exercise4,
+      "name": "Plank",
+      "time": "5:00 min",
+      "kcal": "200",
+    },
+    {
+      "image": AppImages.exercise5,
+      "name": "Basin Survey",
+      "time": "15:00 min",
+      "kcal": "250",
+    },
+  ];
+
+  static List<String> howToDo = [
+    "Instead of jumping, step one foot out to the side while raising your arms, then return and repeat on the other side.",
+    "Reat for beginners or people with joint issues.",
+    "Squat slightly when landing with feet apart, adding extra lower body engagement.",
+    "Ideal for strength and cardio combined.",
+  ];
+
+  static List completedFinalResult = [
+    {
+      "icon":AppSvg.workouts,
+      "title":Fonts.workout,
+      "result":"10",
+      "key":Fonts.exercise
+    },
+    {
+      "icon":AppSvg.fire,
+      "title":Fonts.burnCalorie,
+      "result":"250",
+      "key":Fonts.kcal
+    },
+    {
+      "icon":AppSvg.totalTime,
+      "title":Fonts.totalTime,
+      "result":"45:00",
+      "key":Fonts.min
+    }
+  ];
 }

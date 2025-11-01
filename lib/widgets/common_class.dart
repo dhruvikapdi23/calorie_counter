@@ -139,7 +139,11 @@ class CommonClass {
     ).inkWell(onTap: onTap);
   }
 
-  static commonContainerClass(Widget child, {EdgeInsets? padding,EdgeInsets? margin}) => Container(
+  static commonContainerClass(
+    Widget child, {
+    EdgeInsets? padding,
+    EdgeInsets? margin,
+  }) => Container(
     margin: margin,
     padding: padding,
     decoration: BoxDecoration(
@@ -156,16 +160,29 @@ class CommonClass {
     child: child,
   );
 
-
-  static Widget discoverDetailFeature(title)=> Row(
+  static Widget discoverDetailFeature(title) => Row(
     children: [
-      Container(
-        height: 4,
-        width: 4,
-        color: AppColors.white,
-      ),
+      Container(height: 4, width: 4, color: AppColors.white),
       HSpace(12),
-      Text(title,style: AppCss.soraMedium16.copyWith(color: AppColors.white),),
+      Text(title, style: AppCss.soraMedium16.copyWith(color: AppColors.white)),
+    ],
+  );
+
+  static Widget waterLevelGoal(title, val, icon) => Row(
+    spacing: 5,
+    children: [
+      SvgPicture.asset(icon),
+      Text(title.toString().tr, style: AppCss.soraRegular13),
+      Text(val, style: AppCss.soraSemiBold14),
+      SvgPicture.asset(AppSvg.edit, height: 14).paddingSymmetric(horizontal: 3),
+    ],
+  );
+
+  static Widget exerciseDetail(title, desc) => Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text("${title.toString().tr}: ", style: AppCss.soraMedium13),
+      Expanded(child: Text(desc, style: AppCss.soraRegular13)),
     ],
   );
 }

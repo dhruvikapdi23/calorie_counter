@@ -40,5 +40,6 @@ export 'package:calorie_counter/widgets/food_overview.dart';
 export 'package:calorie_counter/utils/constants.dart';
 export 'package:calorie_counter/widgets/common_eaten_chart.dart';
 
+export '../../../widgets/common_slider_indicator.dart';
 
 export 'package:calorie_counter/utils/app_validation.dart';

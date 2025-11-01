@@ -59,14 +59,17 @@ class AppCss {
   static TextStyle soraBold15 = sora(fontWeight: bold,fontsize:FontSizes.f15);
   static TextStyle soraBold17 = sora(fontWeight: bold,fontsize:FontSizes.f17);
   static TextStyle soraBold14 = sora(fontWeight: bold,fontsize:FontSizes.f14);
+  static TextStyle soraBold13 = sora(fontWeight: bold,fontsize:FontSizes.f13);
   static TextStyle soraBold12 = sora(fontWeight: bold,fontsize:FontSizes.f12);
   static TextStyle soraBold10 = sora(fontWeight: bold,fontsize:FontSizes.f10);
 
+  static TextStyle soraSemiBold28= sora(fontWeight: semiBold,fontsize:FontSizes.f28);
   static TextStyle soraSemiBold26= sora(fontWeight: semiBold,fontsize:FontSizes.f26);
   static TextStyle soraSemiBold24= sora(fontWeight: semiBold,fontsize:FontSizes.f24);
   static TextStyle soraSemiBold22= sora(fontWeight: semiBold,fontsize:FontSizes.f22);
   static TextStyle soraSemiBold20= sora(fontWeight: semiBold,fontsize:FontSizes.f20);
   static TextStyle soraSemiBold18= sora(fontWeight: semiBold,fontsize:FontSizes.f18);
+  static TextStyle soraSemiBold17= sora(fontWeight: semiBold,fontsize:FontSizes.f17);
   static TextStyle soraSemiBold16= sora(fontWeight: semiBold,fontsize:FontSizes.f16);
   static TextStyle soraSemiBold15= sora(fontWeight: semiBold,fontsize:FontSizes.f15);
   static TextStyle soraSemiBold13= sora(fontWeight: semiBold,fontsize:FontSizes.f13);
@@ -79,6 +82,7 @@ class AppCss {
   //Text Style sora medium
   static TextStyle soraMedium40 = sora(fontWeight: medium,fontsize:FontSizes.f40);
   static TextStyle soraMedium34 = sora(fontWeight: medium,fontsize:FontSizes.f34);
+  static TextStyle soraMedium32 = sora(fontWeight: medium,fontsize:FontSizes.f32);
   static TextStyle soraMedium28 = sora(fontWeight: medium,fontsize:FontSizes.f28);
   static TextStyle soraMedium24 = sora(fontWeight: medium,fontsize:FontSizes.f24);
   static TextStyle soraMedium22 = sora(fontWeight: medium,fontsize:FontSizes.f22);

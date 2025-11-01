@@ -125,7 +125,7 @@ class Setting extends StatelessWidget {
                 Text(submenu.title!.tr, style: AppCss.soraRegular14),
               ],
             ),
-            SvgPicture.asset(AppSvg.arrowRight),
+            SvgPicture.asset(AppSvg.arrowRight1),
           ],
         ).padding(horizontal: 12),
         if (isDivider)

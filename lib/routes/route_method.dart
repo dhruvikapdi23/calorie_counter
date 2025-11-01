@@ -3,12 +3,15 @@ import 'package:calorie_counter/modules/auth_screens/plan/plan.dart';
 import 'package:calorie_counter/modules/main_screens/dashboard/dashboard.dart';
 import 'package:calorie_counter/modules/main_screens/meals/meals_detail.dart';
 import 'package:calorie_counter/modules/module_screens/add_food/add_food.dart';
+import 'package:calorie_counter/modules/module_screens/completed_exercise/completed_exercise.dart';
 import 'package:calorie_counter/modules/module_screens/discover_detail/discover_detail.dart';
+import 'package:calorie_counter/modules/module_screens/exercise_detail/exercise_detail.dart';
 import 'package:calorie_counter/modules/module_screens/filter/filter.dart';
 import 'package:calorie_counter/modules/module_screens/food_detail/food_detail.dart';
 import 'package:calorie_counter/modules/module_screens/general_infomation/general_information.dart';
 import 'package:calorie_counter/modules/module_screens/language_screen/langugae_screen.dart';
 import 'package:calorie_counter/modules/module_screens/search_screen/search_screen.dart';
+import 'package:calorie_counter/modules/module_screens/workout/workout.dart';
 
 import '../app_config.dart';
 import '../app_config.dart';
@@ -87,6 +90,18 @@ class AppRoute {
     GetPage(
       name: RouteName.discoverDetail,
       page: () => const DiscoverDetail(),
+      transition: Transition.noTransition, // disables animations
+    ), GetPage(
+      name: RouteName.workout,
+      page: () => const Workout(),
+      transition: Transition.noTransition, // disables animations
+    ),GetPage(
+      name: RouteName.exerciseDetail,
+      page: () => const ExerciseDetail(),
+      transition: Transition.noTransition, // disables animations
+    ),GetPage(
+      name: RouteName.completedExercise,
+      page: () => const CompletedExercise(),
       transition: Transition.noTransition, // disables animations
     ),
   ];

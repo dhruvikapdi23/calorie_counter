@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 
+import 'package:calorie_counter/utils/size_utils.dart';
 import 'package:calorie_counter/utils/utils.dart';
 import 'package:sizer/sizer.dart';
 
@@ -24,26 +25,31 @@ class MyHttpOverrides extends HttpOverrides {
 }
 
 Future<void> main() async {
-  await AppHelper.init();
   HttpOverrides.global = MyHttpOverrides();
 
-
-  WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
-  // await FireBaseNotification().setUpLocalNotification();
-  // FirebaseAnalyticsUtils().init();
-  // FirebaseCrashlytics crashlytics = FirebaseCrashlytics.instance;
   runZonedGuarded<Future<void>>(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
+    await AppHelper.init();
+    await AppPreference.initMySharedPreferences();
+
+    // await Firebase.initializeApp();
+    // await FireBaseNotification().setUpLocalNotification();
+    // FirebaseAnalyticsUtils().init();
+    // FirebaseCrashlytics crashlytics = FirebaseCrashlytics.instance;
     // await crashlytics.setCrashlyticsCollectionEnabled(true);
     // FlutterError.onError = crashlytics.recordFlutterError;
-    await AppPreference.initMySharedPreferences();
+
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+
     runApp(const MyApp());
-  }, (error, stack) => print(error));
-  // crashlytics.recordError(error, stack));
+  }, (error, stack) {
+    print(error);
+    // crashlytics.recordError(error, stack);
+  });
 }
 
 
@@ -55,7 +61,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(
         builder: (context, orientation, deviceType) {
-        return GetMaterialApp(
+          SizeUtils().init(context);
+
+          return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: Fonts.appName.tr,
             theme: AppTheme.light,

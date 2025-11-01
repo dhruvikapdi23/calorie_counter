@@ -14,9 +14,9 @@ class RouteName {
   static String addFood = "/addFood";
   static String scanImage = "/scanImage";
   static String discoverDetail = "/discoverDetail";
-  static String otp = "/otp";
-  static String chat = "/chat";
-  static String groupInfo = "/groupInfo";
+  static String workout = "/workout";
+  static String exerciseDetail = "/exerciseDetail";
+  static String completedExercise = "/completedExercise";
 
   static String offlineChapter = "/offlineChapter";
 

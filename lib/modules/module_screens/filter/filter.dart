@@ -101,28 +101,7 @@ class Filter extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    SliderTheme(
-                      data: SliderTheme.of(context).copyWith(
-                        trackHeight: 8,
-
-                        inactiveTrackColor: AppColors.lightGrey.withValues(
-                          alpha: .20,
-                        ),
-                        thumbColor: Colors.transparent,
-                        thumbShape: RoundSliderThumbShape(
-                          enabledThumbRadius: 0.0,
-                        ),
-                      ),
-                      child: Slider(
-                        activeColor: AppColors.primaryColor,
-
-                        value: 1205,
-                        onChanged: (value) {},
-                        min: 0,
-                        max: 4000,
-                        padding: EdgeInsets.zero,
-                      ),
-                    ),
+                    CommonSliderIndicator(value: 1205,),
                     VSpace(13),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

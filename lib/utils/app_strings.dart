@@ -254,6 +254,32 @@ class Fonts {
   static String workouts ="workouts";
   static String meditation ="meditation";
   static String waterLevel ="waterLevel";
+  static String ml ="ml";
+  static String dailyGoal ="dailyGoal";
+  static String glass ="glass";
+  static String dailyChallenges ="dailyChallenges";
+  static String dailyBurnChallenge ="dailyBurnChallenge";
+  static String dailyBurnChallengeDesc ="dailyBurnChallengeDesc";
+  static String startExercise ="startExercise";
+  static String exercise ="exercise";
+  static String type ="type";
+  static String level ="level";
+
+  static String equipment =  "equipment";
+  static String caloriesBurned = "caloriesBurned";
+  static String howToDo = "howToDo";
+  static String sets = "sets";
+  static String reps = "reps";
+  static String tackRest = "tackRest";
+  static String restTime = "restTime";
+  static String congratulations = "congratulations";
+  static String youHaveCompletedTheWorkout = "youHaveCompletedTheWorkout";
+  static String workout = "workout";
+  static String burnCalorie = "burnCalorie";
+  static String totalTime = "totalTime";
+  static String weightLoss = "weightLoss";
+  static String nextToWorkout = "nextToWorkout";
+  static String resetTime = "resetTime";
 
   String areYourSureYouWantToRemove(val) =>
       "areYourSureYouWantToRemove".trParams({'name': val});
