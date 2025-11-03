@@ -1,5 +1,4 @@
 import 'package:calorie_counter/extension/widget_extension.dart';
-import 'package:calorie_counter/widgets/common_food_list_layout.dart';
 
 import '../../../../app_config.dart';
 import '../../../../models/food_item.dart';
@@ -126,7 +125,7 @@ class _PlateSearchListState extends State<PlateSearchList> {
   }
 
   void selectPlateOption(val) {
-    widget.onTap!(val);
+    widget.onTap(val);
   }
 
   void onTap(val) {

@@ -356,7 +356,7 @@ class FuelTankCustomPainter extends CustomPainter {
     borderFill.color = Color(value > 0.0 ? 0XFF96E2FF : 0xFFF5F5F5);
     canvas.drawShadow(
       borderPath,
-      context.theme.dividerColor.withOpacity(0.3),
+      context.theme.dividerColor.withValues(alpha:0.3),
       15.0,
       true,
     );

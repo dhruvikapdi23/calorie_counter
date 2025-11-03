@@ -1,9 +1,5 @@
-import 'dart:developer';
-
 import 'package:calorie_counter/app_config.dart';
-import '../../../models/meal_item_model.dart';
-import '../../../models/meals_category_model.dart';
-import 'meals_controller.dart';
+
 import 'meals_detail_controller.dart';
 import 'meals_widget_class.dart';
 

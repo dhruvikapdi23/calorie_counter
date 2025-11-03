@@ -1,5 +1,4 @@
 import 'package:calorie_counter/extension/widget_extension.dart';
-import 'package:calorie_counter/modules/module_screens/search_screen/search_screen_controller.dart';
 
 import '../../../../app_config.dart';
 import '../../../../models/food_item.dart';

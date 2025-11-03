@@ -13,7 +13,7 @@ class AccountSettingModel {
     if (json['subMenuList'] != null) {
       subMenuList = <AccountSubMenuList>[];
       json['subMenuList'].forEach((v) {
-        subMenuList!.add(new AccountSubMenuList.fromJson(v));
+        subMenuList!.add(AccountSubMenuList.fromJson(v));
       });
     }
   }

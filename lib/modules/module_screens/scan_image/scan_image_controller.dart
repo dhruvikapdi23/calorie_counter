@@ -2,11 +2,10 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:calorie_counter/models/food_item.dart';
-import 'package:calorie_counter/utils/app_session_key.dart';
 import 'package:camera/camera.dart';
 
 import '../../../app_config.dart';
-import '../../../models/meal_item_model.dart';
+
 
 class ScanImageController extends GetxController {
   TextEditingController search = TextEditingController();
@@ -57,7 +56,7 @@ class ScanImageController extends GetxController {
      update();
     });
 
-    log("camera :${camera}");
+    log("camera :$camera");
   }
 
   flashModeTap(){

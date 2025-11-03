@@ -83,7 +83,7 @@ class CompletedComparisonChart extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      '${data.value.toString()}',
+                      data.value.toString(),
                       style: AppCss.soraSemiBold10.copyWith(
                         color: AppColors.white,
                       ),

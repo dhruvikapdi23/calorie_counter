@@ -50,12 +50,12 @@ class MealsWidgetClass{
                         ),
                         HSpace(16),
                         InkWell(
+                          onTap: favTap,
                           child: SvgPicture.asset(
                             meal.isFavourite == true
                                 ? AppSvg.favHeart
                                 : AppSvg.heart,
                           ),
-                          onTap: favTap,
                         ),
                       ],
                     ),

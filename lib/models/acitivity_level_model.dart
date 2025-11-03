@@ -12,10 +12,10 @@ class ActivityLevelModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['title'] = this.title;
-    data['icon'] = this.icon;
-    data['desc'] = this.desc;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['title'] = title;
+    data['icon'] = icon;
+    data['desc'] = desc;
     return data;
   }
 }

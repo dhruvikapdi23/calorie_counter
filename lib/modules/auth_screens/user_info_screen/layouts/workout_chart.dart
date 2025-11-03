@@ -1,14 +1,8 @@
-import 'dart:developer';
-import 'dart:math' as math;
-
 import 'package:calorie_counter/extension/widget_extension.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:fl_chart/fl_chart.dart';
 
 import '../../../../app_config.dart';
-import '../../../../widgets/feet_ruler_scaler.dart';
-import '../../../../widgets/number_carosuel.dart';
-import '../../../../widgets/ruler_scaler.dart';
 
 class WorkOutChart extends StatefulWidget {
   const WorkOutChart({super.key});
@@ -50,7 +44,6 @@ class _WorkOutChartState extends State<WorkOutChart> {
                     dotData: FlDotData(
                       show: true,
                       getDotPainter: (spot, percent, bar, index) {
-                        final bool isEdge = index == 0 || index == bar.spots.length - 1;
 
                         if (spot.y == 75.0 || spot.y ==31.4) {
                           // visible dot for first & last
@@ -131,83 +124,4 @@ class TabItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tab(child: Text(title, overflow: TextOverflow.ellipsis));
   }
-}
-
-class _FeetRulerPainter extends CustomPainter {
-  final double minFeet;
-  final double maxFeet;
-  final double unitSpacing;
-
-  _FeetRulerPainter({
-    required this.minFeet,
-    required this.maxFeet,
-    required this.unitSpacing,
-  });
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Paint tickPaint = Paint()
-      ..color = Colors.black
-      ..strokeWidth = 1.2;
-
-    final TextStyle labelStyle = const TextStyle(
-      color: Colors.black,
-      fontSize: 12,
-      fontWeight: FontWeight.w500,
-    );
-
-    const double baseLineY = 50;
-    const double labelOffset = 6;
-
-    // total inches across full range
-    final int totalInches = ((maxFeet - minFeet) * 12).round();
-
-    for (int i = 0; i <= totalInches; i++) {
-      final double valueInFeet = minFeet + i / 12.0;
-      final double x = i * unitSpacing;
-
-      // tick type
-      bool isMajorTick = (i % 12 == 0); // full foot
-      bool isMidTick = (i % 6 == 0); // half foot
-
-      final double tickHeight = isMajorTick
-          ? 25
-          : isMidTick
-          ? 18
-          : 10;
-
-      // draw tick
-      canvas.drawLine(
-        Offset(x, baseLineY - tickHeight),
-        Offset(x, baseLineY),
-        tickPaint,
-      );
-
-      // draw label (for every inch)
-      int feet = valueInFeet.floor();
-      int inches = ((valueInFeet - feet) * 12).round();
-      if (inches == 12) {
-        feet += 1;
-        inches = 0;
-      }
-
-      final String label = "$feet'${inches.toString()}";
-
-      final textPainter = TextPainter(
-        text: TextSpan(text: label, style: labelStyle),
-        textDirection: TextDirection.ltr,
-      )..layout();
-
-      textPainter.paint(
-        canvas,
-        Offset(
-          x - textPainter.width / 2,
-          baseLineY + labelOffset,
-        ),
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

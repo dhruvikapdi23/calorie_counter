@@ -1,6 +1,5 @@
 import 'package:calorie_counter/app_config.dart';
 import 'package:calorie_counter/extension/widget_extension.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title, versionCode;

@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:math' as math;
 import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../../../app_config.dart';
@@ -35,7 +34,7 @@ class _HeightSelectionState extends State<HeightSelection> {
     // Jump to initial value after build
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (currentIndex >= 0 && currentIndex < numbers.length) {
-        _carouselController.jumpToPage(currentIndex!);
+        _carouselController.jumpToPage(currentIndex);
       }
     });
     super.initState();
@@ -102,7 +101,7 @@ class _HeightSelectionState extends State<HeightSelection> {
                   // Jump to initial value after build
                   WidgetsBinding.instance.addPostFrameCallback((_) {
                     if (currentIndex >= 0 && currentIndex < numbers.length) {
-                      _carouselController.jumpToPage(currentIndex!);
+                      _carouselController.jumpToPage(currentIndex);
                     }
                   });
                 });

@@ -27,26 +27,15 @@ class _HomeState extends State<Home> {
                 Stack(
                   children: [
                     _buildHeader(),
-                    Container(
-                      margin: EdgeInsets.only(left: 16, right: 16, top: 147),
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(24),
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppColors.black.withValues(alpha: .05),
-                            offset: Offset(0, 10),
-                            blurRadius: 20,
-                          ),
-                        ],
-                      ),
-                      child: Column(
+                    CommonClass.commonContainerClass(
+                      Column(
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SvgPicture.asset(AppSvg.arrowLeft1).inkWell(onTap: ()=> arrowLeft(ctrl)),
+                              SvgPicture.asset(
+                                AppSvg.arrowLeft1,
+                              ).inkWell(onTap: () => arrowLeft(ctrl)),
                               Row(
                                 spacing: 9,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -66,7 +55,9 @@ class _HomeState extends State<Home> {
                                   ),
                                 ],
                               ),
-                              SvgPicture.asset(AppSvg.arrowRight).inkWell(onTap: ()=> arrowRight(ctrl)),
+                              SvgPicture.asset(
+                                AppSvg.arrowRight,
+                              ).inkWell(onTap: () => arrowRight(ctrl)),
                             ],
                           ),
                           VSpace(12),
@@ -74,6 +65,8 @@ class _HomeState extends State<Home> {
                           CommonEatenChart(),
                         ],
                       ),
+                      margin: EdgeInsets.only(left: 16, right: 16, top: 147),
+                      padding: EdgeInsets.all(16),
                     ),
                   ],
                 ),
@@ -146,11 +139,11 @@ class _HomeState extends State<Home> {
   }
 
   void arrowLeft(HomeController ctrl) {
-ctrl.previousBack();
+    ctrl.previousBack();
   }
 
   void arrowRight(HomeController ctrl) {
-ctrl.nextTap();
+    ctrl.nextTap();
   }
 
   // ---------------- HEADER ----------------
@@ -182,7 +175,6 @@ ctrl.nextTap();
     );
   }
 
-
   // ---------------- DISCOVER SECTION ----------------
   Widget _buildDiscoverGrid() {
     final items = [
@@ -211,20 +203,9 @@ ctrl.nextTap();
   }
 
   Widget _discoverCard(String title, String value, String icon) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.black.withValues(alpha: .05),
-            offset: Offset(0, 10),
-            blurRadius: 20,
-          ),
-        ],
-      ),
+    return CommonClass.commonContainerClass(
       padding: const EdgeInsets.all(12),
-      child: Row(
+       Row(
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -252,7 +233,10 @@ ctrl.nextTap();
             ],
           ),
           const Spacer(),
-          if (title == Fonts.workouts) SvgPicture.asset(AppSvg.addCircle).inkWell(onTap: ()=> Get.toNamed(RouteName.workout)),
+          if (title == Fonts.workouts)
+            SvgPicture.asset(
+              AppSvg.addCircle,
+            ).inkWell(onTap: () => Get.toNamed(RouteName.workout)),
         ],
       ),
     );
@@ -260,14 +244,12 @@ ctrl.nextTap();
 
   // ---------------- WATER LEVEL CARD ----------------
   Widget _buildWaterLevelCard(HomeController ctrl) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-      ),
+    return CommonClass.commonContainerClass(
+      radius: 14,
+      isShadow :false,
       margin: EdgeInsets.only(bottom: 20),
       padding: const EdgeInsets.all(16),
-      child: Row(
+       Row(
         children: [
           ctrl.waterLevel == 0.0
               ? Image.asset(AppImages.waterLevel)
@@ -321,6 +303,4 @@ ctrl.nextTap();
       ),
     );
   }
-
 }
-

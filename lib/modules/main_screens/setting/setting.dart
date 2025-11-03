@@ -47,7 +47,7 @@ class Setting extends StatelessWidget {
                       shrinkWrap: true,
                       padding: EdgeInsets.symmetric(vertical: 12),
                       physics: NeverScrollableScrollPhysics(),
-                      itemCount: settingModel!.subMenuList?.length,
+                      itemCount: settingModel.subMenuList?.length,
                       itemBuilder: (context, i) {
                         SubMenuList menuList = settingModel.subMenuList![i];
                         return index == 0

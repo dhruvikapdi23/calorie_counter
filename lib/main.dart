@@ -47,7 +47,7 @@ Future<void> main() async {
 
     runApp(const MyApp());
   }, (error, stack) {
-    print(error);
+    debugPrint("error :$error");
     // crashlytics.recordError(error, stack);
   });
 }

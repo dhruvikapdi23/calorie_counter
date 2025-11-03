@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:calorie_counter/app_config.dart';
 import 'package:calorie_counter/utils/app_session_key.dart';

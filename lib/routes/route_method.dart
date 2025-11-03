@@ -1,4 +1,3 @@
-import 'package:calorie_counter/languages/language_translate.dart';
 import 'package:calorie_counter/modules/auth_screens/plan/plan.dart';
 import 'package:calorie_counter/modules/main_screens/dashboard/dashboard.dart';
 import 'package:calorie_counter/modules/main_screens/meals/meals_detail.dart';
@@ -13,7 +12,6 @@ import 'package:calorie_counter/modules/module_screens/language_screen/langugae_
 import 'package:calorie_counter/modules/module_screens/search_screen/search_screen.dart';
 import 'package:calorie_counter/modules/module_screens/workout/workout.dart';
 
-import '../app_config.dart';
 import '../app_config.dart';
 import '../modules/auth_screens/intro_screen/intro_screen.dart';
 import '../modules/auth_screens/user_info_screen/user_info_screen.dart';

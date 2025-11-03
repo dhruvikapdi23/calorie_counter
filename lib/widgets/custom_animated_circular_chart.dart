@@ -161,9 +161,9 @@ class _CircularProgressPainter extends CustomPainter {
     final progressPaint = Paint()
       ..shader = SweepGradient(
         colors: [
-          color.withOpacity(0.9),
-          color.withOpacity(0.7),
-          color.withOpacity(0.9),
+          color.withValues(alpha:0.9),
+          color.withValues(alpha:0.7),
+          color.withValues(alpha:0.9),
         ],
       ).createShader(Rect.fromCircle(center: center, radius: radius))
       ..strokeWidth = strokeWidth

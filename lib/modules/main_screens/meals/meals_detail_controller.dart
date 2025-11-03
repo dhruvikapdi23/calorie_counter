@@ -1,9 +1,3 @@
-import 'dart:developer';
-
-import 'package:calorie_counter/models/meals_category_model.dart';
-import 'package:calorie_counter/modules/main_screens/meals/meals.dart';
-import 'package:calorie_counter/modules/main_screens/setting/setting.dart';
-import 'package:calorie_counter/utils/app_session_key.dart';
 
 import '../../../app_config.dart';
 import '../../../models/meal_item_model.dart';

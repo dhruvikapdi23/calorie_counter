@@ -1,8 +1,7 @@
-import 'dart:ui';
-import 'package:flutter/src/painting/text_style.dart';
 import 'package:google_fonts/google_fonts.dart';
-part 'scale.dart';
+import 'package:flutter/material.dart';
 
+part 'scale.dart';
 
 FontWeight thin = FontWeight.w100;
 FontWeight extraLight = FontWeight.w200;

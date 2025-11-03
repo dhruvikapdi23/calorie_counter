@@ -1,13 +1,7 @@
-import 'dart:developer';
-
 import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:calorie_counter/models/exercise_model.dart';
-import 'package:calorie_counter/models/food_item.dart';
-import 'package:calorie_counter/modules/module_screens/exercise_detail/exercise_detail.dart';
-import 'package:calorie_counter/utils/app_session_key.dart';
-
 import '../../../app_config.dart';
-import '../../../models/meal_item_model.dart';
+
 
 class ExerciseDetailController extends GetxController {
   ExerciseModel? exerciseDetail;

@@ -11,7 +11,7 @@ class AppHelper {
 
    await GetStorage.init();
 
-    print("CHECK1");
+    debugPrint("CHECK1");
 
     WidgetsFlutterBinding.ensureInitialized();
     FlutterNativeSplash.remove();

@@ -92,8 +92,10 @@ class SizeUtils {
 }
 
 class Device {
-  static double devicePixelRatio = ui.window.devicePixelRatio;
-  static ui.Size size = ui.window.physicalSize;
+  static ui.FlutterView get _view => ui.PlatformDispatcher.instance.views.first;
+
+  static double devicePixelRatio = _view.devicePixelRatio;
+  static ui.Size size = _view.physicalSize;
   static double width = size.width;
   static double height = size.height;
   static double screenWidth = width / devicePixelRatio;
@@ -116,11 +118,11 @@ class Device {
     if (_device != null) return _device!;
 
     if (onMetricsChange == null) {
-      onMetricsChange = ui.window.onMetricsChanged;
-      ui.window.onMetricsChanged = () {
+      onMetricsChange = ui.PlatformDispatcher.instance.onMetricsChanged;
+      ui.PlatformDispatcher.instance.onMetricsChanged = () {
         _device = null;
 
-        size = ui.window.physicalSize;
+        size = _view.physicalSize;
         width = size.width;
         height = size.height;
         screenWidth = width / devicePixelRatio;
@@ -197,16 +199,16 @@ class Device {
   static double _calWidth() {
     if (width > height) {
       return (width +
-          (ui.window.viewPadding.left + ui.window.viewPadding.right) *
+          (_view.viewPadding.left + _view.viewPadding.right) *
               width /
               height);
     }
-    return (width + ui.window.viewPadding.left + ui.window.viewPadding.right);
+    return (width + _view.viewPadding.left + _view.viewPadding.right);
   }
 
   static double _calHeight() {
     return (height +
-        (ui.window.viewPadding.top + ui.window.viewPadding.bottom));
+        (_view.viewPadding.top + _view.viewPadding.bottom));
   }
 
   static int get _ppi => Platform.isAndroid
@@ -216,7 +218,7 @@ class Device {
           : 96;
 
   static bool _hasTopOrBottomPadding() {
-    final padding = ui.window.viewPadding;
+    final padding = _view.viewPadding;
     //print(padding);
     return padding.top > 0 || padding.bottom > 0;
   }

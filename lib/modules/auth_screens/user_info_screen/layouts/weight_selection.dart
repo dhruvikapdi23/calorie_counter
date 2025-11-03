@@ -1,12 +1,8 @@
 import 'dart:developer';
-import 'dart:math' as math;
 
 import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../../../app_config.dart';
-import '../../../../widgets/common_tab.dart';
-import '../../../../widgets/number_carosuel.dart';
-import '../../../../widgets/ruler_scaler.dart';
 
 class WeightSelection extends StatefulWidget {
   const WeightSelection({super.key});
@@ -39,7 +35,7 @@ class _WeightSelectionState extends State<WeightSelection> {
     // Jump to initial value after build
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (currentIndex >= 0 && currentIndex < numbers.length) {
-        _carouselController.jumpToPage(currentIndex!);
+        _carouselController.jumpToPage(currentIndex);
       }
     });
     super.initState();
@@ -103,7 +99,7 @@ class _WeightSelectionState extends State<WeightSelection> {
                   // Jump to initial value after build
                   WidgetsBinding.instance.addPostFrameCallback((_) {
                     if (currentIndex >= 0 && currentIndex < numbers.length) {
-                      _carouselController.jumpToPage(currentIndex!);
+                      _carouselController.jumpToPage(currentIndex);
                     }
                   });
                 });

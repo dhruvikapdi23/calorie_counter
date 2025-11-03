@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:math' as math;
 
 import '../app_config.dart';
 
@@ -415,7 +414,7 @@ class _FeetRulerScaleState extends State<FeetRulerScale> {
           if (widget.activeRangeColor != null)
             CustomPaint(
               painter: _ActiveRangePainter(
-                color: widget.activeRangeColor!.withOpacity(
+                color: widget.activeRangeColor!.withValues(alpha:
                   widget.activeRangeOpacity,
                 ),
                 direction: widget.direction,

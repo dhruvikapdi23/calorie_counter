@@ -3,7 +3,6 @@ import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:calorie_counter/modules/module_screens/search_screen/layouts/search_option.dart';
 import 'package:calorie_counter/modules/module_screens/search_screen/search_screen_controller.dart';
 import 'package:calorie_counter/widgets/common_empty_layout.dart';
-import 'package:calorie_counter/widgets/common_image_layout.dart';
 
 import '../../main_screens/meals/meals_widget_class.dart';
 import 'layouts/all_search_list.dart';
@@ -80,12 +79,12 @@ class SearchScreen extends StatelessWidget {
                           : 2,
                       children: [
                         ListView.builder(
-                          itemCount: ctrl.favSearch!.length,
+                          itemCount: ctrl.favSearch.length,
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),
                           itemBuilder: (context, i) {
                             return MealsWidgetClass.buildMealCard(
-                              ctrl.favSearch![i],
+                              ctrl.favSearch[i],
                               () {},
                             );
                           },

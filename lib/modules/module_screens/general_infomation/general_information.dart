@@ -1,7 +1,6 @@
 import 'package:calorie_counter/app_config.dart';
 import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:calorie_counter/models/account_setting_model.dart';
-import 'package:calorie_counter/modules/module_screens/profile_information/profile_information_controller.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
 import 'general_information_controller.dart';
@@ -151,7 +150,7 @@ class GeneralInformation extends StatelessWidget {
                                           borderRadius: BorderRadius.circular(5),
                                         ),
                                         child: Text(
-                                          account!.value!.toString(),
+                                          account.value!.toString(),
                                           style: AppCss.soraSemiBold22,
                                         ),
                                       ),

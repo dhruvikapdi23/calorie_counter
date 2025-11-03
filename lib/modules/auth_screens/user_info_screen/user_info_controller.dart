@@ -152,7 +152,7 @@ class UserInfoController extends GetxController {
       builder: (context) => TimePickerBottomSheet(
         initialTime: TimeOfDay.now(),
         onTimeSelected: (time) {
-          print('Selected time: ${time.format(context)}');
+          debugPrint('Selected time: ${time.format(context)}');
           // Handle the selected time
         },
       ),

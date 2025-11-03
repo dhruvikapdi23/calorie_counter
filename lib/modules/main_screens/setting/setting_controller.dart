@@ -1,9 +1,6 @@
-import 'dart:developer';
-
-import 'package:calorie_counter/utils/app_session_key.dart';
 
 import '../../../app_config.dart';
-import 'layouts/logout_delete_account_layout.dart';
+
 
 class SettingController extends GetxController {
   int currentStep = 0; // example: currently at step 4 of 14

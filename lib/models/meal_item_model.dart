@@ -9,7 +9,7 @@ class MealItemModel {
     if (json['meals'] != null) {
       meals = <MealsModel>[];
       json['meals'].forEach((v) {
-        meals!.add(new MealsModel.fromJson(v));
+        meals!.add(MealsModel.fromJson(v));
       });
     }
   }

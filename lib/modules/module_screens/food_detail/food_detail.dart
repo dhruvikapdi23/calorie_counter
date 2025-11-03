@@ -1,9 +1,6 @@
-import 'dart:math';
-import 'dart:math' as math;
-
 import 'package:calorie_counter/app_config.dart';
 import 'package:calorie_counter/extension/widget_extension.dart';
-import 'package:flutter_inner_shadow/flutter_inner_shadow.dart';
+
 
 import '../../../widgets/custom_animated_circular_chart.dart';
 import 'food_detail_controller.dart';

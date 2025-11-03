@@ -1,15 +1,6 @@
 import 'package:calorie_counter/app_config.dart';
 import 'package:calorie_counter/models/meal_item_model.dart';
-import 'package:calorie_counter/models/meal_item_model.dart';
-import 'package:calorie_counter/models/meal_item_model.dart';
-import 'package:calorie_counter/models/meal_item_model.dart';
 import 'package:calorie_counter/models/meals_category_model.dart';
-import 'package:calorie_counter/models/meals_category_model.dart';
-import 'package:calorie_counter/models/meals_category_model.dart';
-import 'package:calorie_counter/models/meals_category_model.dart';
-import 'package:calorie_counter/models/meals_category_model.dart';
-import 'package:calorie_counter/models/meals_category_model.dart';
-import 'package:calorie_counter/modules/main_screens/meals/meals.dart';
 
 import '../models/account_setting_model.dart';
 import '../models/acitivity_level_model.dart';
@@ -22,7 +13,6 @@ import '../models/setting_model.dart';
 import '../models/step_data.dart';
 import '../models/title_icon_model.dart';
 import '../models/user_info_title_model.dart';
-import '../modules/auth_screens/plan/plan.dart';
 
 class AppArray {
   /*static List languageList = [

@@ -98,7 +98,7 @@ class CurrentWeight extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
-                    image: FileImage(File(ctrl.image!.path!)),
+                    image: FileImage(File(ctrl.image!.path)),
                     fit: BoxFit.cover,
                   ),
                 ),

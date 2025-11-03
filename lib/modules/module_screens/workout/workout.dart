@@ -1,10 +1,10 @@
 import 'package:calorie_counter/app_config.dart';
 import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:calorie_counter/models/exercise_model.dart';
+import 'package:calorie_counter/modules/module_screens/workout/workout_calendar.dart';
 import 'package:calorie_counter/modules/module_screens/workout/workout_controller.dart';
 
 import 'package:intl/intl.dart';
-import 'package:table_calendar/table_calendar.dart';
 
 class Workout extends StatelessWidget {
   const Workout({super.key});
@@ -27,7 +27,7 @@ class Workout extends StatelessWidget {
           ),
           bottomNavigationBar: appButton(
             Fonts.startExercise.tr,
-            onTap: ()=> ctrl.startExercise()
+            onTap: () => ctrl.startExercise(),
           ).padding(horizontal: 16, bottom: 26),
 
           body: ListView(
@@ -65,72 +65,10 @@ class Workout extends StatelessWidget {
                       ),
                     ),
                     VSpace(10),
-                    TableCalendar(
-                      firstDay: DateTime.utc(2020, 1, 1),
-                      rowHeight: 72,
-                      lastDay: DateTime.utc(ctrl.dateTime.year + 300, 12, 31),
-                      focusedDay: ctrl.dateTime,
-
-                      calendarFormat: CalendarFormat.week,
-
-                      // When a day is selected
-                      selectedDayPredicate: (day) =>
-                          isSameDay(ctrl.dateTime, day),
-                      onDaySelected: (selected, focused) {
-                        /* setState(() {
-                          selectedDay = selected;
-                          focusedDay = focused;
-                        });*/
-                        selectDate(ctrl, selected);
-                      },
-
-                      // Hide headers & format the week strip style
-                      headerVisible: false,
-                      daysOfWeekVisible: false,
-
-                      calendarStyle: CalendarStyle(
-                        outsideDaysVisible: false,
-                        cellMargin: const EdgeInsets.symmetric(
-                          horizontal: 4,
-                          vertical: 8,
-                        ),
-                        cellPadding: EdgeInsets.zero,
-                        defaultDecoration: BoxDecoration(
-                          color: AppColors.lightGrey.withValues(alpha: .17),
-                          borderRadius: BorderRadius.circular(40),
-                        ),
-                        selectedDecoration: BoxDecoration(
-                          color: AppColors.primaryColor,
-                          // your brown highlight color
-                          shape: BoxShape.circle,
-                        ),
-                        todayDecoration: BoxDecoration(
-                          color: AppColors.lightGrey.withValues(alpha: .17),
-                          borderRadius: BorderRadius.circular(40),
-                        ),
-                        defaultTextStyle: const TextStyle(color: Colors.black),
-                        selectedTextStyle: const TextStyle(color: Colors.white),
-                        todayTextStyle: const TextStyle(color: Colors.black),
-                      ),
-
-                      // Custom day builder for weekday + date layout
-                      calendarBuilders: CalendarBuilders(
-                        defaultBuilder: (context, day, focusedDay) {
-                          return _buildDayCell(day, false);
-                        },
-                        selectedBuilder: (context, day, focusedDay) {
-                          return _buildDayCell(day, true);
-                        },
-                        todayBuilder: (context, day, focusedDay) {
-                          return _buildDayCell(day, false);
-                        },
-                        disabledBuilder: (context, day, focusedDay) {
-                          return _buildDayCell(day, false);
-                        },
-                        outsideBuilder: (context, day, focusedDay) {
-                          return _buildDayCell(day, false);
-                        },
-                      ),
+                    WorkoutCalendar(
+                      dateTime: ctrl.dateTime,
+                      onDaySelected: (selected, focused) =>
+                          selectDate(ctrl, selected),
                     ),
                   ],
                 ),
@@ -142,7 +80,7 @@ class Workout extends StatelessWidget {
                 itemBuilder: (context, index) {
                   ExerciseModel exercise = ctrl.exerciseList[index];
                   return InkWell(
-                    onTap: ()=> selectExercise(ctrl, exercise),
+                    onTap: () => selectExercise(ctrl, exercise),
                     child: CommonClass.commonContainerClass(
                       padding: EdgeInsets.all(12),
                       Row(
@@ -188,9 +126,10 @@ class Workout extends StatelessWidget {
                                           ),
                                           Text(
                                             "${exercise.kcal} kcal",
-                                            style: AppCss.soraRegular12.copyWith(
-                                              color: AppColors.gary,
-                                            ),
+                                            style: AppCss.soraRegular12
+                                                .copyWith(
+                                                  color: AppColors.gary,
+                                                ),
                                           ),
                                         ],
                                       ),
@@ -200,8 +139,8 @@ class Workout extends StatelessWidget {
                               ),
                             ],
                           ),
-                          if(exercise.name == ctrl.selected?.name)
-                            SvgPicture.asset(AppSvg.selected)
+                          if (exercise.name == ctrl.selected?.name)
+                            SvgPicture.asset(AppSvg.selected),
                         ],
                       ),
                     ),
@@ -223,39 +162,5 @@ class Workout extends StatelessWidget {
 
   void selectExercise(WorkoutController ctrl, data) {
     ctrl.selectExercise(data);
-  }
-
-  Widget _buildDayCell(DateTime day, bool isSelected) {
-    final dayName = DateFormat('E').format(day); // Sat, Sun, Mon...
-    final dayNumber = day.day.toString();
-
-    return Container(
-      width: 45,
-      padding: EdgeInsets.symmetric(vertical: 12),
-      decoration: BoxDecoration(
-        color: isSelected
-            ? AppColors.primaryColor
-            : AppColors.lightGrey.withValues(alpha: .17),
-        borderRadius: BorderRadius.circular(40),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            dayName,
-            style: AppCss.soraLight12.copyWith(
-              color: isSelected ? AppColors.white : AppColors.gary,
-            ),
-          ),
-          VSpace(8),
-          Text(
-            dayNumber,
-            style: AppCss.soraMedium14.copyWith(
-              color: isSelected ? AppColors.white : AppColors.black,
-            ),
-          ),
-        ],
-      ),
-    );
   }
 }

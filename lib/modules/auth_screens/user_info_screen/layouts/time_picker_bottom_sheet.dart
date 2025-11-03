@@ -7,8 +7,7 @@ class TimePickerBottomSheet extends StatefulWidget {
   final TimeOfDay? initialTime;
   final Function(TimeOfDay)? onTimeSelected;
 
-  const TimePickerBottomSheet({Key? key, this.initialTime, this.onTimeSelected})
-      : super(key: key);
+  const TimePickerBottomSheet({super.key, this.initialTime, this.onTimeSelected});
 
   @override
   State<TimePickerBottomSheet> createState() => _TimePickerBottomSheetState();
@@ -196,7 +195,7 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
                   ),
                 ),
 
-                Container(
+                SizedBox(
                   height: 200,
                   child: ListWheelScrollView(
                     diameterRatio: 4,
@@ -288,13 +287,5 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
         ),
       ],
     );
-  }
-
-  void _applyTime() {
-    final hour = _isAm ? _selectedHour : _selectedHour + 12;
-    final time = TimeOfDay(hour: hour, minute: _selectedMinute);
-
-    widget.onTimeSelected?.call(time);
-    Navigator.pop(context);
   }
 }

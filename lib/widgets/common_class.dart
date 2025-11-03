@@ -1,5 +1,6 @@
 import 'package:calorie_counter/app_config.dart';
 import 'package:calorie_counter/extension/widget_extension.dart';
+import 'package:intl/intl.dart';
 
 class CommonClass {
   static Widget commonWeightHeightTextLayout(context, title, value) =>
@@ -121,12 +122,6 @@ class CommonClass {
     GestureTapCallback? onTap,
   }) {
     return Container(
-      child: Text(
-        label,
-        style: AppCss.soraRegular12.copyWith(
-          color: isSelected ? Colors.white : AppColors.gary,
-        ),
-      ),
       decoration: BoxDecoration(
         color: isSelected ? AppColors.primaryColor : AppColors.white,
         borderRadius: BorderRadius.circular(6),
@@ -136,26 +131,33 @@ class CommonClass {
       ),
 
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 7),
+      child: Text(
+        label,
+        style: AppCss.soraRegular12.copyWith(
+          color: isSelected ? Colors.white : AppColors.gary,
+        ),
+      ),
     ).inkWell(onTap: onTap);
   }
 
   static commonContainerClass(
     Widget child, {
     EdgeInsets? padding,
-    EdgeInsets? margin,
+    EdgeInsets? margin,double? radius,
+        bool isShadow =true
   }) => Container(
     margin: margin,
     padding: padding,
     decoration: BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(12),
-      boxShadow: [
+      borderRadius: BorderRadius.circular(radius??12),
+      boxShadow: isShadow? [
         BoxShadow(
           color: AppColors.black.withValues(alpha: .05),
           offset: Offset(0, 10),
           blurRadius: 20,
         ),
-      ],
+      ]:null,
     ),
     child: child,
   );
@@ -185,4 +187,39 @@ class CommonClass {
       Expanded(child: Text(desc, style: AppCss.soraRegular13)),
     ],
   );
+
+
+ static Widget buildDayCell(DateTime day, bool isSelected) {
+    final dayName = DateFormat('E').format(day); // Sat, Sun, Mon...
+    final dayNumber = day.day.toString();
+
+    return Container(
+      width: 45,
+      padding: EdgeInsets.symmetric(vertical: 12),
+      decoration: BoxDecoration(
+        color: isSelected
+            ? AppColors.primaryColor
+            : AppColors.lightGrey.withValues(alpha: .17),
+        borderRadius: BorderRadius.circular(40),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            dayName,
+            style: AppCss.soraLight12.copyWith(
+              color: isSelected ? AppColors.white : AppColors.gary,
+            ),
+          ),
+          VSpace(8),
+          Text(
+            dayNumber,
+            style: AppCss.soraMedium14.copyWith(
+              color: isSelected ? AppColors.white : AppColors.black,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
