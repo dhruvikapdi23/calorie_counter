@@ -23,7 +23,7 @@ class SearchScreen extends StatelessWidget {
               spacing: 10,
               children: [
                 CommonBackCircle(onTap: () => Get.back()),
-                Text(Fonts.search.tr, style: AppCss.soraMedium16),
+                AppText(Fonts.search.tr, style: AppCss.soraMedium16),
               ],
             ),
 

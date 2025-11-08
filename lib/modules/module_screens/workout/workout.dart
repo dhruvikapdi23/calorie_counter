@@ -21,7 +21,7 @@ class Workout extends StatelessWidget {
               spacing: 10,
               children: [
                 CommonBackCircle(onTap: () => Get.back()),
-                Text(Fonts.dailyChallenges.tr, style: AppCss.soraMedium16),
+                AppText(Fonts.dailyChallenges.tr, style: AppCss.soraMedium16),
               ],
             ),
           ),
@@ -36,11 +36,11 @@ class Workout extends StatelessWidget {
               Column(
                 spacing: 6,
                 children: [
-                  Text(
+                  AppText(
                     Fonts.dailyBurnChallenge.tr,
                     style: AppCss.soraSemiBold22,
                   ),
-                  Text(
+                  AppText(
                     Fonts.dailyBurnChallengeDesc.tr,
                     style: AppCss.soraRegular14,
                     textAlign: TextAlign.center,
@@ -58,7 +58,7 @@ class Workout extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    AppText(
                       "Today, ${DateFormat("MMM yyyy").format(ctrl.dateTime)}",
                       style: AppCss.soraMedium12.copyWith(
                         color: AppColors.primaryColor,
@@ -104,14 +104,14 @@ class Workout extends StatelessWidget {
                                 spacing: 6,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  AppText(
                                     exercise.name!,
                                     style: AppCss.soraMedium16,
                                   ),
                                   Row(
                                     spacing: 10,
                                     children: [
-                                      Text(
+                                      AppText(
                                         exercise.time!,
                                         style: AppCss.soraRegular12.copyWith(
                                           color: AppColors.gary,
@@ -124,7 +124,7 @@ class Workout extends StatelessWidget {
                                             AppSvg.fire,
                                             height: 12,
                                           ),
-                                          Text(
+                                          AppText(
                                             "${exercise.kcal} kcal",
                                             style: AppCss.soraRegular12
                                                 .copyWith(

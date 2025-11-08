@@ -23,7 +23,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: AppColors.primaryColor,
       toolbarHeight: 72,
-      title: Text(
+      title: AppText(
         title!,
         style: AppCss.soraSemiBold24.copyWith(color: AppColors.white),
       ),

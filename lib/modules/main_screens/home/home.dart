@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
                                 spacing: 9,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
+                                  AppText(
                                     "Today,${DateFormat("MMM dd").format(ctrl.currentDate)} ",
                                     style: AppCss.soraMedium14.copyWith(
                                       color: AppColors.black,
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(Fonts.addMeal.tr, style: AppCss.soraBold16),
+                    AppText(Fonts.addMeal.tr, style: AppCss.soraBold16),
                     Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: 10,
@@ -90,7 +90,7 @@ class _HomeState extends State<Home> {
                         spacing: 2,
                         children: [
                           SvgPicture.asset(AppSvg.add),
-                          Text(
+                          AppText(
                             Fonts.add.tr,
                             style: AppCss.soraRegular13.copyWith(
                               color: AppColors.white,
@@ -108,7 +108,7 @@ class _HomeState extends State<Home> {
                   isAction: true,
                   isGram: false,
                 ).paddingSymmetric(horizontal: 16),
-                Text(
+                AppText(
                   Fonts.discover.tr,
                   style: AppCss.soraBold16,
                 ).paddingSymmetric(horizontal: 16),
@@ -117,7 +117,7 @@ class _HomeState extends State<Home> {
 
                 _buildDiscoverGrid(),
                 VSpace(16),
-                Text(
+                AppText(
                   Fonts.waterLevel.tr,
                   style: AppCss.soraBold16,
                 ).paddingSymmetric(horizontal: 16),
@@ -156,7 +156,7 @@ class _HomeState extends State<Home> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
+          AppText(
             Fonts.appName.tr,
             style: AppCss.soraSemiBold24.copyWith(color: AppColors.white),
           ),
@@ -215,15 +215,15 @@ class _HomeState extends State<Home> {
                 children: [
                   SvgPicture.asset(icon),
                   HSpace(5),
-                  Text(title.tr, style: AppCss.soraRegular13),
+                  AppText(title.tr, style: AppCss.soraRegular13),
                 ],
               ),
               VSpace(11),
               Row(
                 children: [
-                  Text(value.split(" ")[0], style: AppCss.soraMedium22),
+                  AppText(value.split(" ")[0], style: AppCss.soraMedium22),
                   HSpace(10),
-                  Text(
+                  AppText(
                     value.split(" ")[1],
                     style: title == Fonts.sleepingTime
                         ? AppCss.soraMedium22
@@ -265,13 +265,13 @@ class _HomeState extends State<Home> {
               Row(
                     spacing: 5,
                     children: [
-                      Text(
+                      AppText(
                         ctrl.dailyGoal.toStringAsFixed(0),
                         style: AppCss.soraMedium22.copyWith(
                           color: AppColors.black,
                         ),
                       ),
-                      Text(
+                      AppText(
                         Fonts.ml.tr,
                         style: AppCss.soraRegular14.copyWith(
                           color: AppColors.black,

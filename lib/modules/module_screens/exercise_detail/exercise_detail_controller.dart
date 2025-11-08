@@ -76,7 +76,7 @@ class ExerciseDetailController extends GetxController {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(exerciseDetail!.name!, style: AppCss.soraMedium24),
+                    AppText(exerciseDetail!.name!, style: AppCss.soraMedium24),
                     SvgPicture.asset(
                       AppSvg.closeCircle,
                     ).inkWell(onTap: () => Get.back()),

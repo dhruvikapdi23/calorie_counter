@@ -33,7 +33,7 @@ Widget appButton(String title,
             Row(
               children: [icon,const HSpace(10)],
             ),
-            Text(
+            AppText(
               title,
               style: style ??
                   AppCss.soraSemiBold16.copyWith(color: textColor??AppColors.white),
@@ -78,7 +78,7 @@ Widget appButton1(String title,
             Row(
               children: [icon,const HSpace(9)],
             ),
-            Text(
+            AppText(
               title,
               style: style ??
                   Get.theme.textTheme.displaySmall!

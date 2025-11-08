@@ -62,7 +62,7 @@ class _AllSearchListState extends State<AllSearchList> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(foodItem.name, style: AppCss.soraRegular13),
+                      AppText(foodItem.name, style: AppCss.soraRegular13),
                       VSpace(6),
                       Row(
                         spacing: 14,
@@ -79,7 +79,7 @@ class _AllSearchListState extends State<AllSearchList> {
                                   color: AppColors.gary,
                                 ),
                               ),
-                              Text(
+                              AppText(
                                 foodItem.weight,
                                 style: AppCss.soraRegular12.copyWith(
                                   color: AppColors.gary,
@@ -99,7 +99,7 @@ class _AllSearchListState extends State<AllSearchList> {
                                   color: AppColors.gary,
                                 ),
                               ),
-                              Text(
+                              AppText(
                                 foodItem.calories,
                                 style: AppCss.soraRegular12.copyWith(
                                   color: AppColors.gary,

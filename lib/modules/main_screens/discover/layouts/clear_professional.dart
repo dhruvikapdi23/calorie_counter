@@ -20,7 +20,7 @@ class RowDiscoverOption extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: AppCss.soraSemiBold16),
+        AppText(title, style: AppCss.soraSemiBold16),
         VSpace(16),
         SizedBox(
           height: 148,
@@ -57,7 +57,7 @@ class RowDiscoverOption extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(data['title'], style: AppCss.soraMedium12),
+                        AppText(data['title'], style: AppCss.soraMedium12),
                         SvgPicture.asset(AppSvg.export),
                       ],
                     ),

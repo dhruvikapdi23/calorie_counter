@@ -24,7 +24,7 @@ class CurrentWeight extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                AppText(
                   Fonts.currentWeight.tr,
                   style: AppCss.soraSemiBold16,
                 ),
@@ -71,7 +71,7 @@ class CurrentWeight extends StatelessWidget {
                         BlendMode.srcIn,
                       ),
                     ),
-                    Text(
+                    AppText(
                       Fonts.modify.tr,
                       style: AppCss.soraMedium12.copyWith(
                         color: AppColors.white,

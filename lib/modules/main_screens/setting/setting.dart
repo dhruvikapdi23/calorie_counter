@@ -78,7 +78,7 @@ class Setting extends StatelessWidget {
   }
 
   Widget _sectionTitle(String title) {
-    return Text(title.tr, style: AppCss.soraRegular13);
+    return AppText(title.tr, style: AppCss.soraRegular13);
   }
 
   Widget _feedbackCard(SubMenuList submenu) {
@@ -90,8 +90,8 @@ class Setting extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 6,
           children: [
-            Text(submenu.title!.tr, style: AppCss.soraRegular14),
-            Text(
+            AppText(submenu.title!.tr, style: AppCss.soraRegular14),
+            AppText(
               submenu.desc!.tr,
               style: AppCss.soraRegular14.copyWith(color: AppColors.gary),
             ),
@@ -122,7 +122,7 @@ class Setting extends StatelessWidget {
                   ),
                 ),
                 HSpace(16),
-                Text(submenu.title!.tr, style: AppCss.soraRegular14),
+                AppText(submenu.title!.tr, style: AppCss.soraRegular14),
               ],
             ),
             SvgPicture.asset(AppSvg.arrowRight1),

@@ -19,11 +19,11 @@ class CommonEatenChart extends StatelessWidget {
                   spacing: 5,
                   children: [
                     SvgPicture.asset(AppSvg.eaten),
-                    Text(Fonts.eaten.tr, style: AppCss.soraRegular14),
+                    AppText(Fonts.eaten.tr, style: AppCss.soraRegular14),
                   ],
                 ),
-                Text("1634", style: AppCss.soraMedium24),
-                Text(
+                AppText("1634", style: AppCss.soraMedium24),
+                AppText(
                   "kcal",
                   style: AppCss.soraRegular12.copyWith(color: AppColors.gary),
                 ),
@@ -45,12 +45,12 @@ class CommonEatenChart extends StatelessWidget {
                   spacing: 5,
                   children: [
                     SvgPicture.asset(AppSvg.fire),
-                    Text(Fonts.burned.tr, style: AppCss.soraRegular14),
+                    AppText(Fonts.burned.tr, style: AppCss.soraRegular14),
                   ],
                 ),
-                Text("265", style: AppCss.soraMedium24),
-                Text(
-                  "kcal",
+                AppText("265", style: AppCss.soraMedium24),
+                AppText(
+                  Fonts.kcal.tr,
                   style: AppCss.soraRegular12.copyWith(color: AppColors.gary),
                 ),
               ],

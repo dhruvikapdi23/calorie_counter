@@ -21,14 +21,14 @@ class CommonClass {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style: AppCss.soraSemiBold18),
+            AppText(title, style: AppCss.soraSemiBold18),
             VSpace(6),
-            Text(
+            AppText(
               value,
               style: AppCss.soraBold28.copyWith(color: AppColors.primaryColor),
             ),
             VSpace(10),
-            Text(
+            AppText(
               Fonts.lookingStringAndConfident.tr,
               style: AppCss.soraRegular14,
             ),
@@ -69,7 +69,7 @@ class CommonClass {
       borderRadius: BorderRadius.circular(6),
       border: Border.all(color: AppColors.primaryColor, width: .8),
     ),
-    child: Text(
+    child: AppText(
       text,
       textAlign: TextAlign.center,
       style: AppCss.soraRegular14.copyWith(color: AppColors.primaryColor),
@@ -94,7 +94,7 @@ class CommonClass {
           : AppColors.lightGrey.withValues(alpha: .20),
       borderRadius: BorderRadius.circular(selected == title ? 12 : 6),
     ),
-    child: Text(
+    child: AppText(
       title.toString().tr,
       style: selected == title
           ? AppCss.soraMedium14.copyWith(color: AppColors.white)
@@ -108,11 +108,11 @@ class CommonClass {
         ? CrossAxisAlignment.end
         : CrossAxisAlignment.start,
     children: [
-      Text(
+      AppText(
         title.toString().tr,
         style: AppCss.soraMedium12.copyWith(color: AppColors.gary),
       ),
-      Text("$value ${Fonts.kcal.tr}", style: AppCss.soraRegular16),
+      AppText("$value ${Fonts.kcal.tr}", style: AppCss.soraRegular16),
     ],
   );
 
@@ -131,7 +131,7 @@ class CommonClass {
       ),
 
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 7),
-      child: Text(
+      child: AppText(
         label,
         style: AppCss.soraRegular12.copyWith(
           color: isSelected ? Colors.white : AppColors.gary,
@@ -168,7 +168,7 @@ class CommonClass {
     children: [
       Container(height: 4, width: 4, color: AppColors.white),
       HSpace(12),
-      Text(title, style: AppCss.soraMedium16.copyWith(color: AppColors.white)),
+      AppText(title, style: AppCss.soraMedium16.copyWith(color: AppColors.white)),
     ],
   );
 
@@ -176,8 +176,8 @@ class CommonClass {
     spacing: 5,
     children: [
       SvgPicture.asset(icon),
-      Text(title.toString().tr, style: AppCss.soraRegular13),
-      Text(val, style: AppCss.soraSemiBold14),
+      AppText(title.toString().tr, style: AppCss.soraRegular13),
+      AppText(val, style: AppCss.soraSemiBold14),
       SvgPicture.asset(AppSvg.edit, height: 14).paddingSymmetric(horizontal: 3),
     ],
   );
@@ -185,8 +185,8 @@ class CommonClass {
   static Widget exerciseDetail(title, desc) => Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text("${title.toString().tr}: ", style: AppCss.soraMedium13),
-      Expanded(child: Text(desc, style: AppCss.soraRegular13)),
+      AppText("${title.toString().tr}: ", style: AppCss.soraMedium13),
+      Expanded(child: AppText(desc, style: AppCss.soraRegular13)),
     ],
   );
 
@@ -214,7 +214,7 @@ class CommonClass {
             ),
           ),
           VSpace(8),
-          Text(
+          AppText(
             dayNumber,
             style: AppCss.soraMedium14.copyWith(
               color: isSelected ? AppColors.white : AppColors.black,

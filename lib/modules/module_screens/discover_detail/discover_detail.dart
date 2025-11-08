@@ -19,7 +19,7 @@ class DiscoverDetail extends StatelessWidget {
               spacing: 10,
               children: [
                 CommonBackCircle(onTap: () => Get.back()),
-                Text(ctrl.foodItem != null ?ctrl.foodItem['title']:"", style: AppCss.soraMedium16),
+                AppText(ctrl.foodItem != null ?ctrl.foodItem['title']:"", style: AppCss.soraMedium16),
               ],
             ),
           ),

@@ -16,7 +16,7 @@ class DailyProgress extends StatelessWidget {
       ),
       Column(
         children: [
-          Text(Fonts.dailyProgress.tr, style: AppCss.soraSemiBold24),
+          AppText(Fonts.dailyProgress.tr, style: AppCss.soraSemiBold24),
           VSpace(10),
           Row(
             spacing: 9,

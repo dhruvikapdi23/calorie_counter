@@ -23,7 +23,7 @@ class ScanImage extends StatelessWidget {
               spacing: 10,
               children: [
                 CommonBackCircle(onTap: () => ctrl.onBack()),
-                Text(Fonts.scanMeals.tr, style: AppCss.soraMedium16),
+                AppText(Fonts.scanMeals.tr, style: AppCss.soraMedium16),
               ],
             ),
             actions: [

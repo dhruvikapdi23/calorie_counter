@@ -15,9 +15,9 @@ class CompletedExercise extends StatelessWidget {
               VSpace(48),
               Image.asset(AppImages.cup, height: 174),
               VSpace(7),
-              Text(Fonts.congratulations.tr, style: AppCss.soraSemiBold28),
+              AppText(Fonts.congratulations.tr, style: AppCss.soraSemiBold28),
               VSpace(14),
-              Text(
+              AppText(
                 Fonts.youHaveCompletedTheWorkout.tr,
                 style: AppCss.soraRegular18.copyWith(color: AppColors.gary),
               ),
@@ -57,7 +57,7 @@ class CompletedExercise extends StatelessWidget {
                         spacing: 5,
                         children: [
                           SvgPicture.asset(data['icon'], height: 14),
-                          Text(
+                          AppText(
                             data['title'].toString().tr,
                             style: AppCss.soraMedium12,
                           ),
@@ -66,13 +66,13 @@ class CompletedExercise extends StatelessWidget {
                       SvgPicture.asset(
                         AppSvg.horizontalLine,
                       ).paddingSymmetric(vertical: 8),
-                      Text(
+                      AppText(
                         data['result'],
                         style: AppCss.soraSemiBold22.copyWith(
                           color: AppColors.primaryColor,
                         ),
                       ),
-                      Text(data['key'], style: AppCss.soraRegular10),
+                      AppText(data['key'], style: AppCss.soraRegular10),
                     ],
                   ),
                 );
@@ -91,7 +91,7 @@ class CompletedExercise extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                AppText(
                   Fonts.weightLoss.tr,
                   style: AppCss.soraRegular16.copyWith(color: AppColors.black),
                 ),

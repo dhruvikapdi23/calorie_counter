@@ -60,7 +60,7 @@ class _PlateSearchListState extends State<PlateSearchList> {
                           : AppColors.lightGrey,
                     ),
                   ),
-                  child: Text(
+                  child: AppText(
                     e.value.tr,
                     style: AppCss.soraRegular12.copyWith(
                       color: widget.selectedPlate == e.value
@@ -110,7 +110,7 @@ class _PlateSearchListState extends State<PlateSearchList> {
                       child: Row(
                         spacing: 5,
                         children: [
-                          Text(foodItem.userCount, style: AppCss.soraRegular14),
+                          AppText(foodItem.userCount, style: AppCss.soraRegular14),
                           Image.asset(AppImages.user, height: 15, width: 15),
                         ],
                       ),

@@ -17,7 +17,7 @@ class ExerciseDetail extends StatelessWidget {
               spacing: 10,
               children: [
                 CommonBackCircle(onTap: () => Get.back()),
-                Text(
+                AppText(
                 ctrl.isRest?Fonts.tackRest.tr:  ctrl.exerciseDetail != null ? ctrl.exerciseDetail!.name! : "",
                   style: AppCss.soraMedium16,
                 ),
@@ -30,7 +30,7 @@ class ExerciseDetail extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: AppColors.black,borderRadius: BorderRadius.circular(6)
                 ),
-                child: Text("+20s",style: AppCss.soraMedium14.copyWith(color: AppColors.white),),
+                child: AppText("+20s",style: AppCss.soraMedium14.copyWith(color: AppColors.white),),
               ) :CommonCircleIcon(
                 icon: AppSvg.volume,
               ).paddingSymmetric(horizontal: 16),
@@ -66,7 +66,7 @@ class ExerciseDetail extends StatelessWidget {
                       ),
                     ),
                   ).inkWell(onTap: () => ctrl.nextOrPrevious()),
-                  Text(
+                  AppText(
                     "${ctrl.exerciseIndex + 1}/${ctrl.exerciseList.length} ${Fonts.exercise.tr}",
                     style: AppCss.soraSemiBold16.copyWith(color: AppColors.white),
                   ),
@@ -105,11 +105,11 @@ class ExerciseDetail extends StatelessWidget {
                         child: Row(spacing: 9,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("${Fonts.resetTime.tr}:",style: AppCss.soraMedium16.copyWith(color: AppColors.white),),
+                            AppText("${Fonts.resetTime.tr}:",style: AppCss.soraMedium16.copyWith(color: AppColors.white),),
                             Row(spacing: 9,
                               children: [
                                 SvgPicture.asset(AppSvg.clock),
-                                Text("0:30",style: AppCss.soraMedium32.copyWith(color: AppColors.white),)
+                                AppText("0:30",style: AppCss.soraMedium32.copyWith(color: AppColors.white),)
                               ],
                             )
 
@@ -174,7 +174,7 @@ class ExerciseDetail extends StatelessWidget {
                             ],
                           ),
                         ) :     Expanded(
-                          child:  Text(
+                          child:  AppText(
                             ctrl.exerciseDetail!.name!,
                             style: AppCss.soraSemiBold17,
                           ),
@@ -184,7 +184,7 @@ class ExerciseDetail extends StatelessWidget {
                         Row(
                           spacing: 10,
                           children: [
-                            Text(
+                            AppText(
                               ctrl.exerciseDetail!.time!,
                               style: AppCss.soraMedium14,
                             ),
@@ -192,7 +192,7 @@ class ExerciseDetail extends StatelessWidget {
                               spacing: 5,
                               children: [
                                 SvgPicture.asset(AppSvg.fire, height: 12),
-                                Text(
+                                AppText(
                                   "${ctrl.exerciseDetail!.kcal!} kcal",
                                   style: AppCss.soraMedium14,
                                 ),
@@ -242,7 +242,7 @@ class ExerciseDetail extends StatelessWidget {
                         ),
                       ),
                     if(ctrl.isSetDisplay)
-                      Text(
+                      AppText(
                         ctrl.exerciseDetail!.name!,
                         style: AppCss.soraSemiBold17,
                       ),
@@ -268,7 +268,7 @@ class ExerciseDetail extends StatelessWidget {
                       ],
                     ),
                     VSpace(24),
-                    Text(
+                    AppText(
                       "${Fonts.howToDo.tr} ${ctrl.exerciseDetail!.name}",
                       style: AppCss.soraBold13,
                     ),
@@ -287,7 +287,7 @@ class ExerciseDetail extends StatelessWidget {
                             margin: EdgeInsets.only(top: 5),
                           ),
                           Expanded(
-                            child: Text(
+                            child: AppText(
                               AppArray.howToDo[index],
                               style: AppCss.soraRegular12.copyWith(
                                 color: AppColors.black.withValues(alpha: .80),

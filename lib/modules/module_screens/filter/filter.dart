@@ -18,7 +18,7 @@ class Filter extends StatelessWidget {
               spacing: 10,
               children: [
                 CommonBackCircle(onTap: () => Get.back()),
-                Text(Fonts.filters.tr, style: AppCss.soraMedium16),
+                AppText(Fonts.filters.tr, style: AppCss.soraMedium16),
               ],
             ),
           ),
@@ -40,11 +40,11 @@ class Filter extends StatelessWidget {
           body: ListView(
             padding: EdgeInsets.all(16),
             children: [
-              Text(Fonts.selectCategory.tr, style: AppCss.soraSemiBold16),
+              AppText(Fonts.selectCategory.tr, style: AppCss.soraSemiBold16),
               VSpace(16),
 
               VSpace(24),
-              Text(
+              AppText(
                 Fonts.displayOfResultByOrder.tr,
                 style: AppCss.soraSemiBold16,
               ),
@@ -84,7 +84,7 @@ class Filter extends StatelessWidget {
                 ),
               ),
               VSpace(24),
-              Text(Fonts.caloriesPerGrams.tr, style: AppCss.soraSemiBold16),
+              AppText(Fonts.caloriesPerGrams.tr, style: AppCss.soraSemiBold16),
               VSpace(16),
               Container(
                 padding: EdgeInsets.symmetric(horizontal:12,vertical: 16),

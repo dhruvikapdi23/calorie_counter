@@ -41,7 +41,7 @@ class MealsWidgetClass{
                     Row(
                       children: [
                         Expanded(
-                          child: Text(
+                          child: AppText(
                             meal.title!.toString(),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -60,8 +60,8 @@ class MealsWidgetClass{
                       ],
                     ),
                     VSpace(4),
-                    Text(
-                      "${meal.kcal} kcal",
+                    AppText(
+                      "${meal.kcal} ${Fonts.kcal.tr}",
                       style: AppCss.soraRegular12.copyWith(
                         color: AppColors.gary,
                       ),
@@ -101,9 +101,9 @@ class MealsWidgetClass{
   static Widget nutrient(String label, String value) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(label, style: AppCss.soraRegular12.copyWith(color: AppColors.gary)),
+      AppText(label, style: AppCss.soraRegular12.copyWith(color: AppColors.gary)),
       VSpace(2),
-      Text(value, style: AppCss.soraMedium13),
+      AppText(value, style: AppCss.soraMedium13),
     ],
   );
 
@@ -144,7 +144,7 @@ class MealsWidgetClass{
                 child: Center(child: SvgPicture.asset(item.icon!, height: 28)),
               ),
               const SizedBox(height: 8),
-              Text(item.name!, style: AppCss.soraRegular12),
+              AppText(item.name!, style: AppCss.soraRegular12),
             ],
           ),
         );
@@ -159,11 +159,11 @@ class MealsWidgetClass{
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(section.title!, style: AppCss.soraSemiBold16),
+              AppText(section.title!, style: AppCss.soraSemiBold16),
               TextButton(
                 onPressed: () => Navigation.toNamed(RouteName.mealDetail,arguments: section),
-                child: Text(
-                  "View all",
+                child: AppText(
+  Fonts.viewAll.tr,
                   style: AppCss.soraSemiBold13.copyWith(
                     color: AppColors.primaryColor,
                   ),

@@ -127,6 +127,6 @@ class TabItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Tab(child: Text(title, overflow: TextOverflow.ellipsis));
+    return Tab(child: AppText(title, overflow: TextOverflow.ellipsis));
   }
 }

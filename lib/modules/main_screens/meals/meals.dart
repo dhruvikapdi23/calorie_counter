@@ -20,7 +20,7 @@ class _MealsState extends State<Meals> {
           appBar: AppBar(
             backgroundColor: AppColors.primaryColor,
             toolbarHeight: 72,
-            title: Text(
+            title: AppText(
               Fonts.meals.tr,
               style: AppCss.soraSemiBold24.copyWith(color: AppColors.white),
             ),
@@ -62,7 +62,7 @@ class _MealsState extends State<Meals> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                AppText(
                   Fonts.browseMealsByCategories.tr,
                   style: AppCss.soraSemiBold16,
                 ),
