@@ -1,4 +1,5 @@
 import 'package:calorie_counter/extension/widget_extension.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app_config.dart';
 import '../../../../models/gender_model.dart';
@@ -13,7 +14,6 @@ class GenderSelection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      spacing: 19,
       children: [
        ListView.builder(
          itemCount: AppArray.genderList.length,
@@ -22,11 +22,11 @@ class GenderSelection extends StatelessWidget {
          itemBuilder: (context, index) {
            GenderModel data = AppArray.genderList[index];
          return Column(
-           spacing: 10,
+           spacing: 10.sp,
            children: [
              Container(
-               height: 142,
-               width: 142,
+               height: 142.h,
+               width: 142.w,
                decoration: BoxDecoration(
                  color: AppColors.white,
                  shape: BoxShape.circle,
@@ -36,10 +36,8 @@ class GenderSelection extends StatelessWidget {
                        : AppColors.white,
                  ),
                ),
-               padding: EdgeInsets.all(8),
+               padding: EdgeInsets.all(SizeUtils.fSize_6()),
                child: Container(
-                 height: 126,
-                 width: 126,
                  decoration: BoxDecoration(
                    image: DecorationImage(
                      image: AssetImage(data.image.toString()),
@@ -49,12 +47,12 @@ class GenderSelection extends StatelessWidget {
                  ),
                ),
              ),
-             Text(data.title.toString().tr, style: AppCss.soraMedium20),
+             AppText(data.title.toString().tr, style: AppCss.soraMedium20),
            ],
-         ).paddingOnly(right: 19).inkWell(onTap: () => onTap(data.title));
+         ).paddingOnly(right: 19.w).inkWell(onTap: () => onTap(data.title));
        },)
       ],
-    ).paddingOnly(top: 92);
+    ).paddingOnly(top: 90.h);
   }
 
 

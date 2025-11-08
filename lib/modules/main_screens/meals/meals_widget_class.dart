@@ -161,7 +161,7 @@ class MealsWidgetClass{
             children: [
               Text(section.title!, style: AppCss.soraSemiBold16),
               TextButton(
-                onPressed: () => Get.toNamed(RouteName.mealDetail,arguments: section),
+                onPressed: () => Navigation.toNamed(RouteName.mealDetail,arguments: section),
                 child: Text(
                   "View all",
                   style: AppCss.soraSemiBold13.copyWith(

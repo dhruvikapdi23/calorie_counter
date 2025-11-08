@@ -1,14 +1,16 @@
 import 'dart:async';
 
+import 'package:calorie_counter/app_config.dart';
 import 'package:calorie_counter/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class AppPreference {
   static late SharedPreferences _prefs;
+  static late GetStorage storage;
 
   static Future initMySharedPreferences() async {
     _prefs = await SharedPreferences.getInstance();
+    storage = GetStorage();
   }
 
   void clearSharedPreferences() {
@@ -72,5 +74,14 @@ class AppPreference {
   static bool isUserLogin() {
     final String? getToken = getUserToken();
     return getToken != null && getToken.isNotEmpty;
+  }
+
+  static Future setValue(String key, String value) async {
+    await storage.write(key, value);
+  }
+
+  static dynamic getValue(String key) {
+    final value = storage.read(key);
+    return value ?? "";
   }
 }

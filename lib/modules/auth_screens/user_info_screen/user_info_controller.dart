@@ -116,7 +116,7 @@ class UserInfoController extends GetxController {
   nextTo() {
     log("currentStep :$currentStep");
     if (currentStep == 12) {
-      Get.toNamed(RouteName.plan);
+      Navigation.toNamed(RouteName.plan);
     } else {
       if (currentStep < 13) {
         currentStep++;
@@ -132,6 +132,7 @@ class UserInfoController extends GetxController {
   onBack() {
     if (currentStep == 0) {
       currentStep = 0;
+      Get.back();
     } else {
       if (currentStep >= 0) {
         currentStep--;

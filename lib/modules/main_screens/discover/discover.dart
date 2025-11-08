@@ -130,6 +130,6 @@ class _DiscoverState extends State<Discover> {
   }
 
   void scanTap() {
-    Get.toNamed(RouteName.scanImage);
+    Navigation.toNamed(RouteName.scanImage);
   }
 }

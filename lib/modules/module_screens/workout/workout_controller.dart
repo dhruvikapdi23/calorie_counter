@@ -36,7 +36,7 @@ class WorkoutController extends GetxController {
 
   startExercise() {
     if (selected != null) {
-      Get.toNamed(RouteName.exerciseDetail, arguments: selected);
+      Navigation.toNamed(RouteName.exerciseDetail, arguments: selected);
     } else {
       Get.snackbar("Alert!", "Select Exercise");
     }

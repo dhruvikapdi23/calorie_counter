@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:calorie_counter/utils/size_utils.dart';
 import 'package:calorie_counter/utils/utils.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sizer/sizer.dart';
 
 import 'app_config.dart';
@@ -59,9 +60,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Sizer(
         builder: (context, orientation, deviceType) {
           SizeUtils().init(context);
+          ScreenUtil.init(context);
 
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,

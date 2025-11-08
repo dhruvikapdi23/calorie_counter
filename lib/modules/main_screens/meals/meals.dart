@@ -33,7 +33,7 @@ class _MealsState extends State<Meals> {
                 ),
                 child: AppTextField(
                   color: AppColors.white,
-                  onTap: ()=> Get.toNamed(RouteName.search),
+                  onTap: ()=> Navigation.toNamed(RouteName.search),
 
                   bRadius: 12,
                   hintText: Fonts.searchForAFoodItem.tr,
@@ -104,6 +104,6 @@ class _MealsState extends State<Meals> {
   }
 
   void scanTap() {
-    Get.toNamed(RouteName.scanImage);
+    Navigation.toNamed(RouteName.scanImage);
   }
 }

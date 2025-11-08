@@ -41,6 +41,6 @@ class _ReportState extends State<Report> {
   }
 
   void scanTap() {
-    Get.toNamed(RouteName.scanImage);
+    Navigation.toNamed(RouteName.scanImage);
   }
 }

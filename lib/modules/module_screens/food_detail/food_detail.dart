@@ -29,7 +29,7 @@ class FoodDetail extends StatelessWidget {
           ),
           bottomNavigationBar: appButton(
             Fonts.addFood.tr,
-            onTap: ()=>Get.toNamed(RouteName.addFood)
+            onTap: ()=>Navigation.toNamed(RouteName.addFood)
           ).padding(horizontal: 16, bottom: 30),
           body: ctrl.foodItem != null
               ? ListView(

@@ -12,13 +12,13 @@ class SettingController extends GetxController {
 
   onTapFunction(title) {
     if (title == Fonts.profileInformation) {
-      Get.toNamed(RouteName.profileInformation);
+      Navigation.toNamed(RouteName.profileInformation);
     } else if (title == Fonts.generalSettings) {
-      Get.toNamed(RouteName.generalInformation);
+      Navigation.toNamed(RouteName.generalInformation);
     } else if (title == Fonts.language) {
-      Get.toNamed(RouteName.language);
+      Navigation.toNamed(RouteName.language);
     } else if (title == Fonts.subscription) {
-      Get.toNamed(RouteName.plan);
+      Navigation.toNamed(RouteName.plan);
     }
   }
 

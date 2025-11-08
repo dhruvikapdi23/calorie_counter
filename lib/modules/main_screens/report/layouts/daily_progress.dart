@@ -8,9 +8,9 @@ class DailyProgress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonClass.commonContainerClass(
-      padding: const EdgeInsets.only(
-        left: 16,
-        right: 16,
+      padding: EdgeInsets.only(
+        left: SizeUtils.fSize_16(),
+        right: SizeUtils.fSize_16(),
         top: 26.5,
         bottom: 12.5,
       ),
@@ -44,7 +44,7 @@ class DailyProgress extends StatelessWidget {
           ),
           VSpace(30),
 
-CommonEatenChart()
+          CommonEatenChart(),
         ],
       ),
     );

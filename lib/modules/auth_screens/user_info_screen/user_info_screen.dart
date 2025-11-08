@@ -13,23 +13,23 @@ class UserInfoScreen extends StatelessWidget {
       init: UserInfoController(),
       builder: (ctrl) {
         return Scaffold(
-          bottomNavigationBar: appButton(
-            ctrl.currentStep == 12 ? Fonts.createMyPlan.tr : Fonts.next.tr,
-            onTap: () => onTap(ctrl),
-          ).padding(horizontal: 16, vertical: 40),
+          bottomNavigationBar:
+              appButton(
+                ctrl.currentStep == 12 ? Fonts.createMyPlan.tr : Fonts.next.tr,
+                onTap: () => onTap(ctrl),
+              ).padding(
+                horizontal: SizeUtils.fSize_16(),
+                vertical: SizeUtils.verticalBlockSize * 4.5,
+              ),
           appBar: AppBar(
             automaticallyImplyLeading: false,
 
             title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              spacing: 10,
+              spacing: SizeUtils.fSize_10(),
               children: [
                 Text(Fonts.calorie.tr, style: AppCss.soraMedium18),
-                Image(
-                  image: const AssetImage(AppImages.logo),
-                  height: 40,
-                  width: 48,
-                ),
+                CommonClass.commonLogo(),
                 Text(Fonts.counter.tr, style: AppCss.soraMedium18),
               ],
             ),
@@ -41,7 +41,7 @@ class UserInfoScreen extends StatelessWidget {
               Column(
                 children: [
                   Row(
-                    spacing: 16,
+                    spacing: SizeUtils.fSize_16(),
                     children: [
                       CommonBackCircle(onTap: () => onBack(ctrl)),
                       Expanded(
@@ -59,11 +59,11 @@ class UserInfoScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  VSpace(9),
+                  VSpace(SizeUtils.verticalBlockSize *.9),
                   ctrl.currentStep == 12
                       ? Container()
                       : ctrl.currentStep == 9
-                      ? Text(
+                      ? AppText(
                           AppArray.userInfoTitleSection[ctrl.currentStep].title
                               .toString()
                               .tr,
@@ -73,7 +73,7 @@ class UserInfoScreen extends StatelessWidget {
                         )
                       : Column(
                           children: [
-                            Text(
+                            AppText(
                               AppArray
                                   .userInfoTitleSection[ctrl.currentStep]
                                   .title
@@ -82,8 +82,8 @@ class UserInfoScreen extends StatelessWidget {
                               style: AppCss.soraSemiBold22,
                               textAlign: TextAlign.center,
                             ).alignment(Alignment.center),
-                            VSpace(6),
-                            Text(
+                            VSpace(SizeUtils.verticalBlockSize *.6),
+                            AppText(
                               AppArray
                                   .userInfoTitleSection[ctrl.currentStep]
                                   .desc
@@ -107,7 +107,7 @@ class UserInfoScreen extends StatelessWidget {
                 ),
               ),
             ],
-          ).padding(horizontal: 16),
+          ).padding(horizontal: SizeUtils.fSize_16()),
         );
       },
     );

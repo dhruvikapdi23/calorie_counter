@@ -13,6 +13,12 @@ class SizeUtils {
   static late double verticalBlockSize;
   static late double appBarHeight;
 
+
+  // 🔹 Define base design size (you can adjust based on your Figma design)
+  static const double baseWidth = 375.0; // iPhone X width
+  static const double baseHeight = 812.0; // iPhone X height
+
+
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
     screenWidth = _mediaQueryData.size.width;
@@ -20,7 +26,14 @@ class SizeUtils {
     horizontalBlockSize = screenWidth / (isTablet() ? 150 : 100);
     verticalBlockSize = screenHeight / (isTablet() ? 150 : 100);
     appBarHeight = AppBar().preferredSize.height;
+
   }
+
+  // 🔹 Responsive scaling methods
+  static double scaleWidth(double width) => (width / baseWidth) * screenWidth;
+  static double scaleHeight(double height) => (height / baseHeight) * screenHeight;
+  static double scaleText(double size) => scaleWidth(size);
+
 
   static bool isTablet() => Device.get().isTablet;
   static bool isPhone() => Device.get().isPhone;
@@ -32,6 +45,9 @@ class SizeUtils {
 
   static double fSize_30() {
     return horizontalBlockSize * 8.336; //30
+  }
+  static double fSize_32() {
+    return horizontalBlockSize * 7.60; //32
   }
 
   static double fSize_25() {
@@ -50,8 +66,12 @@ class SizeUtils {
     return horizontalBlockSize * 5.0; //18
   }
 
+  static double fSize_19() {
+    return horizontalBlockSize * .19; //18
+  }
+
   static double fSize_16() {
-    return horizontalBlockSize * 4.450; //16
+    return horizontalBlockSize * 4.10; //16
   }
 
   static double fSize_15() {

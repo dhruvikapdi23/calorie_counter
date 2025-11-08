@@ -280,6 +280,7 @@ class Fonts {
   static String weightLoss = "weightLoss";
   static String nextToWorkout = "nextToWorkout";
   static String resetTime = "resetTime";
+  static String yourDailyGuide = "yourDailyGuide";
 
   String areYourSureYouWantToRemove(val) =>
       "areYourSureYouWantToRemove".trParams({'name': val});

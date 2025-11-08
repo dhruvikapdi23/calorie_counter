@@ -144,13 +144,15 @@ class CommonClass {
     Widget child, {
     EdgeInsets? padding,
     EdgeInsets? margin,double? radius,
-        bool isShadow =true
+        bool isShadow =true,
+        borderColor
   }) => Container(
     margin: margin,
     padding: padding,
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(radius??12),
+      border:borderColor != null? Border.all(color: borderColor):null,
       boxShadow: isShadow? [
         BoxShadow(
           color: AppColors.black.withValues(alpha: .05),
@@ -222,4 +224,10 @@ class CommonClass {
       ),
     );
   }
+
+  static commonLogo() =>Image(
+    image: const AssetImage(AppImages.logo),
+    height: 40,
+    width: 48,
+  );
 }

@@ -74,7 +74,7 @@ class RowDiscoverOption extends StatelessWidget {
   }
 
   onFoodTap(data){
-    Get.toNamed(RouteName.discoverDetail,arguments: data);
+    Navigation.toNamed(RouteName.discoverDetail,arguments: data);
   }
 
 }

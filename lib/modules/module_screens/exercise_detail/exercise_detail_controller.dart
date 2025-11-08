@@ -131,7 +131,7 @@ class ExerciseDetailController extends GetxController {
     if (isPausePlay == false) {
       isRest = true;
     } else {
-      Get.toNamed(RouteName.completedExercise);
+      Navigation.toNamed(RouteName.completedExercise);
     }
     update();
   }

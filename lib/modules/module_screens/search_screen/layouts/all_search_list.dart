@@ -136,6 +136,6 @@ class _AllSearchListState extends State<AllSearchList> {
   
   
   onTap(val){
-    Get.toNamed(RouteName.foodDetail,arguments: val);
+    Navigation.toNamed(RouteName.foodDetail,arguments: val);
   }
 }

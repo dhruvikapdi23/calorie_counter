@@ -2,6 +2,7 @@ import 'package:calorie_counter/app_config.dart';
 import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:intl/intl.dart';
 
+import '../../../utils/size_utils.dart';
 import '../../module_screens/search_screen/layouts/all_search_list.dart';
 import 'home_controller.dart';
 import 'layouts/fuel_tank_custom_painter.dart';
@@ -65,8 +66,8 @@ class _HomeState extends State<Home> {
                           CommonEatenChart(),
                         ],
                       ),
-                      margin: EdgeInsets.only(left: 16, right: 16, top: 147),
-                      padding: EdgeInsets.all(16),
+                      margin: EdgeInsets.only(left: SizeUtils.fSize_16(), right: SizeUtils.fSize_16(), top: 147),
+                      padding: EdgeInsets.all(SizeUtils.fSize_16()),
                     ),
                   ],
                 ),
@@ -131,11 +132,11 @@ class _HomeState extends State<Home> {
   }
 
   void scanTap() {
-    Get.toNamed(RouteName.scanImage);
+    Navigation.toNamed(RouteName.scanImage);
   }
 
   void addMeal() {
-    Get.toNamed(RouteName.addFood);
+    Navigation.toNamed(RouteName.addFood);
   }
 
   void arrowLeft(HomeController ctrl) {
@@ -236,7 +237,7 @@ class _HomeState extends State<Home> {
           if (title == Fonts.workouts)
             SvgPicture.asset(
               AppSvg.addCircle,
-            ).inkWell(onTap: () => Get.toNamed(RouteName.workout)),
+            ).inkWell(onTap: () => Navigation.toNamed(RouteName.workout)),
         ],
       ),
     );

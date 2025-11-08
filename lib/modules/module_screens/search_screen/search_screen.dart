@@ -37,7 +37,7 @@ class SearchScreen extends StatelessWidget {
           ),
           bottomNavigationBar: ctrl.selectedOption != Fonts.plates? appButton(
             Fonts.addFood.tr,
-              onTap: ()=>Get.toNamed(RouteName.addFood)
+              onTap: ()=>Navigation.toNamed(RouteName.addFood)
           ).padding(horizontal: 16, bottom: 30):null,
           body: Stack(
             children: [
@@ -135,10 +135,10 @@ class SearchScreen extends StatelessWidget {
     ctrl.optionTap(val);
   }
   void filterTap() {
-    Get.toNamed(RouteName.filter);
+    Navigation.toNamed(RouteName.filter);
   }
 
   void scanTap() {
-    Get.toNamed(RouteName.scanImage);
+    Navigation.toNamed(RouteName.scanImage);
   }
 }

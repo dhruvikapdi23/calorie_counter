@@ -253,6 +253,7 @@ final dynamic en = {
   "weightLoss": "Weight Loss",
   "nextToWorkout": "Next to Workout",
   "resetTime": "Reset Time",
+  "yourDailyGuide": "Your Daily Guide\nto Smarter\nEating",
 
 
 };

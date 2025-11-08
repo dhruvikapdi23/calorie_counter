@@ -1,6 +1,7 @@
 import 'package:calorie_counter/app_config.dart';
 import 'package:calorie_counter/extension/widget_extension.dart';
 
+
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title, versionCode;
   final bool isBack;
@@ -35,7 +36,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           child: AppTextField(
             color: AppColors.white,
-            onTap: ()=> Get.toNamed(RouteName.search),
+            onTap: ()=> Navigation.toNamed(RouteName.search),
 
             bRadius: 12,
             hintText: Fonts.searchForAFoodItem.tr,
@@ -66,4 +67,24 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   // TODO: implement preferredSize
   Size get preferredSize =>  Size.fromHeight(bottomWidget?72:80);
+}
+
+class CommonLogoAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final Widget? title;
+
+  const CommonLogoAppBar(
+      {super.key,
+      this.title,});
+
+  @override
+  Widget build(BuildContext context) {
+    return  AppBar(
+      automaticallyImplyLeading: false,
+      title: title,
+    );
+  }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize =>  Size.fromHeight(56.0 );
 }

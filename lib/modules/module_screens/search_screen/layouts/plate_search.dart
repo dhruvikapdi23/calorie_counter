@@ -129,6 +129,6 @@ class _PlateSearchListState extends State<PlateSearchList> {
   }
 
   void onTap(val) {
-    Get.toNamed(RouteName.foodDetail, arguments: val);
+    Navigation.toNamed(RouteName.foodDetail, arguments: val);
   }
 }

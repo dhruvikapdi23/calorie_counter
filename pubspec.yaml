@@ -44,6 +44,7 @@ dependencies:
   percent_indicator: ^4.2.5
   intl: ^0.20.2
   cached_network_image: ^3.4.1
+  flutter_screenutil: ^5.9.3
   syncfusion_flutter_charts: ^31.2.3
   flutter_inner_shadow: ^0.0.1
   dotted_border: ^3.1.0
