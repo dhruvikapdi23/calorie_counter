@@ -18,13 +18,18 @@ class SplashController extends GetxController {
       //this is used to check any language has been stored or not if there then fetch and update it
       String? lang = AppPreference.getValue(Session.language);
       if (lang != null) {
+
         UserInfoController languageController =
             Get.isRegistered<UserInfoController>()
             ? Get.find<UserInfoController>()
             : Get.put(UserInfoController());
-        languageController.selectedLanguage = AppArray.languageList
-            .where((element) => element.title == lang)
-            .first;
+        log("SLAS :${lang}");
+
+        languageController.selectedLanguage = AppArray.languageList.firstWhere(
+              (element) => element.title == lang,
+          orElse: () => AppArray.languageList.first, // fallback
+        );
+
         languageController.onLanguageSelectTap(
           languageController.selectedLanguage,
         );

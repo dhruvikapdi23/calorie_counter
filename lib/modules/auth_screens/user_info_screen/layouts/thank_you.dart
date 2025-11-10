@@ -32,6 +32,6 @@ mainAxisAlignment: MainAxisAlignment.center,
           textAlign: TextAlign.center,
         ).paddingSymmetric(horizontal: 44).alignment(Alignment.center),
       ],
-    ).paddingOnly(top: 92);
+    );
   }
 }

@@ -23,7 +23,7 @@ final dynamic en = {
   "whatsYourWeight": "What’s Your Weight?",
   "whatsYourWeightDesc": "Used to personalize your fitness journey.",
   "whatsYourHeight": "What’s Your Height?",
-  "whatsYourHeightDesc": "What’s Your Height?",
+  "whatsYourHeightDesc": "Important for tracking your progress accurately.",
   "letUsKnowYouBetter": "Let us know you better to help boost your workout results",
   "whatsYourDietType": "What’s your diet type?",
   "whatsYourDietTypeDesc": "Select a diet to personalize your calorie goals.",

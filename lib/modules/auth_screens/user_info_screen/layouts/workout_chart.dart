@@ -5,7 +5,8 @@ import 'package:fl_chart/fl_chart.dart';
 import '../../../../app_config.dart';
 
 class WorkOutChart extends StatefulWidget {
-  const WorkOutChart({super.key});
+  final int index;
+  const WorkOutChart({super.key, required this.index});
 
   @override
   State<WorkOutChart> createState() => _WorkOutChartState();
@@ -23,9 +24,37 @@ class _WorkOutChartState extends State<WorkOutChart> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Column(crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        AppText(
+          AppArray.userInfoTitleSection[widget.index].title
+              .toString()
+              .tr,
+
+          style: AppCss.soraMedium16,
+          textAlign: TextAlign.start,
+        ),
         VSpace(16),
+        RichText(
+          overflow: TextOverflow.visible,
+          text: TextSpan(
+            style: AppCss.soraSemiBold26.copyWith(color: AppColors.black),
+            children: [
+              TextSpan(
+                text: "43.60 Kg ",
+                style: AppCss.soraSemiBold26
+              ),
+              TextSpan(
+                text: "Jul 25",
+                style: AppCss.soraSemiBold26.copyWith(
+                  color: AppColors.primaryColor,
+                ),
+              ),
+            ],
+          ),
+        ),
+        VSpace(44),
+
         SizedBox(
           width: Get.width,
           height: 221,
@@ -48,7 +77,7 @@ class _WorkOutChartState extends State<WorkOutChart> {
                         if (spot.y == 75.0 || spot.y ==31.4) {
                           // visible dot for first & last
                           return FlDotCirclePainter(
-                            radius: 6,
+                            radius: 4,
                             color: const Color(0xFFFAF4ED),
                             strokeColor: const Color(0xFF8B4A2B),
                             strokeWidth: 2,

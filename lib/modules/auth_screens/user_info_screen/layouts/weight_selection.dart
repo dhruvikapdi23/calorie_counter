@@ -1,11 +1,13 @@
 import 'dart:developer';
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app_config.dart';
 
 class WeightSelection extends StatefulWidget {
-  const WeightSelection({super.key});
+  final int index;
+  const WeightSelection({super.key, required this.index});
 
   @override
   State<WeightSelection> createState() => _WeightSelectionState();
@@ -49,6 +51,8 @@ class _WeightSelectionState extends State<WeightSelection> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            CommonUserTitleDesc(index: widget.index),
+
             CommonUserTab(tabOption: AppArray.weightOption),
             VSpace(40),
             NumberCarousel(
@@ -114,7 +118,7 @@ class _WeightSelectionState extends State<WeightSelection> {
               _currentWeight.toStringAsFixed(1),
             ),
           ],
-        ).paddingOnly(top: 34),
+        ).paddingOnly(bottom: 20.sp),
       ),
     );
   }

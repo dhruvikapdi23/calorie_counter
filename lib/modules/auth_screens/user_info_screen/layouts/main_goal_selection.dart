@@ -2,26 +2,30 @@ import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:calorie_counter/models/title_icon_model.dart';
 
 import '../../../../app_config.dart';
+import '../../../../widgets/common_user_title_desc.dart';
 
 class MainGoalSelection extends StatelessWidget {
   final String? option;
   final Function(TitleIconModel) onTap;
+  final int? index;
 
   const MainGoalSelection({
     super.key,
      this.option,
-    required this.onTap,
+    required this.onTap, this.index,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 19,
       children: [
-       ListView.builder(
+        CommonUserTitleDesc(index: index!),
+
+        ListView.builder(
          itemCount:  AppArray.mainGoal.length,
          shrinkWrap: true,
+         physics: NeverScrollableScrollPhysics(),
          itemBuilder: (context, index) {
            TitleIconModel data = AppArray.mainGoal[index];
          return Container(
@@ -48,6 +52,6 @@ class MainGoalSelection extends StatelessWidget {
          ).inkWell(onTap: () => onTap(data));
        },)
       ],
-    ).paddingOnly(top: 32);
+    );
   }
 }

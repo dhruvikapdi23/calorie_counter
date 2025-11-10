@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Stack(
+                Stack(alignment: Alignment.topCenter,
                   children: [
                     _buildHeader(),
                     CommonClass.commonContainerClass(

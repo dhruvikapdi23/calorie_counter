@@ -20,11 +20,14 @@ class _EatTimeSelectionState extends State<EatTimeSelection> {
       builder: (ctrl) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 10,
+
           children: [
+            CommonUserTitleDesc(index: ctrl.currentStep),
+
             ListView.builder(
               itemCount: AppArray.eatTime.length,
               shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 EatTimeModel eatTime = AppArray.eatTime[index];
                 return Container(
@@ -108,7 +111,7 @@ margin: EdgeInsets.only(bottom: 10),
               },
             ),
           ],
-        ).paddingOnly(top: 32);
+        );
       },
     );
   }

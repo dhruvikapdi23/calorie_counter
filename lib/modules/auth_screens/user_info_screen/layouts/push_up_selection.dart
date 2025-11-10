@@ -6,22 +6,24 @@ import '../../../../app_config.dart';
 class PushUpSelection extends StatelessWidget {
   final String? option;
   final Function(UserInfoTitleModel) onTap;
-
+final int index;
   const PushUpSelection({
     super.key,
      this.option,
-    required this.onTap,
+    required this.onTap, required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 19,
       children: [
-      ListView.builder(
+        CommonUserTitleDesc(index: index!),
+
+        ListView.builder(
         itemCount: AppArray.pushUpModels.length,
         shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           UserInfoTitleModel data = AppArray.pushUpModels[index];
         return Container(
@@ -48,6 +50,6 @@ class PushUpSelection extends StatelessWidget {
         ).inkWell(onTap: () => onTap(data));
       },)
       ],
-    ).paddingOnly(top: 32);
+    );
   }
 }

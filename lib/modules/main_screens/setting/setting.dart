@@ -14,55 +14,65 @@ class Setting extends StatelessWidget {
         return Scaffold(
           appBar: CommonAppBar(title: Fonts.settings.tr),
 
-          bottomNavigationBar: appButton(
-            Fonts.logout.tr,
-            onTap: ()=>onLogout(ctrl),
-            rightIcon: SvgPicture.asset(AppSvg.logout),
-            color: AppColors.primaryColor,
-          ).paddingSymmetric(horizontal: 16, vertical: 11),
-          body: ListView.builder(
-            itemCount: AppArray.settingList.length,
-            padding: EdgeInsets.all(16),
-            itemBuilder: (context, index) {
-              SettingModel settingModel = AppArray.settingList[index];
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _sectionTitle(settingModel.title!),
-                  VSpace(12),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.lightGrey),
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.black.withValues(alpha: .05),
-                          offset: Offset(0, 10),
-                          blurRadius: 20,
+
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                VSpace(16),
+                ListView.builder(
+                  itemCount: AppArray.settingList.length,
+                  padding: EdgeInsets.symmetric(horizontal:16),shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    SettingModel settingModel = AppArray.settingList[index];
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _sectionTitle(settingModel.title!),
+                        VSpace(12),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: AppColors.lightGrey),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.black.withValues(alpha: .05),
+                                offset: Offset(0, 10),
+                                blurRadius: 20,
+                              ),
+                            ],
+                          ),
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.symmetric(vertical: 12),
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: settingModel.subMenuList?.length,
+                            itemBuilder: (context, i) {
+                              SubMenuList menuList = settingModel.subMenuList![i];
+                              return index == 0
+                                  ? _feedbackCard(menuList)
+                                  : _settingsTile(
+                                      menuList,
+                                      (i != settingModel.subMenuList!.length - 1),
+                                      () => onTapFunction(ctrl, menuList.title),
+                                    );
+                            },
+                          ),
                         ),
+
                       ],
-                    ),
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.symmetric(vertical: 12),
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: settingModel.subMenuList?.length,
-                      itemBuilder: (context, i) {
-                        SubMenuList menuList = settingModel.subMenuList![i];
-                        return index == 0
-                            ? _feedbackCard(menuList)
-                            : _settingsTile(
-                                menuList,
-                                (i != settingModel.subMenuList!.length - 1),
-                                () => onTapFunction(ctrl, menuList.title),
-                              );
-                      },
-                    ),
-                  ),
-                ],
-              ).paddingOnly(bottom: 16);
-            },
+                    ).paddingOnly(bottom: 16);
+                  },
+                ),
+                appButton(
+                  Fonts.logout.tr,
+                  onTap: ()=>onLogout(ctrl),
+                  rightIcon: SvgPicture.asset(AppSvg.logout),
+                  color: AppColors.primaryColor,
+                ).padding(horizontal: 16,bottom: 40)
+              ],
+            ),
           ),
         );
       },

@@ -3,12 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app_config.dart';
 import '../../../../models/user_info_title_model.dart';
+import '../../../../widgets/common_user_title_desc.dart';
 
 class WeeklyWorkOutSelection extends StatelessWidget {
   final String? option;
   final Function(UserInfoTitleModel) onTap;
 
-  const WeeklyWorkOutSelection({super.key, this.option, required this.onTap});
+  final int index;
+  const WeeklyWorkOutSelection({super.key, this.option, required this.onTap, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +22,12 @@ class WeeklyWorkOutSelection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        CommonUserTitleDesc(index: index),
+
         ListView.builder(
           itemCount: AppArray.weeklyWorkOutOption.length,
           shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             UserInfoTitleModel data = AppArray.weeklyWorkOutOption[index];
             return InkWell(
@@ -67,6 +72,6 @@ class WeeklyWorkOutSelection extends StatelessWidget {
           },
         ),
       ],
-    ).paddingOnly(top: 32.sp);
+    );
   }
 }

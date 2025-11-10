@@ -1,5 +1,6 @@
 
 import 'package:calorie_counter/extension/widget_extension.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app_config.dart';
 
@@ -31,7 +32,7 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 450,
+      height: 460,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -47,7 +48,7 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
 
           // Set Time Label
           _buildSetTimeLabel(),
-          VSpace(30),
+          VSpace(30.sp),
 
           // Time Picker
           _buildTimePicker(),
@@ -55,6 +56,7 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
 
           // Buttons
           _buildActionButtons(),
+          VSpace(20.sp)
         ],
       ),
     );
@@ -107,7 +109,7 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
     return Expanded(
       child: Column(
         children: [
-          VSpace(16),
+VSpace(14),
           SizedBox(
             height: 200, // Increased height to show 3-4 items
             width: 102,
@@ -152,11 +154,7 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
                           color: AppColors.primaryColor,
                         )
                             : AppCss.soraRegular16,
-                        /*TextStyle(
-                            fontSize: isSelected ? 22 : 18,
-                            fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-                            color: isSelected ? Colors.blue : Colors.grey[700],
-                          ),*/
+                    
                       ),
                     );
                   }),
@@ -164,6 +162,7 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
               ],
             ),
           ),
+          VSpace(14),
         ],
       ),
     );

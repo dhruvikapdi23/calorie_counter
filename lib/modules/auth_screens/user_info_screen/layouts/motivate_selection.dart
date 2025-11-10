@@ -6,22 +6,25 @@ import '../../../../models/title_icon_model.dart';
 class MotivateSelection extends StatelessWidget {
   final String? option;
   final Function(TitleIconModel) onTap;
+  final int index;
 
   const MotivateSelection({
     super.key,
      this.option,
-    required this.onTap,
+    required this.onTap, required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 19,
       children: [
-       ListView.builder(
+        CommonUserTitleDesc(index: index!),
+
+        ListView.builder(
          itemCount: AppArray.motivate.length,
          shrinkWrap: true,
+         physics: NeverScrollableScrollPhysics(),
          itemBuilder: (context, index) {
            TitleIconModel data = AppArray.motivate[index];
          return Container(
@@ -48,6 +51,6 @@ class MotivateSelection extends StatelessWidget {
          ).inkWell(onTap: () => onTap(data));
        },)
       ],
-    ).paddingOnly(top: 32);
+    );
   }
 }

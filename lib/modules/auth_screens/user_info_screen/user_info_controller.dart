@@ -7,6 +7,7 @@ import 'package:calorie_counter/utils/app_session_key.dart';
 import '../../../app_config.dart';
 import '../../../models/title_icon_model.dart';
 import '../../../models/user_info_title_model.dart';
+import '../../../utils/app_preferences.dart';
 import 'layouts/activity_level_selection.dart';
 import 'layouts/diet_type_selection.dart';
 import 'layouts/eat_time_selection.dart';
@@ -36,26 +37,28 @@ class UserInfoController extends GetxController {
 
   // List of pages/screens
   List<Widget> get pages => [
-    GenderSelection(gender: gender, onTap: (p0) => genderSelect(p0)),
+    GenderSelection(gender: gender, onTap: (p0) => genderSelect(p0),index: currentStep,),
     LanguageSelection(
       onTap: (p0) => onLanguageSelectTap(p0),
       language: selectedLanguage?.code,
+      index: currentStep,
     ),
     WeeklyWorkOutSelection(
       onTap: (p0) => weeklyWorkOutSelect(p0),
       option: weeklyWorkOut,
+      index: currentStep,
     ),
-    MainGoalSelection(onTap: (p0) => mainGoalSelect(p0), option: mainGoal),
-    MotivateSelection(onTap: (p0) => motivateSelect(p0), option: motivate),
-    PushUpSelection(onTap: (p0) => pushUpSelect(p0), option: pushUp),
+    MainGoalSelection(onTap: (p0) => mainGoalSelect(p0), option: mainGoal,index: currentStep,),
+    MotivateSelection(onTap: (p0) => motivateSelect(p0), option: motivate,index: currentStep),
+    PushUpSelection(onTap: (p0) => pushUpSelect(p0), option: pushUp,index: currentStep,),
     ActivityLevelSelection(
       onTap: (p0) => activityLevelSelect(p0),
-      option: activityLevel,
+      option: activityLevel,index: currentStep,
     ),
-    WeightSelection(),
-    HeightSelection(),
-    WorkOutChart(),
-    DietTypeSelection(onTap: (p0) => dietTypeSelect(p0), option: dietType),
+    WeightSelection(index: currentStep,),
+    HeightSelection(index: currentStep,),
+    WorkOutChart(index: currentStep,),
+    DietTypeSelection(onTap: (p0) => dietTypeSelect(p0), option: dietType,index: currentStep,),
     EatTimeSelection(),
     ThankYou(),
   ];
@@ -63,14 +66,13 @@ class UserInfoController extends GetxController {
   //on language select
   onLanguageSelectTap(lan) async {
     selectedLanguage = lan;
-    final storage = GetStorage();
     log("selectedLanguage :$selectedLanguage");
     Locale? locale = selectedLanguage!.locale;
 
     String lanCode = selectedLanguage!.code!;
     log("Lan :$locale");
-    storage.write(Session.languageCode, lanCode);
-    storage.write(Session.language, selectedLanguage!.title!);
+    AppPreference.setValue(Session.languageCode, lanCode);
+    AppPreference.setValue(Session.language, selectedLanguage!.title!);
     update();
 
     log("locale:$lanCode");

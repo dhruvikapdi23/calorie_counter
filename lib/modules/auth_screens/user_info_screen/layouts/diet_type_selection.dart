@@ -5,19 +5,23 @@ import '../../../../models/acitivity_level_model.dart';
 
 class DietTypeSelection extends StatelessWidget {
   final String? option;
+  final int index;
   final Function(ActivityLevelModel) onTap;
 
-  const DietTypeSelection({super.key, this.option, required this.onTap});
+  const DietTypeSelection({super.key, this.option, required this.onTap, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 19,
+
       children: [
+        CommonUserTitleDesc(index: index),
+
         ListView.builder(
           itemCount: AppArray.dietType.length,
           shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             ActivityLevelModel data = AppArray.dietType[index];
             return Container(
@@ -70,6 +74,6 @@ class DietTypeSelection extends StatelessWidget {
           },
         ),
       ],
-    ).paddingOnly(top: 32);
+    );
   }
 }

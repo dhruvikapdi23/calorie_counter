@@ -4,7 +4,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../../../../app_config.dart';
 
 class HeightSelection extends StatefulWidget {
-  const HeightSelection({super.key});
+  final int index;
+  const HeightSelection({super.key, required this.index});
 
   @override
   State<HeightSelection> createState() => _HeightSelectionState();
@@ -48,6 +49,8 @@ class _HeightSelectionState extends State<HeightSelection> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            CommonUserTitleDesc(index: widget.index),
+
             CommonUserTab(tabOption: AppArray.heightOption),
 
             VSpace(40),
@@ -116,7 +119,7 @@ class _HeightSelectionState extends State<HeightSelection> {
               _currentWeight.toStringAsFixed(1),
             ),
           ],
-        ).paddingOnly(top: 34),
+        ),
       ),
     );
   }

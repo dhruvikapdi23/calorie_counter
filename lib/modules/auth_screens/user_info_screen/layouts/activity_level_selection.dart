@@ -6,18 +6,19 @@ import '../../../../app_config.dart';
 class ActivityLevelSelection extends StatelessWidget {
   final String? option;
   final Function(ActivityLevelModel) onTap;
-
-  const ActivityLevelSelection({super.key, this.option, required this.onTap});
+final int index;
+  const ActivityLevelSelection({super.key, this.option, required this.onTap, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 19,
       children: [
+        CommonUserTitleDesc(index: index),
        ListView.builder(
          itemCount: AppArray.activityLevel.length,
          shrinkWrap: true,
+         physics: NeverScrollableScrollPhysics(),
          itemBuilder: (context, index) {
            ActivityLevelModel data = AppArray.activityLevel[index];
          return Container(
@@ -69,6 +70,6 @@ class ActivityLevelSelection extends StatelessWidget {
          ).inkWell(onTap: () => onTap(data));
        },)
       ],
-    ).paddingOnly(top: 32);
+    );
   }
 }

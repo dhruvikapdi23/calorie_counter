@@ -41,6 +41,7 @@ export 'package:calorie_counter/utils/constants.dart';
 export 'package:calorie_counter/widgets/common_eaten_chart.dart';
 export '../routes/navigation.dart';
 export '../../../utils/app_text.dart';
+export '../../../../widgets/common_user_title_desc.dart';
 
 export '../../../widgets/common_slider_indicator.dart';
 export '../../../../utils/size_utils.dart';

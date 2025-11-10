@@ -1,5 +1,6 @@
 import 'package:calorie_counter/extension/widget_extension.dart';
 import 'package:calorie_counter/modules/auth_screens/user_info_screen/user_info_controller.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import '../../../app_config.dart';
@@ -14,12 +15,14 @@ class UserInfoScreen extends StatelessWidget {
       builder: (ctrl) {
         return Scaffold(
           bottomNavigationBar:
-              appButton(
-                ctrl.currentStep == 12 ? Fonts.createMyPlan.tr : Fonts.next.tr,
-                onTap: () => onTap(ctrl),
-              ).padding(
-                horizontal: SizeUtils.fSize_16(),
-                vertical: SizeUtils.verticalBlockSize * 4.5,
+              SafeArea(
+                child: appButton(
+                  ctrl.currentStep == 12 ? Fonts.createMyPlan.tr : Fonts.next.tr,
+                  onTap: () => onTap(ctrl),
+                ).padding(
+                  horizontal: SizeUtils.fSize_16(),
+                  bottom:  20.h
+                ),
               ),
           appBar: AppBar(
             automaticallyImplyLeading: false,
@@ -60,7 +63,7 @@ class UserInfoScreen extends StatelessWidget {
                     ],
                   ),
                   VSpace(SizeUtils.verticalBlockSize *.9),
-                  ctrl.currentStep == 12
+                 /* ctrl.currentStep == 12
                       ? Container()
                       : ctrl.currentStep == 9
                       ? AppText(
@@ -93,7 +96,7 @@ class UserInfoScreen extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ).alignment(Alignment.center),
                           ],
-                        ),
+                        ),*/
                 ],
               ),
               // PageView for carousel effect
